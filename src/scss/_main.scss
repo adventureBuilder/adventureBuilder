@@ -1,0 +1,41 @@
+
+// text colors
+$prim-color: #1e8c9a;
+$sec-color: #34bfc6;
+
+// Encounters card
+  // yellow border
+  $encounter-box-color: #fed07b;
+  //darker yellow border
+  $encounter-box-border-color:#b0762a;
+  // 
+  $char-box-color: #f9e6c5;
+  $input-color: #b2b2b2;
+ 
+$btn-color: #E74C3C;
+$btn-highlight: #FF5442;
+
+$bg-color: #1e8c9a;
+$txt-color: #020d0e;
+$white: #ECF0F1;
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus");
+/* |Lobster|Lobster+Two   font-family: 'Lobster', 'Lobster Two', 'Satisfy', 'Open Sans'; */
+
+$font-stack: 
+'Marcellus',
+'Open Sans',
+     Helvetica, arial,
+    sans-serif;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $bg-color;
+    font-family: 'Marcellus', 'Open Sans', Helvetica, arial, sans-serif;
+}
+
+.test { font-family: $font-stack;
+  color: $prim-color;}

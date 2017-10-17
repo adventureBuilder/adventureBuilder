@@ -1,12 +1,16 @@
 require('dotenv').config();
 
+
 const express = require('express'),
     bodyParser = require('body-parser'),
     massive = require('massive'),
     cors = require('cors'),
     session = require('express-session'),
     passport = require('passport'),
-    Auth0Strategy = require('passport-auth0');
+    Auth0Strategy = require('passport-auth0'),
+    characterCtlr = require(`./controllers/charactersCtlr`),
+    encounterCtlr = require(`./controllers/encounterCtlr`),
+    storiesCtlr = require(`./controllers/storiesCtlr`);
 
 const app = express();
 
@@ -37,7 +41,7 @@ app.use(bodyParser.json());
 app.use((req, res, next) =>{
     if(!req.session.user){
         req.session.user = {
-            userID: 1,
+            user_id: 1,
             username: "douglsey", 
             email: "doug@dogmail.com", 
             name: "Doug Dogman", 
@@ -94,13 +98,31 @@ app.use((req, res, next) =>{
 //////////////
 ///DATABASE///
 // //////////////
-// massive(process.env.CONNECTIONSTRING).then(db => {
-//     app.set('db', db);
-// })
+ massive(process.env.CONNECTIONSTRING).then(db => {
+     app.set('db', db)
+         console.log('connected to the database')
+     
+ })
+     .catch(err=>console.log(err,'see massive connection function'));
 
 ///////////////
 ///ENDPOINTS///
 ///////////////
+app.get(`/api/getAllCharacters/:userId`, characterCtlr.getAllCharacters);
+app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedCharacter);
+
+
+app.get(`/api/getEncounters/:encounterId`, encounterCtlr.getEncounter);
+
+app.get(`/api/story/:storyId`, storiesCtlr.getSelectedStory);
+
+app.get(`/api/stories`, storiesCtlr.getMostRecentStories);
+app.get(`/api/user/stories/:username`, storiesCtlr.getUsersMostRecentStories);
+app.get(`/api/levels/stories/:level`, storiesCtlr.searchStoryByLevel);
+app.get(`/api/storyName/:storyName`, storiesCtlr.getStoryByName);
+
+
+
 
 //auth endpoints
 // app.get('/auth', passport.authenticate('auth0'));

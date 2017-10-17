@@ -27,13 +27,15 @@ class NewUser extends Component {
         })
     }
     usernameClick() {
-        usernameToStore(this.state.username);
+        this.props.usernameToStore(this.state.username)
+        
+        console.log('this.props.user',this.props.user);
 
         // axios.put("http://localhost:4000/api/updateUser", {
         //     userId: this.props.user.userId,
         //     username: this.state.username
         // }).then(response => { })
-        console.log(this.props.user)
+        
     }
 
     render() {
@@ -43,7 +45,7 @@ class NewUser extends Component {
                 { this.props.user.username ? <h3>Welcome {this.props.user.username}</h3> : (<div>
                     <h3>User Name:</h3>
                     <p><input type="text" onChange={(e) => this.usernameChange(e)}  placeholder="Add a username" /></p>
-                    <a><button onClick={this.usernameClick} >Save</button></a>
+                    <a><button onClick={()=>this.usernameClick()} >Save</button></a>
 
                     {this.props.user.username}
                 </div>)
@@ -56,9 +58,7 @@ class NewUser extends Component {
 }
 
 function mapStateToProps(state) {
-    return {
-        user: state.user
-    }
+    return state
 }
 
 export default connect(mapStateToProps, { getUser, usernameToStore })(NewUser)

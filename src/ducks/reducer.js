@@ -29,6 +29,7 @@ export function getUser () {
 };
 
 export function usernameToStore (username) {
+    console.log(username);
     return {
         type: SET_USER,
         payload: username
@@ -45,6 +46,7 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {user: action.payload});
 
         case SET_USER: 
+        console.log('action.payload', action.payload)
         return Object.assign({}, state, {user: {username: action.payload}});
 
         default: return state;

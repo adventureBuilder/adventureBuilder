@@ -11,7 +11,7 @@ const express = require('express'),
     characterCtlr = require(`./controllers/charactersCtlr`),
     encounterCtlr = require(`./controllers/encounterCtlr`),
     storiesCtlr = require(`./controllers/storiesCtlr`);
-
+    userCtlr = require(`./controllers/userCtlr`);
 const app = express();
 
 
@@ -108,6 +108,7 @@ app.use((req, res, next) =>{
 ///////////////
 ///ENDPOINTS///
 ///////////////
+app.get(`/api/getUser`, userCtlr.getUser);// we don't have a test for this
 app.get(`/api/getAllCharacters/:userId`, characterCtlr.getAllCharacters);
 app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedCharacter);
 

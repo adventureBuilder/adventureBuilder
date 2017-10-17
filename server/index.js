@@ -109,6 +109,10 @@ app.use((req, res, next) =>{
 ///ENDPOINTS///
 ///////////////
 app.get(`/api/getUser`, userCtlr.getUser);// we don't have a test for this
+app.put(`/api/updateUser`, userCtlr.updateUser);
+
+
+
 app.get(`/api/getAllCharacters/:userId`, characterCtlr.getAllCharacters);
 app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedCharacter);
 

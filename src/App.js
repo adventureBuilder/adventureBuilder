@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import router from './router';
 import { Link } from 'react-router-dom';
 
+import NewUser from './components/Tavern/NewUser/NewUser';
+
 /// router file
 class App extends Component {
   render() {
@@ -9,6 +11,7 @@ class App extends Component {
 
       <div>
         { router }
+        <NewUser />
 
       </div>
     );

@@ -29,9 +29,10 @@
 
 /* Paul's temporary CSS code that will be organized later */
 .bimage1 {
-  background-image: url("./assets/img/page/1.jpeg");
+  /* background-image: url("./assets/img/page/1.jpeg");
   background-size: cover;
-  height: 1000px; }
+  height: 1000px; */
+}
 
 .center {
     text-align: center;

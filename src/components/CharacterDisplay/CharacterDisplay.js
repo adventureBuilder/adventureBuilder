@@ -2,41 +2,25 @@
 // Used by the Story Component and StorySelection Component
 
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-// import {getSelectedCharacter} from './../../ducks/reducer';
-import {connect} from 'react-redux';
 
-class CharacterDisplay extends Component {
-    constructor(props){
-        super(props);
-        this.state ={
-                character: this.props.selectedCharacter
-        }
-    }
-
-    componentDidMount (){
-      
-       
-
-
-    }
-    render () {
+export default function CharacterDisplay({character}) {
+    console.log(character);
         return (
             <div className="characterDisplayContainer">
                 <div>
-                <div>CharName{this.props.selectedCharacter.characterName}</div>
+                <div>Character Name:{character.character_name}</div>
                 
                 </div>
                 
                 <div>
                 <div>
-                <div>ClassName{this.props.selectedCharacter.className}</div>
+                <div>Class {character.class_name}</div>
                 
                 </div>
                 {/* Put into their own div so we can use flex column to line them up later */}
-                <div>STR:{this.props.selectedCharacter.strength}</div>
-                <div>DEX:{this.props.selectedCharacter.dexterity}</div>
-                <div>CHA:{this.props.selectedCharacter.charisma}</div>
+                <div>STR: {character.strength}</div>
+                <div>DEX: {character.dexterity}</div>
+                <div>CHA: {character.charisma}</div>
                 </div>
                 <div>
                    
@@ -46,15 +30,4 @@ class CharacterDisplay extends Component {
 
             </div>
         );
-    }
 }
-
-function mapStateToProps(state){
-return {
-    selectedCharacter : state.selectedCharacter
-
-}
-
-}
-
-export default connect(mapStateToProps)(CharacterDisplay)

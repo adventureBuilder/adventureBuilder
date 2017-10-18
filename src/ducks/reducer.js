@@ -1,4 +1,5 @@
-import * as users from './../services/users.js'
+import * as users from './../services/users.js';
+import axios from 'axios';
 
 // default state
 const initialState = {
@@ -29,12 +30,24 @@ export function getUser () {
 };
 
 export function usernameToStore (username) {
-    console.log(username);
+    //console.log(username);
     return {
         type: SET_USER,
         payload: username
     }
 };
+
+export function getCharacters () {
+    return {
+        type: GET_CHARACTERS,
+        payload: axios.get(`http://localhost:4000/api/getAllCharacters`)
+        .then(res=>{
+            console.log(res.data)
+            return res.data
+        })
+        .catch(err=>console.log(err, 'error from get characters axios function'))
+    }
+}
 
 
 

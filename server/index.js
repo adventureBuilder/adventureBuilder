@@ -33,8 +33,8 @@ app.use(bodyParser.json());
 ///Auth MIDDLEWARE///
 /////////////////////
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 ///////////////////////////////////
 ////TESTING TOPLEVEL MIDDLEWARE////
@@ -76,7 +76,7 @@ app.use((req, res, next) =>{
 //             let email = profile.emails ? profile.emails[0].value : "";
 //             let name = "";
 //             let img = profile.picture ? profile.picture: "";
-//             let userArr = [auth_id, username, email, name, img];
+//             let userArr = [ username, email, name, img, auth_id];
 //             db.addUser(userArr).then(user =>{
 //                 return done(null, user[0]);
 //             })
@@ -96,10 +96,13 @@ app.use((req, res, next) =>{
 
     
 // })
+////////////////////////
+///END AUTHENTICATION///
+////////////////////////
 
 //////////////
 ///DATABASE///
-// //////////////
+///////////////
  massive(process.env.CONNECTIONSTRING).then(db => {
      app.set('db', db)
          console.log('connected to the database')
@@ -135,16 +138,16 @@ app.get(`/api/classes`, classesCtlr.getClasses);
 
 
 //auth endpoints
-// app.get('/auth', passport.authenticate('auth0'));
-// app.get('/auth/callback', passport.authenticate('auth0', {
-//     successRedirect: 'http://localhost:3000/#/dashboard',
-//     failureRedirect: 'http://localhost:3000/#/'
-// }));
-// app.get('/auth/logout', (req, res)=>{
-//     req.logout();
-//     console.log(req.user);
-//     res.redirect(302, 'https://dvalentine.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
-// })
+app.get('/auth', passport.authenticate('auth0'));
+app.get('/auth/callback', passport.authenticate('auth0', {
+    successRedirect: 'http://localhost:3000/tavern',
+    failureRedirect: 'http://localhost:3000/'
+}));
+app.get('/auth/logout', (req, res)=>{
+    req.logout();
+    console.log(req.user);
+    res.redirect(302, 'https://dvalentine.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
+})
 
 
 

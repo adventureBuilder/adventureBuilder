@@ -4,7 +4,7 @@ import axios from 'axios';
 // default state
 const initialState = {
     user: { username:'' },
-    selectedCharacter: {},
+    selectedCharacter: { "characterName": "Ryan Gosling", "gender": "male", "dexterity": 5, "strength": 1, "charisma": 3, "healthPoints": 5, "classId": 1 },
     characters: []
 };
 

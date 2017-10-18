@@ -5,13 +5,22 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
 class Tavern extends Component {
+    constructor() {
+        super()
+        this.state = {
+            characters: []
+        }
+    }
     
+    componentDidMount() {
+        this.props.getCharacters();
+    }
+
     render () {
         return (
             <div>
                 Tavern
-                <button onClick={()=>this.props.getCharacters()}>Test Get Characters</button>
-            {this.props.characters}
+                {console.log(this.props.characters, "Tavern characters state")}
             </div>
             
         );

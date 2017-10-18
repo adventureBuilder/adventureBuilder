@@ -21,7 +21,7 @@ const app = express();
 /////////////////////////
 ///TOPLEVEL MIDDELWARE///
 /////////////////////////
-// app.use(cors());
+app.use(cors());
 app.use(session({
     secret:process.env.SESSION_SECRET,
     saveUninitialized: true,
@@ -116,7 +116,7 @@ app.put(`/api/updateUser`, userCtlr.updateUser);
 
 //Character Endpoints
 app.post(`/api/character`, characterCtlr.createCharacter);
-app.get(`/api/getAllCharacters/:userId`, characterCtlr.getAllCharacters);
+app.get(`/api/getAllCharacters`, characterCtlr.getAllCharacters);
 app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedCharacter);
 
 //Encounter Endpoints

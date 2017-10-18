@@ -7,6 +7,7 @@
 #Endpoints
 
 <b><u>USER ENDPOINTS</u></b>
+<br/>
 Get `/api/getUser` 
 <br/>
     Returns user data that is on sessions
@@ -23,6 +24,8 @@ Get `/api/getUser`
       }
       ```
     </details>
+    <br/>
+    <br/>
 Put `api/updateUser`
 <br/>
  in body={username} on req.user={userId} (req.session.user for testing)
@@ -46,8 +49,9 @@ Put `api/updateUser`
       }
       ```
     </details>
-
+<br/>
 <b><u>CHARACTER ENDPOINTS</u></b>
+<br/>
 post `/api/character` 
 <br/>
     on body ={characterName, gender, dexterity, strength, charisma, health_points, classId} on req.user={userID}(req.session.user for testing)
@@ -82,7 +86,9 @@ post `/api/character`
       }
       ```
     </details>
-Get `/api/getAllCharacters/:userId`
+    <br/>
+    <br/>
+Get `/api/getAllCharacters`
 <br/>
     Returns all the characters for a user.
     <details>
@@ -112,6 +118,8 @@ Get `/api/getAllCharacters/:userId`
       ]
       ```
     </details>
+    <br/>
+    <br/>
 Get `/api/getSelectedCharacter/:characterId`
 <br/>
     Returns the data for a selected character
@@ -140,6 +148,8 @@ Get `/api/getSelectedCharacter/:characterId`
       }
       ```
     </details>
+    <br/>
+    <br/>
 
 <b><u>ENCOUNTER ENDPOINTS</u></b>
 Get `/api/getEncounters/:encounterId`
@@ -211,6 +221,8 @@ Get `/api/getEncounters/:encounterId`
     }
     ```
     </details>
+    <br/>
+    <br/>
 
 <b><u>STORY ENDPOINTS</u></b>
 Get `/api/story/:storyId`
@@ -231,6 +243,8 @@ Get `/api/story/:storyId`
       }
       ```
     </details>
+    <br/>
+    <br/>
 
 Get `/api/stories`
 <br/>
@@ -258,6 +272,8 @@ Get `/api/stories`
       ]
       ```
     </details>
+    <br/>
+    <br/>
 
 Get `/api/user/stories/:username`
 <br/>
@@ -285,6 +301,8 @@ Get `/api/user/stories/:username`
       ]
       ```
     </details>
+    <br/>
+    <br/>
 
 Get `/api/levels/stories/:level`
 <br/>
@@ -312,6 +330,8 @@ Get `/api/levels/stories/:level`
       ]
       ```
     </details>
+    <br/>
+    <br/>
 
 Get `/api/storyName/:storyName`
 <br/>
@@ -339,6 +359,8 @@ Get `/api/storyName/:storyName`
       ]
       ```
     </details>
+    <br/>
+    <br/>
 
 <b><u>CLASSES ENDPOINTS</u></b>
 Get `/api/classes`
@@ -363,3 +385,5 @@ Get `/api/classes`
       ]
       ```
     </details>
+    <br/>
+    <br/>

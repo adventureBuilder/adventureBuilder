@@ -5,11 +5,11 @@ module.exports = {
             .then((result) => {
                 res.status(200).send(result);
             })
-            .catch((err) => console.log(err, `see getMostRecentStories endpoint`))
+            .catch((err) => console.log(err, `see getMostRecentStories endpoint`));
     },
     getUsersMostRecentStories: (req, res) => {
         const db = req.app.get('db');
-        db.getUsersMostRecentStories(req.params.username)
+        db.getUsersMostRecentStories(`%${req.params.username}%`)
             .then((result) => {
                 res.status(200).send(result);
             })
@@ -19,17 +19,9 @@ module.exports = {
         const db = req.app.get('db');
         db.getSelectedStory(req.params.storyId)
             .then((result) => {
-                res.status(200).send(result);
+                res.status(200).send(result[0]);
             })
             .catch((err) => console.log(err, `see getSelectedStory endpoint`))
-    },
-    searchStoryByCreator: (req, res) => {
-        const db = req.app.get('db');
-        db.searchStoryByCreator(`%${req.params.username}%`)
-            .then((result) => {
-                res.status(200).send(result);
-            })
-            .catch((err) => console.log(err, `see searchStoryByCreator endpoint`))
     },
     searchStoryByLevel: (req, res) => {
         const db = req.app.get('db');

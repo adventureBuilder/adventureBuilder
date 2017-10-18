@@ -10,8 +10,10 @@ const express = require('express'),
     Auth0Strategy = require('passport-auth0'),
     characterCtlr = require(`./controllers/charactersCtlr`),
     encounterCtlr = require(`./controllers/encounterCtlr`),
-    storiesCtlr = require(`./controllers/storiesCtlr`);
+    storiesCtlr = require(`./controllers/storiesCtlr`),
+    classesCtlr = require(`./controllers/classesCtlr`),
     userCtlr = require(`./controllers/userCtlr`);
+
 const app = express();
 
 
@@ -42,10 +44,10 @@ app.use((req, res, next) =>{
     if(!req.session.user){
         req.session.user = {
             user_id: 1,
-            username: "douglsey", 
-            email: "doug@dogmail.com", 
-            name: "Doug Dogman", 
-            img : "http://www.placekitten.com/200/250"
+            username: "harrison ford", 
+            email: "adventureBuilder2049@gmail.com", 
+            name: "adventure", 
+            profile_picture : "http://www.placekitten.com/200/250"
         }
     }
     next();
@@ -108,17 +110,19 @@ app.use((req, res, next) =>{
 ///////////////
 ///ENDPOINTS///
 ///////////////
+//User Endpoints
 app.get(`/api/getUser`, userCtlr.getUser);// we don't have a test for this
 app.put(`/api/updateUser`, userCtlr.updateUser);
 
-
-
+//Character Endpoints
+app.post(`/api/character`, characterCtlr.createCharacter);
 app.get(`/api/getAllCharacters/:userId`, characterCtlr.getAllCharacters);
 app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedCharacter);
 
-
+//Encounter Endpoints
 app.get(`/api/getEncounters/:encounterId`, encounterCtlr.getEncounter);
 
+//Story Endpoints
 app.get(`/api/story/:storyId`, storiesCtlr.getSelectedStory);
 
 app.get(`/api/stories`, storiesCtlr.getMostRecentStories);
@@ -126,7 +130,8 @@ app.get(`/api/user/stories/:username`, storiesCtlr.getUsersMostRecentStories);
 app.get(`/api/levels/stories/:level`, storiesCtlr.searchStoryByLevel);
 app.get(`/api/storyName/:storyName`, storiesCtlr.getStoryByName);
 
-
+//Class Endpoints
+app.get(`/api/classes`, classesCtlr.getClasses);
 
 
 //auth endpoints

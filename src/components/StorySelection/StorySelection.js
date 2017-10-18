@@ -30,7 +30,8 @@ export default class StorySelection extends Component {
         return (
             <div id="section1">
             <Link to='/tavern'><button>Back to Tavern</button></Link>
-            <CharacterDisplay text='hello' character={tempChar}/>
+
+            <CharacterDisplay character={tempChar}/>
 
 
             <div>    

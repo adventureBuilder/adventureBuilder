@@ -12,8 +12,7 @@ module.exports = {
         
         
         .then( (response) =>{
-            console.log(response)
-            res.status(200).send(response)
+            res.status(200).send(response[0])
         })
         .catch((err)=> console.log(err, `see updatUser endpoint`));
 }

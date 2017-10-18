@@ -7,7 +7,10 @@ export default class Landing extends Component {
     render () {
         return (
             <div className="center bimage1">
-             Landing
+                Login button uncomment when were ready for stuff and things
+                {/* <a href={process.env.REACT_APP_LOGIN}>
+                        <button>Login</button>
+                    </a> */}
             </div>
             
         );

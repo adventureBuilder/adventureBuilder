@@ -2,11 +2,11 @@
 
 import React, { Component } from 'react';
 
-export default class Cemetary extends Component {
+export default class Cemetery extends Component {
     render() {
         return (
             <div>
-                Cemetary
+                Cemetery
             <div>
                     <div>
                         My Dead Characters:
@@ -40,7 +40,7 @@ export default class Cemetary extends Component {
                         <button>expand</button>
                     </div>
                     <div>
-                        <div>The hermit's curse(storyname)</div>
+                        <div>The hermits curse(storyname)</div>
                         <button>expand</button>
                     </div>
                         <button>Close Character</button>

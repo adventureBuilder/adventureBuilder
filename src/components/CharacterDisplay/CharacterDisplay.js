@@ -3,24 +3,40 @@
 
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+// import {getSelectedCharacter} from './../../ducks/reducer';
+import {connect} from 'react-redux';
 
-export default class CharacterDisplay extends Component {
+class CharacterDisplay extends Component {
+    constructor(props){
+        super(props);
+        this.state ={
+                character: this.props.selectedCharacter
+        }
+    }
+
+    componentDidMount (){
+      
+       
+
+
+    }
     render () {
         return (
             <div className="characterDisplayContainer">
                 <div>
-                <div>CharName</div>
-                <div>HP:9</div>
+                <div>CharName{this.props.selectedCharacter.characterName}</div>
+                
                 </div>
+                
                 <div>
                 <div>
-                <div>ClassName</div>
-                <div>Coin:200</div>
+                <div>ClassName{this.props.selectedCharacter.className}</div>
+                
                 </div>
                 {/* Put into their own div so we can use flex column to line them up later */}
-                <div>STR:</div>
-                <div>DEX:</div>
-                <div>CHA:</div>
+                <div>STR:{this.props.selectedCharacter.strength}</div>
+                <div>DEX:{this.props.selectedCharacter.dexterity}</div>
+                <div>CHA:{this.props.selectedCharacter.charisma}</div>
                 </div>
                 <div>
                    
@@ -32,3 +48,13 @@ export default class CharacterDisplay extends Component {
         );
     }
 }
+
+function mapStateToProps(state){
+return {
+    selectedCharacter : state.selectedCharacter
+
+}
+
+}
+
+export default connect(mapStateToProps)(CharacterDisplay)

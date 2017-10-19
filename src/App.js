@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import router from './router';
-import { Link } from 'react-router-dom';
+
 
 /// router file
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
 
       <div>
         { router }
+        
       </div>
     );
   }

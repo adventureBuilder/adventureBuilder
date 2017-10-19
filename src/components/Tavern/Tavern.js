@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import MyCharacters from '../MyCharacters/MyCharacters';
 import MyStories from '../MyStories/MyStories';
+import NewUser from './NewUser/NewUser';
 
 class Tavern extends Component {
     constructor() {
@@ -21,6 +22,7 @@ class Tavern extends Component {
     render () {
         return (
             <div>
+                <NewUser/>
                 Tavern
                 {console.log(this.props.characters, "Tavern characters state")}
 

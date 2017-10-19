@@ -36,6 +36,7 @@ class StorySelection extends Component {
 
                 <h1 className="viewTitle">Stories</h1>
 
+                <StorySearch stories={storiesArray} />
 
                 {this.state.storiesArray.map((story, i) => {
                     return <ViewStory key={i} story={story} />

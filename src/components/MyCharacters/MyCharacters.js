@@ -3,9 +3,10 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {getCharacters, getSelectedCharacter} from '../../ducks/reducer';
 import axios from 'axios';
-
+import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 class MyCharacters extends Component {
         constructor(props){
             super(props)
@@ -27,25 +28,26 @@ class MyCharacters extends Component {
 
     //()=>this.props.getSelectedCharacter(character.character_id)
 
+
+    //this.setState({selectedCharacterId: character})
+
     render () {
       
-       console.log(this.state)
-       console.log(this.state.showModule, this.state.characterIdModuleToShow, `state of showModule`)
+       console.log(this.props.selectedCharacter, `this is the selected character`)
+       //console.log(this.state.showModule, this.state.characterIdModuleToShow, `state of showModule`)
         const characterList =this.props.characters.map((character,i)=>
         <div key={i}>
         <button id={`${character.character_id}NameButton`} onClick={()=>this.setState({characterIdModuleToShow: character.character_id})}>{character.character_name}</button>
-        <button id={character.character_id} onClick={()=>{this.props.getSelectedCharacter(character.character_id);  this.setState({selectedCharacterId: character.character_id})}}>select</button>
-        <div>{(this.state.characterIdModuleToShow === character.character_id) ?  this.state.characterIdModuleToShow: '' }</div>
+       <Link to={`/storyselection`}><button id={character.character_id} onClick={()=>{this.props.getSelectedCharacter(character.character_id);  }}>select</button></Link>
+        <div>{(this.state.characterIdModuleToShow === character.character_id) ?  <CharacterDisplay character={character}/>: '' }</div>
         </div>)
         return (
             <div>
-                MyCharacters component
+                MyCharacters:
                 
                     {characterList}
                
-                You have selected: {this.props.selectedCharacter}
-                    <br/>
-                    this is the characterId of selected Character: {this.state.selectedCharacterId}
+
             </div>
         );
     }

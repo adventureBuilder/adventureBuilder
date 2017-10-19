@@ -1,7 +1,7 @@
 // basic character details - Displays (name, xp, class, race, stats) 
 // Used by the Story Component and StorySelection Component
 
-import React, { Component } from 'react';
+import React from 'react';
 
 export default function CharacterDisplay({ character }) {
 

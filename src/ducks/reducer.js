@@ -1,4 +1,4 @@
-import * as users from './../services/users.js';
+
 import axios from 'axios';
 
 // default state

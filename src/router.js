@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import App from './App';
+
 // import store from './components/store/store';
 // uncomment later after adding the store
 import Landing from './components/Landing/Landing';

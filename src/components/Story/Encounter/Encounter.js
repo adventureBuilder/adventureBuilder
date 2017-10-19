@@ -14,6 +14,13 @@ export default class Encounter extends Component {
         this.setResults = this.setResults.bind(this)
     }
 
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            resultText: '',
+            redirectEncounterId: ''
+        })
+    }
+
     setResults(resultText, redirectEncounterId) {
         this.setState({
             resultText: resultText,
@@ -21,10 +28,11 @@ export default class Encounter extends Component {
         })
     }
 
+
     render() {
 
         let optionsArr = this.props.encounter.options && this.props.encounter.options.map(option => {
-            return <Option key={option.encounter_option_id} option={option} />
+            return <Option key={option.encounter_option_id} setResults={this.setResults} option={option} />
         })
         return (
             <div>
@@ -37,7 +45,7 @@ export default class Encounter extends Component {
                         ?
                         <div>
                             {this.state.resultText}
-                            <button>Next Encounter</button>
+                            <button onClick={_=>{this.props.setEncounter(this.state.redirectEncounterId)}} >Next Encounter</button>
                         </div>
                         :
                         <div>

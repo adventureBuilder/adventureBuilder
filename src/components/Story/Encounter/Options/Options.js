@@ -37,11 +37,13 @@ class Options extends Component {
     chooseOption(){
         let num = this.rollDice();
         if(num < this.props.option.options_pass_case){
-           //set fail text
-           //sets redirect encounter
+            //set fail text
+            //sets redirect encounter
+            this.props.setResults(this.props.option.failed_text, this.props.option.failed_encounter);
         }else{
             // sets success text
             //sets redirect encounter
+            this.props.setResults(this.props.option.success_text, this.props.option.success_encounter)
         }
     }
     render() {
@@ -49,7 +51,7 @@ class Options extends Component {
             <div>
                 <h3>{this.props.option.option_name}</h3>
                 {this.props.option.option_description}
-                <button>Do This</button>
+                <button onClick={_=>{this.chooseOption()}}>Do This</button>
             </div>
         );
     }

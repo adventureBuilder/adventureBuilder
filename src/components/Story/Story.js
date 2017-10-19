@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import Encounter from './Encounter/Encounter'
+import FinalEncounter from './FinalEncounter/FinalEncounter'
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 
 class Story extends Component {
@@ -15,7 +16,9 @@ class Story extends Component {
             currentEncounter: {}
         }
         this.setEncounter = this.setEncounter.bind(this);
+        this.restartStory = this.restartStory.bind(this);
     }
+    
     componentDidMount(){
         axios.get(`/api/story/${this.state.storyId}`).then(resp=>{
             let startEncounterId = resp.data.start_encounter_id;
@@ -29,7 +32,13 @@ class Story extends Component {
     setEncounter(encounterId){
         axios.get(`/api/getEncounters/${encounterId}`).then(resp =>{
             this.setState({currentEncounter: resp.data});
-        })
+        });
+    }
+
+    restartStory(){
+        axios.get(`/api/getEncounters/${this.state.story.start_encounter_id}`).then(resp =>{
+            this.setState({currentEncounter: resp.data});
+        });
     }
 
     render () {
@@ -38,7 +47,13 @@ class Story extends Component {
             <div>
                 Story
                 {this.state.story.story_name}
+                {
+                  this.state.currentEncounter.final_encounter
+                  ?
+                    <FinalEncounter encounter={this.state.currentEncounter} restartStory={this.restartStory}/>
+                  :
                 <Encounter setEncounter={this.setEncounter} encounter={this.state.currentEncounter} />
+                }
                 <CharacterDisplay character={this.props.character} />
             </div>
         );

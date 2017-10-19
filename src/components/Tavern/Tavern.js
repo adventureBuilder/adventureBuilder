@@ -4,6 +4,7 @@ import { getCharacters } from '../../ducks/reducer';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import MyCharacters from '../MyCharacters/MyCharacters';
+import MyStories from '../MyStories/MyStories';
 
 class Tavern extends Component {
     constructor() {
@@ -24,6 +25,8 @@ class Tavern extends Component {
                 {console.log(this.props.characters, "Tavern characters state")}
 
                 <MyCharacters characterList={this.state.characters}/>
+                <br/>
+                <MyStories/>
             </div>
             
         );

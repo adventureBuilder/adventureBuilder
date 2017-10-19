@@ -31,13 +31,15 @@ INSERT INTO users
     user_name, 
     email, 
     name, 
-    profile_picture
+    profile_picture, 
+    auth_id
 ) 
 values (
     'adventureBuilder', 
     'adventureBuilder2049@gmail.com', 
     'adventurer',
-    'http://placekitten.com/234/250'
+    'http://placekitten.com/234/250',
+    'sadfasdfasdf'
 );
 
 -- --------------------

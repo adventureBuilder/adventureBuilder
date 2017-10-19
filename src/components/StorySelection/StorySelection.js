@@ -25,10 +25,13 @@ export default class StorySelection extends Component {
 
     }
     render () {
+        // dummy data
+        let tempChar = { "character_id": 1, "character_name": "HarrisonFord", "gender": "female", "dexterity": 1, "strength": 2, "charisma": 6, "health_points": 19, "alive": 1, "class_id": 1, "user_id": 1, "class_name": "test", "base_dexterity": 0, "base_strength": 0, "base_charisma": 5, "male_class_img": "http://placekitten.com/234/232", "female_class_img": "http://placekitten.com/234/232", "start_health_points": 18 }
         return (
             <div id="section1">
             <Link to='/tavern'><button>Back to Tavern</button></Link>
-            <CharacterDisplay />
+
+            <CharacterDisplay character={tempChar}/>
 
 
             <div>    

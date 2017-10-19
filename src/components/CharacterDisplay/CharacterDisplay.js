@@ -2,25 +2,25 @@
 // Used by the Story Component and StorySelection Component
 
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 
-export default class CharacterDisplay extends Component {
-    render () {
+export default function CharacterDisplay({character}) {
+    console.log(character);
         return (
             <div className="characterDisplayContainer">
                 <div>
-                <div>CharName</div>
-                <div>HP:9</div>
+                <div>Character Name:{character.character_name}</div>
+                
                 </div>
+                
                 <div>
                 <div>
-                <div>ClassName</div>
-                <div>Coin:200</div>
+                <div>Class {character.class_name}</div>
+                
                 </div>
                 {/* Put into their own div so we can use flex column to line them up later */}
-                <div>STR:</div>
-                <div>DEX:</div>
-                <div>CHA:</div>
+                <div>STR: {character.strength}</div>
+                <div>DEX: {character.dexterity}</div>
+                <div>CHA: {character.charisma}</div>
                 </div>
                 <div>
                    
@@ -30,5 +30,4 @@ export default class CharacterDisplay extends Component {
 
             </div>
         );
-    }
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 // default state
 const initialState = {
     user: { username:'' },
-    selectedCharacter: { "characterName": "Ryan Gosling", "gender": "male", "dexterity": 5, "strength": 1, "charisma": 3, "healthPoints": 5, "classId": 1 },
+    selectedCharacter: { "character_id": 1, "character_name": "HarrisonFord", "gender": "female", "dexterity": 1, "strength": 2, "charisma": 6, "health_points": 19, "alive": 1, "class_id": 1, "user_id": 1, "class_name": "test", "base_dexterity": 0, "base_strength": 0, "base_charisma": 5, "male_class_img": "http://placekitten.com/234/232", "female_class_img": "http://placekitten.com/234/232", "start_health_points": 18 },
     characters: []
 };
 

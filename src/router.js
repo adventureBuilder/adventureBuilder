@@ -16,7 +16,7 @@ import StorySelection from './components/StorySelection/StorySelection';
 export default (
     <Switch>
         <Route exact path='/' component={Landing}/>
-        <Route path='/story' component={Story}/>
+        <Route path='/story/:id' component={Story}/>
         <Route path='/cemetery' component={Cemetery}/>
         <Route path='/tavern' component={Tavern}/>
         <Route path='/storyselection' component={StorySelection}/>

@@ -43,7 +43,7 @@ class MyCharacters extends Component {
         </div>)
         return (
             <div>
-                MyCharacters component
+                MyCharacters:
                 
                     {characterList}
                

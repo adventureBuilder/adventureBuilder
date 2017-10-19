@@ -18,8 +18,8 @@ module.exports={
     createCharacter: (req, res)=>{
         const db = req.app.get('db');
         const {user_id} = req.session.user // req.user once auth0
-        const {characterName, gender, dexterity, strength, charisma, healthPoints, classId}= req.body;
-        db.addCharacter([characterName, gender, dexterity, strength, charisma, healthPoints, classId, user_id]).then(result =>{
+        const {characterName, gender, dexterity, strength, charisma, healthPoints, class_id}= req.body;
+        db.addCharacter([characterName, gender, dexterity, strength, charisma, healthPoints, class_id, user_id]).then(result =>{
             res.status(200).send(result[0]);
         })
         .catch((err)=>console.log(err,`see addCharacter endpoint`))

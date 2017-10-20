@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {withRouter} from "react-router-dom";
 
+import Menu from './../Menu/Menu';
+
 class NewCharacter extends Component {
     constructor(props) {
         super(props);
@@ -81,7 +83,8 @@ class NewCharacter extends Component {
         return (
             <div className="new-character">
 
-                <h1>Create A Character</h1>
+                <Menu />
+                <h2>Create A Character</h2>
 
                 <div className="new-character-block">
                     <div className="char-row">

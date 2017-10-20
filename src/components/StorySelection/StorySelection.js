@@ -1,7 +1,6 @@
 // Displays CharacterDisplay Component, StorySearch Component, and list of ViewStory Components
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -57,10 +56,10 @@ class StorySelection extends Component {
 
                 <CharacterDisplay character={this.props.selectedCharacter} />
 
-                <h1 className="viewTitle">Stories</h1>
+                <h2 className="viewTitle">Stories</h2>
 
                 <div className="story-search-block">
-                    <h2>Search Stories:</h2>
+                    <h3>Search Stories:</h3>
 
                     <select className="search-select-box" name="searchType" onChange={
                         (e) => this.changeStorySearch(e.target.name, e.target.value)

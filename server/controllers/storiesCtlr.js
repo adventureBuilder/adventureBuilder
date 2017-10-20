@@ -24,7 +24,7 @@ module.exports = {
     },
     getUsersMostRecentStories: (req, res) => {
         const db = req.app.get('db');
-        db.getUsersMostRecentStories(req.params.username)
+        db.getUsersMostRecentStories(`%${req.params.username}%`)
             .then((result) => {
                 res.status(200).send(result);
             })

@@ -9,9 +9,11 @@ const express = require('express'),
     passport = require('passport'),
     Auth0Strategy = require('passport-auth0'),
     characterCtlr = require(`./controllers/charactersCtlr`),
+    optionsCtrl = require(`./controllers/optionsCtrl`),
     encounterCtlr = require(`./controllers/encounterCtlr`),
     storiesCtlr = require(`./controllers/storiesCtlr`),
     classesCtlr = require(`./controllers/classesCtlr`),
+    imageCtrl = require(`./controllers/imageCtrl`),
     userCtlr = require(`./controllers/userCtlr`);
 
 const app = express();
@@ -33,8 +35,8 @@ app.use(bodyParser.json());
 ///Auth MIDDLEWARE///
 /////////////////////
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 ///////////////////////////////////
 ////TESTING TOPLEVEL MIDDLEWARE////
@@ -76,7 +78,7 @@ app.use((req, res, next) =>{
 //             let email = profile.emails ? profile.emails[0].value : "";
 //             let name = "";
 //             let img = profile.picture ? profile.picture: "";
-//             let userArr = [auth_id, username, email, name, img];
+//             let userArr = [ username, email, name, img, auth_id];
 //             db.addUser(userArr).then(user =>{
 //                 return done(null, user[0]);
 //             })
@@ -96,10 +98,13 @@ app.use((req, res, next) =>{
 
     
 // })
+////////////////////////
+///END AUTHENTICATION///
+////////////////////////
 
 //////////////
 ///DATABASE///
-// //////////////
+///////////////
  massive(process.env.CONNECTIONSTRING).then(db => {
      app.set('db', db)
          console.log('connected to the database')
@@ -119,10 +124,12 @@ app.post(`/api/character`, characterCtlr.createCharacter);
 app.get(`/api/getAllCharacters`, characterCtlr.getAllCharacters);
 app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedCharacter);
 
-//Encounter Endpoints
-app.get(`/api/getEncounters/:encounterId`, encounterCtlr.getEncounter);
 
 //Story Endpoints
+app.post(`/api/story`, storiesCtlr.addStory)
+app.put(`/api/story/storyId`, storiesCtlr.addStory)
+
+app.get(`/api/storyDetails/:storyId`, storiesCtlr.getStoryDetails);
 app.get(`/api/story/:storyId`, storiesCtlr.getSelectedStory);
 
 app.get(`/api/stories`, storiesCtlr.getMostRecentStories);
@@ -130,21 +137,33 @@ app.get(`/api/user/stories/:username`, storiesCtlr.getUsersMostRecentStories);
 app.get(`/api/levels/stories/:level`, storiesCtlr.searchStoryByLevel);
 app.get(`/api/storyName/:storyName`, storiesCtlr.getStoryByName);
 
+//Encounter Endpoints
+app.post(`/api/encounter`, encounterCtlr.addEncounter)
+app.post(`/api/firstEncounter`, encounterCtlr.addFirstEncounter)
+app.get(`/api/getEncounters/:encounterId`, encounterCtlr.getEncounter);
+
+//options Endpoints
+app.post(`/api/option`, optionsCtrl.addOption);
+
 //Class Endpoints
 app.get(`/api/classes`, classesCtlr.getClasses);
 
+//imageEndpoints
+app.get(`/api/images/encounter`, imageCtrl.getEncounterImages);
+app.get(`/api/images/Option`, imageCtrl.getOptionImages);
+
 
 //auth endpoints
-// app.get('/auth', passport.authenticate('auth0'));
-// app.get('/auth/callback', passport.authenticate('auth0', {
-//     successRedirect: 'http://localhost:3000/#/dashboard',
-//     failureRedirect: 'http://localhost:3000/#/'
-// }));
-// app.get('/auth/logout', (req, res)=>{
-//     req.logout();
-//     console.log(req.user);
-//     res.redirect(302, 'https://dvalentine.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
-// })
+app.get('/auth', passport.authenticate('auth0'));
+app.get('/auth/callback', passport.authenticate('auth0', {
+    successRedirect: `http://localhost:3000/tavern`,
+    failureRedirect: `http://localhost:3000/`
+}));
+app.get('/auth/logout', (req, res)=>{
+    req.logout();
+    console.log(req.user);
+    res.redirect(302, 'https://adventure-builder.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
+})
 
 
 

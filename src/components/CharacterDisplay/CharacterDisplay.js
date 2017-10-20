@@ -1,60 +1,30 @@
 // basic character details - Displays (name, xp, class, race, stats) 
 // Used by the Story Component and StorySelection Component
 
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-// import {getSelectedCharacter} from './../../ducks/reducer';
-import {connect} from 'react-redux';
+import React from 'react';
 
-class CharacterDisplay extends Component {
-    constructor(props){
-        super(props);
-        this.state ={
-                character: this.props.selectedCharacter
-        }
-    }
+export default function CharacterDisplay({ character }) {
 
-    componentDidMount (){
-      
-       
+    return (
+        <div className="characterDisplayContainer">
 
-
-    }
-    render () {
-        return (
-            <div className="characterDisplayContainer">
-                <div>
-                <div>CharName{this.props.selectedCharacter.characterName}</div>
-                
-                </div>
-                
-                <div>
-                <div>
-                <div>ClassName{this.props.selectedCharacter.className}</div>
-                
-                </div>
-                {/* Put into their own div so we can use flex column to line them up later */}
-                <div>STR:{this.props.selectedCharacter.strength}</div>
-                <div>DEX:{this.props.selectedCharacter.dexterity}</div>
-                <div>CHA:{this.props.selectedCharacter.charisma}</div>
-                </div>
-                <div>
-                   
-                    
-
-                    </div>
-
+            <h2>{character.character_name}</h2>
+            <h3>The {character.class_name}</h3>
+            
+            <div className="char-sheet">
+               {/* <div>
+                    <div>Class </div>
+                     eliminated race and coins
+                    <div>Race: </div>
+                    <div>Coin: </div> 
+                </div> 
+                <div>*/}
+                    <div>STR: {character.strength}</div>
+                    <div>DEX: {character.dexterity}</div>
+                    <div>CHA: {character.charisma}</div>
+                {/* </div> */}
             </div>
-        );
-    }
+
+        </div>
+    );
 }
-
-function mapStateToProps(state){
-return {
-    selectedCharacter : state.selectedCharacter
-
-}
-
-}
-
-export default connect(mapStateToProps)(CharacterDisplay)

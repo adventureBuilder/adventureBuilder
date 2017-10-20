@@ -34,7 +34,7 @@ class NewUser extends Component {
 
     render() {
         return (
-            <div> {console.log('state:', this.props.state)}
+            <div className="newuser"> {console.log('state:', this.props.state)}
                 { this.props.username ? <h3>Welcome {this.props.username}</h3> : (<div>
                     <h3>User Name:</h3>
                     <p><input type="text" onChange={(e) => this.usernameChange(e)}  placeholder="Add a username" /></p>

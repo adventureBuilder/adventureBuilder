@@ -1,0 +1,28 @@
+INSERT INTO encounter_options
+(
+    encounter_id,
+    option_name,
+    option_description,
+    option_odds,
+    option_pass_case,
+    success_text,
+    fail_text,
+    success_encounter,
+    failed_encounter,
+    option_images_id,
+    health_consquences
+)
+values
+(
+    $1,
+    $2,
+    $3,
+    $4,
+    $5,
+    $6,
+    $7,
+    $8,
+    $9,
+    $10,
+    $11
+);

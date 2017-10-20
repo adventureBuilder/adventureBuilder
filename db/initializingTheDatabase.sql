@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
   user_name VARCHAR(45) NULL,
   email TEXT NULL,
   name VARCHAR(45),
-  profile_picture VARCHAR(45),
+  profile_picture TEXT,
   auth_id TEXT
   );
 -- -----------------------------------------------------

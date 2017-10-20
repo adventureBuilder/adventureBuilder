@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {withRouter} from "react-router-dom";
 
-import Menu from './../Menu/Menu';
+import Menu from './../../Menu/Menu';
 
 class NewCharacter extends Component {
     constructor(props) {

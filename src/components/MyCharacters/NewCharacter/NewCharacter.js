@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {withRouter} from "react-router-dom";
 
+import Menu from './../../Menu/Menu';
+
 class NewCharacter extends Component {
     constructor(props) {
         super(props);
@@ -47,7 +49,7 @@ class NewCharacter extends Component {
             charisma : this.state.classes[this.state.class - 1].base_charisma,
             healthPoints : this.state.classes[this.state.class - 1].start_health_points,
             alive : 1,
-            class_id : parseInt(this.state.class)
+            classId : parseInt(this.state.class)
         }
         console.log('newChar', newChar)
         axios.post('/api/character', newChar).then(
@@ -81,7 +83,8 @@ class NewCharacter extends Component {
         return (
             <div className="new-character">
 
-                <h1>Create A Character</h1>
+                <Menu />
+                <h2>Create A Character</h2>
 
                 <div className="new-character-block">
                     <div className="char-row">

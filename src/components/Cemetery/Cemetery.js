@@ -1,52 +1,57 @@
 // Cemetary View - Displays MyCharacters Component and MyCharacters Component
-
 import React, { Component } from 'react';
+
+import Menu from './../Menu/Menu';
 
 export default class Cemetery extends Component {
     render() {
         return (
-            <div>
-                Cemetery
-            <div>
-                    <div>
-                        My Dead Characters:
-            </div>
-                    <div>
-                        <div>Class</div>
-                        <div>Coin: 200</div>
-                    </div>
-                    <div>
-                        <div>Strength</div>
-                        <div>Dexterity</div>
-                        <div>Charisma</div>
-                    </div>
-                    <div>
-                        <div>str#</div>
-                        <div>dex#</div>
-                        <div>cha#</div>
-                    </div>
-                    <div>
-                        The story that killed (Charname)
-                </div>
-                    <div>
-                        <div>Return to the tomb (storyname)</div>
-                        <button>expand</button>
-                    </div>
-                    <div>
-                        Complete Stories (completed stories)
-                </div>
-                    <div>
-                        <div>Tomb of Jeff (storyname)</div>
-                        <button>expand</button>
-                    </div>
-                    <div>
-                        <div>The hermits curse(storyname)</div>
-                        <button>expand</button>
-                    </div>
-                        <button>Close Character</button>
+            <div className="cemetery">
 
+                <Menu />
+                
+                <div>
+                    Cemetery
                 </div>
+                <div>
+                    My Dead Characters:
+                        </div>
+                <div>
+                    <div>Class</div>
+                    <div>Coin: 200</div>
+                </div>
+                <div>
+                    <div>Strength</div>
+                    <div>Dexterity</div>
+                    <div>Charisma</div>
+                </div>
+                <div>
+                    <div>str#</div>
+                    <div>dex#</div>
+                    <div>cha#</div>
+                </div>
+                <div>
+                    The story that killed (Charname)
+                        </div>
+                <div>
+                    <div>Return to the tomb (storyname)</div>
+                    <button>expand</button>
+                </div>
+                <div>
+                    Complete Stories (completed stories)
+                        </div>
+                <div>
+                    <div>Tomb of Jeff (storyname)</div>
+                    <button>expand</button>
+                </div>
+                <div>
+                    <div>The hermits curse(storyname)</div>
+                    <button>expand</button>
+                </div>
+                <button>Close Character</button>
+
             </div>
+
         );
     }
 }

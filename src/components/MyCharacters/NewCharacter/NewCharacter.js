@@ -3,11 +3,10 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import {withRouter} from "react-router-dom";
 
 import Menu from './../../Menu/Menu';
 
-class NewCharacter extends Component {
+export default class NewCharacter extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -114,4 +113,3 @@ class NewCharacter extends Component {
         );
     }
 }
-export default withRouter(NewCharacter);

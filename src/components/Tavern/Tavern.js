@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import MyCharacters from '../MyCharacters/MyCharacters';
 import MyStories from '../MyStories/MyStories';
 
+
 class Tavern extends Component {
     constructor() {
         super()
@@ -21,6 +22,8 @@ class Tavern extends Component {
     render () {
         return (
             <div>
+                
+
                 Tavern
                 {console.log(this.props.characters, "Tavern characters state")}
 

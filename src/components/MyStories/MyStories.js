@@ -28,7 +28,7 @@ componentWillMount() {
        })
        .catch(err=>console.log(err,`see componentDidMount.getMostRecentStories axios call in MyStories.js component`))
 
-       const username="test"
+      /* const username="test"
         axios.get(`/api/user/stories/${username}`)// test more when get username functionality, maybe use this.prop.user.username from store??
      .then(res=>{
            console.log(res.data, `usersMostRecentStories returned this`)
@@ -39,6 +39,7 @@ componentWillMount() {
            this.setState({usersMostRecentStories: usersMostRecentStoriesData})
        })
        .catch(err=>console.log(err,`see componentDidMount.getUsersMostRecentStories axios call in MyStories.js component`))
+       */
     }
 
 /*searchStoryByLevelCaller(level){

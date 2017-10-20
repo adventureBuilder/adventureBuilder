@@ -47,7 +47,7 @@ class NewCharacter extends Component {
             charisma : this.state.classes[this.state.class - 1].base_charisma,
             healthPoints : this.state.classes[this.state.class - 1].start_health_points,
             alive : 1,
-            class_id : parseInt(this.state.class)
+            classId : parseInt(this.state.class)
         }
         console.log('newChar', newChar)
         axios.post('/api/character', newChar).then(

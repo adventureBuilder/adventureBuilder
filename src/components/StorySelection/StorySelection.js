@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import Menu from './../Menu/Menu';
 import ViewStory from './../ViewStory/ViewStory';
 import CharacterDisplay from './../CharacterDisplay/CharacterDisplay';
 
@@ -25,18 +26,57 @@ class StorySelection extends Component {
         })
     }
 
+    changeStorySearch(option, value) {
+        this.setState({
+            [option]: value
+        }, () => console.log('state', this.state))
+
+    }
+    startSearch() {
+        switch (this.state.searchType) {
+            case "Author":
+                return (axios.get('/api/user/stories/' + this.state.searchInput).then((res) => {
+                    console.log(res.data);
+                    if (!res.data === false)
+                        this.setState({
+                            storiesArray: res.data
+                        })
+                })
+                )
+
+
+
+        }
+    }
+
     render() {
-        // dummy data
-        //let tempChar = { "character_id": 1, "character_name": "HarrisonFord", "gender": "female", "dexterity": 1, "strength": 2, "charisma": 6, "health_points": 19, "alive": 1, "class_id": 1, "user_id": 1, "class_name": "test", "base_dexterity": 0, "base_strength": 0, "base_charisma": 5, "male_class_img": "http://placekitten.com/234/232", "female_class_img": "http://placekitten.com/234/232", "start_health_points": 18 }
+        console.log('storiesArray', this.state.storiesArray)
         return (
             <div id="story-selection-top" className="story-selection">
-                <Link to='/tavern'><button>Back to Tavern</button></Link>
+                <Menu />
 
                 <CharacterDisplay character={this.props.selectedCharacter} />
 
                 <h1 className="viewTitle">Stories</h1>
 
-                <StorySearch stories={storiesArray} />
+                <div className="story-search-block">
+                    <h2>Search Stories:</h2>
+
+                    <select className="search-select-box" name="searchType" onChange={
+                        (e) => this.changeStorySearch(e.target.name, e.target.value)
+                    }>
+                        <option value="Search By" selected default disabled>Search By</option>
+                        <option value="Author">Author</option>
+                        <option value="Newest" >Newest</option>
+                        <option value="Name" >Name</option>
+                    </select>
+
+
+                    <input type="text" name="searchInput" onChange={(e) => this.changeStorySearch(e.target.name, e.target.value)} />
+                    <button onClick={() => this.startSearch()}>Search</button>
+
+
+                </div>
 
                 {this.state.storiesArray.map((story, i) => {
                     return <ViewStory key={i} story={story} />
@@ -50,9 +90,9 @@ class StorySelection extends Component {
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
-        selectedCharacter : state.selectedCharacter
+        selectedCharacter: state.selectedCharacter
     }
 }
 export default connect(mapStateToProps, {})(StorySelection)

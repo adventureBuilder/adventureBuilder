@@ -7,7 +7,7 @@ import Landing from './components/Landing/Landing';
 // the routing for our landing page that will load a login
 import Story from './components/Story/Story';
 // the routing for our encounters and story challenges
-import Cemetary from './components/Cemetary/Cemetary';
+import Cemetery from './components/Cemetery/Cemetery';
 // the routing for our graveyard
 import Tavern from './components/Tavern/Tavern';
 // the routing for the tavern that loads from the login off of the landing
@@ -19,7 +19,7 @@ export default (
     <Switch>
         <Route exact path='/' component={Landing}/>
         <Route path='/story' component={Story}/>
-        <Route path='/cemetary' component={Cemetary}/>
+        <Route path='/cemetery' component={Cemetery}/>
         <Route path='/tavern' component={Tavern}/>
         <Route path='/storyselection' component={StorySelection}/>
     </Switch>

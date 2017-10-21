@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Menu from './../../Menu/Menu';
+import Footer from './../../Menu/Footer';
 
 export default class NewCharacter extends Component {
     constructor(props) {
@@ -108,7 +109,8 @@ export default class NewCharacter extends Component {
                     { (this.state.class && this.state.charName) ? <button onClick={()=>this.createChar()}>Create</button> : ''}
                    
 
-                </div> 
+                </div>
+                <Footer />
             </div>
         );
     }

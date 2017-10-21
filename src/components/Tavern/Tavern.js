@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
 import Menu from './../Menu/Menu';
+import Footer from './../Menu/Footer';
 import MyCharacters from '../MyCharacters/MyCharacters';
 import MyStories from '../MyStories/MyStories';
 import NewUser from './NewUser/NewUser';
@@ -26,14 +27,16 @@ class Tavern extends Component {
             <div className="tavern">
                 <Menu />
                 <div className="page">
-                    <NewUser />
                     <h2 className="view-title">Tavern</h2>
+                    <NewUser />
+                    
                     {console.log(this.props.characters, "Tavern characters state")}
 
                     <MyCharacters characterList={this.state.characters} />
                     <br />
                     <MyStories />
                 </div>
+                <Footer />
             </div>
 
         );

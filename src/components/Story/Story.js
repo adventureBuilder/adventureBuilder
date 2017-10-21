@@ -5,6 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 import Menu from './../Menu/Menu';
+import Footer from './../Menu/Footer';
 import Encounter from './Encounter/Encounter';
 import FinalEncounter from './FinalEncounter/FinalEncounter';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
@@ -70,6 +71,7 @@ class Story extends Component {
                     <CharacterDisplay character={this.props.character} />
 
                 </div>
+                <Footer />
             </div>
         );
     }

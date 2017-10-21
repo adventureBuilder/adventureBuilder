@@ -1,0 +1,61 @@
+.my-characters-list {
+	width: 100%;
+}
+.tavern-char-container {
+
+	margin: 15px 0;
+	
+	
+
+	.tavern-char-row {
+		// display:flex;
+		// justify-content: space-between;
+		
+
+		.tavern-char-name-container {
+
+			background-color: $row-color;
+			padding: 3px 5px;
+			width: 80%;
+			height: 30px;
+			box-shadow: 0 4px 0 0 $border-color;
+			display:inline-block;
+
+			.tavern-char-name {
+				min-width: 150px;
+				background-color: transparent;
+				border: none;
+				color: $btn-color;
+				text-align: left;
+			}
+
+		}
+
+		.select-btn {
+			width: 20%;
+			color: $black;
+			border-top-left-radius: 0;
+			border-top-right-radius: 50px;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 50px;
+			// position: relative;
+			// top: -5px;
+			border:1px solid $border-color;
+			background-color: $white;
+			box-shadow: 0 4px 0 0 $border-color;
+			height: 30px;
+			display:inline-block;
+		}
+		
+	}
+	
+	
+}
+
+.down-arrow {
+	color: $black;
+}
+.my-stories {
+	width: 100%;
+}
+

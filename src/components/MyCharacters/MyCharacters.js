@@ -53,6 +53,8 @@ class MyCharacters extends Component {
 
                     {characterList}
 
+                <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>
+
             </div>
         );
     }

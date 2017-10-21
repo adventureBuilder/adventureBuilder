@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import Menu from './../Menu/Menu';
+import Footer from './../Menu/Footer';
 import ViewStory from './../ViewStory/ViewStory';
 import CharacterDisplay from './../CharacterDisplay/CharacterDisplay';
 
@@ -112,9 +113,11 @@ class StorySelection extends Component {
             <div id="story-selection-top" className="story-selection">
                 <Menu />
                 <div className="page">
-                    <CharacterDisplay character={this.props.selectedCharacter} />
+                <h2 className="view-title">Choose A Story</h2>
+                
+                <CharacterDisplay character={this.props.selectedCharacter} />
 
-                    <h2 className="viewTitle">Stories</h2>
+                    
 
                     <div className="story-search-block">
                         <h3>Search Stories:</h3>
@@ -154,6 +157,7 @@ class StorySelection extends Component {
                         <a href="#story-selection-top"><button className="btn">Back to top</button></a>
                     </div>
                 </div>
+                <Footer />
             </div>
         );
     }

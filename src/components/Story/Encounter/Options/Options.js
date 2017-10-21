@@ -48,10 +48,10 @@ class Options extends Component {
     }
     render() {
         return (
-            <div>
-                <h3>{this.props.option.option_name}</h3>
-                {this.props.option.option_description}
-                <button onClick={_=>{this.chooseOption()}}>Do This</button>
+            <div className={this.props.id}>
+                <h4 className="option-name">{this.props.option.option_name}</h4>
+                <p className="option-description">{this.props.option.option_description}</p>
+                <button className="btn" onClick={_=>{this.chooseOption()}}>Attempt</button>
             </div>
         );
     }

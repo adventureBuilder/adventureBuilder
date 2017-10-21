@@ -16,32 +16,34 @@ class Tavern extends Component {
             characters: []
         }
     }
-    
+
     componentDidMount() {
         this.props.getCharacters();
     }
 
-    render () {
+    render() {
         return (
-            <div>
+            <div className="tavern">
                 <Menu />
-                <NewUser/>
-                <h2>Tavern</h2>
-                {console.log(this.props.characters, "Tavern characters state")}
+                <div className="page">
+                    <NewUser />
+                    <h2 className="view-title">Tavern</h2>
+                    {console.log(this.props.characters, "Tavern characters state")}
 
-                <MyCharacters characterList={this.state.characters}/>
-                <br/>
-                <MyStories/>
+                    <MyCharacters characterList={this.state.characters} />
+                    <br />
+                    <MyStories />
+                </div>
             </div>
-            
+
         );
     }
 }
 
-function mapStateToProps(state){
-    return{
+function mapStateToProps(state) {
+    return {
         characters: state.characters
     }
 }
 
-export default connect(mapStateToProps, {getCharacters})(Tavern)
+export default connect(mapStateToProps, { getCharacters })(Tavern)

@@ -1,0 +1,21 @@
+.menu{
+
+padding: 20px;
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+	.title {
+		
+	}
+	.menu-btn {
+		background-color: $white;
+		font-family: $header-font-stack;
+		border: 1px solid $encounter-box-color;
+		border-radius: $radius;
+		color: $black;
+	}
+
+
+}

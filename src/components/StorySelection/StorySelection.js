@@ -32,7 +32,8 @@ class StorySelection extends Component {
         }, () => console.log('state', this.state))
 
     }
-    startSearch() {
+    startSearch(e) {
+        e.preventDefault();
         switch (this.state.searchType) {
             case "Author":
                 return (axios.get('/api/user/stories/' + this.state.searchInput).then((res) => {
@@ -118,26 +119,30 @@ class StorySelection extends Component {
                     <div className="story-search-block">
                         <h3>Search Stories:</h3>
 
-                        <select className="search-select-box" name="searchType" onChange={
-                            (e) => this.changeStorySearch(e.target.name, e.target.value)
-                        }>
-                            <option value="Search By" selected default disabled>Search By</option>
-                            <option value="Author">Author</option>
-                            <option value="Title" >Title</option>
-                            <option value="Newest" >Newest</option>
-                        </select>
+                        <form className="search-bar" onSubmit={(e) => this.startSearch(e)}>
+                            <select className="select-btn search-select-box" name="searchType" onChange={
+                                (e) => this.changeStorySearch(e.target.name, e.target.value)
+                            }>
+                                <option value="Search By" selected default disabled>Search By</option>
+                                <option value="Author">Author</option>
+                                <option value="Title" >Title</option>
+                                <option value="Newest" >Newest</option>
+                            </select>
 
 
-                        <input type="text" name="searchInput" onChange={(e) => this.changeStorySearch(e.target.name, e.target.value)} />
-                        {this.state.searchType ?
-                            <button onClick={() => this.startSearch()}>Search</button> :
-                            <div className="searchButtonPlaceholder"></div>}
+                            <input className="search-input" type="text" name="searchInput" onChange={(e) => this.changeStorySearch(e.target.name, e.target.value)} />
+                            {this.state.searchType ?
+                                <button type="submit" className="btn search-btn" >Search</button> :
+                                <div className="search-button-placeholder"></div>}
+                        </form>
+
+
 
 
                     </div>
                     <div className="story-results">
                         <div className="card">
-                        
+
                             {this.state.noSearchResults ? <p>No stories were found that matched your search.</p> : <p>Your search results:</p>}
 
                             {this.state.storiesArray.map((story, i) => {
@@ -145,7 +150,7 @@ class StorySelection extends Component {
                             })}
                         </div>
                     </div>
-                    <div>
+                    <div className="to-top">
                         <a href="#story-selection-top"><button className="btn">Back to top</button></a>
                     </div>
                 </div>

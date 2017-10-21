@@ -3,7 +3,11 @@
 	@include card;
 	
 	padding: 0 10px 10px 10px;
-	width:80%;
+	width: 80%;
+	position: relative;
+	top: 5px;
+	border-top: 7px solid $prim-color;
+	border-bottom: 3px solid $prim-color;
 	
 	.char-title {
 	

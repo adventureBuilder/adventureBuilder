@@ -22,7 +22,8 @@ $sec-color: #34bfc6;
   $input-color: #b2b2b2;
 
 $btn-color: #F06060;
-$btn-highlight: #9E2C2D;
+$btn-highlight: #FF6F6F;
+$btn-press: #df4f4f;
 $btn-border-color: #9E2C2D;
 
 $row-color: #bbb;
@@ -42,7 +43,7 @@ $off-white: #d1d1d1;
 @mixin card{
     background-color: $off-white;
     border: 1px solid #777;
-    padding: 20px 15px;
+    padding: 20px 25px;
     width: 100%;
 }
 
@@ -66,13 +67,16 @@ body {
     font-family: $body-font-stack;
 
 }
-
+a {
+    text-decoration: none;
+}
 h1,h2,h3,h4,h5 {
     font-family: $header-font-stack;
     color: $white;
 }
 div, p, ul, li, a, button, span, input {
     font-family: $body-font-stack;
+    color: $black;
 }
 input {
     padding: 2px 4px;
@@ -91,39 +95,51 @@ input {
 .card {
     @include card;
 }
+// BUTTONS /////////////////////////////////////////////
 .btn {
     border-radius: $radius;
+    border: none;
     color: $white;
-    border: 1px solid $btn-border-color;
     background-color: $btn-color;
     padding: 5px 15px;
-    box-shadow: 0 4px 0 0 $btn-border-color;
+    box-shadow: 0 5px 0 0 $btn-border-color;
 }
 .btn:hover {
     background-color: $btn-highlight;
+    
+}
+.btn:active {
+    background-color: $btn-highlight;
     position: relative;
     top: 4px;
-    box-shadow:none;
+    box-shadow: 0 1px 0 0 $btn-border-color;
 }
 .select-btn {
-	width: 10%;
-	color: $black;
+    width: 20%;
+    color: $black;
     border-top-left-radius: 0;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 50px;
-    // position: relative;
-    // top: -5px;
-    border:1px solid $border-color;
+    border:none;
     background-color: $white;
-    box-shadow: 0 4px 0 0 $border-color;
+    box-shadow: 0 5px 0 0 $border-color;
     height: 30px;
+    display:inline-block;
 }
 .select-btn:hover {
+    background-color: #fff;
+}
+.select-btn:active {
     position: relative;
     top: 4px;
-    box-shadow:none;
+    box-shadow: 0 1px 0 0 $border-color;
 }
+.to-top {
+    margin: 40px 0;
+
+}
+//     ///////////////////////////////
 .view-title {
     font-family: $header-font-stack;
     font-weight: 800;

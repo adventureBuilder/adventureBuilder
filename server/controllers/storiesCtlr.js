@@ -9,7 +9,8 @@ module.exports = {
     },
     getUsersMostRecentStories: (req, res) => {
         const db = req.app.get('db');
-        db.getUsersMostRecentStories(`%${req.params.username}%`)
+        const username = req.params.username.toUpperCase();
+        db.getUsersMostRecentStories(`%${username}%`)
             .then((result) => {
                 res.status(200).send(result);
             })
@@ -33,8 +34,8 @@ module.exports = {
     },
    getStoryByName: (req, res) => {
         const db = req.app.get('db');
-        
-            db.getStoryByName(`%${req.params.storyName}%`)
+        const storyName = req.params.storyName.toUpperCase();
+            db.getStoryByName(`%${storyName}%`)
                 .then((result) => {
                     res.status(200).send(result);
                 })

@@ -1,0 +1,38 @@
+.story-container {
+	
+	margin: 40px 0;
+	border-top: 7px solid $prim-color;
+	border-bottom: 3px solid $prim-color;
+	background-color:$white;
+	padding: 20px;
+    .story-header {
+        display: flex;
+		justify-content: space-between;
+		margin-bottom: 20px;
+
+		.story-title {
+			font-size: 24px;
+			font-family: $header-font-stack;
+			color: $black;
+		}
+		.story-level {
+			color: $black;
+		}
+	}
+	.story-description {
+		
+	}
+	.story-footer {
+
+
+		.story-author h3 {
+			color: $black;
+			display: inline-block;
+		}
+		.begin-story {
+			width: 80%;
+			margin: 0 auto;
+			display:block;
+		}
+	}
+}

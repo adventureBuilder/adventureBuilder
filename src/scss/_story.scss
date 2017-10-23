@@ -1,0 +1,57 @@
+.story {
+	h2, h3, h4 {
+        color: $black;
+	}
+	.page {
+		padding-top:0;
+	}
+	
+	.story-header {
+		display: flex;
+		justify-content: space-between;
+		background-color: $prim-color;
+		padding: 0px 20px;
+		width: 100%;
+		
+		.story-title {
+			color: $white;
+			margin: 15px 0;
+			
+		}
+		.story-author {
+
+		}
+	}
+	.card {
+		padding-top:0;
+		padding-bottom: 40px;
+		border-top: none;
+		border-right: none;
+		border-bottom: 10px solid $prim-color;
+		border-left: none;
+	}
+	
+
+	.encounter-title {
+		text-align: center;
+	}
+	.encounter-description {
+
+	}
+	.encounter-image {
+		display:block;
+		margin: 0 auto;
+		width: 70%;
+		height: auto;
+		max-height: 300px;
+
+	}
+
+	.char-display-container {
+		width: 100%;
+		margin-top: 40px;
+	}
+
+
+    
+}

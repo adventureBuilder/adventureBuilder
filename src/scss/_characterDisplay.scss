@@ -1,0 +1,35 @@
+.char-display-container {
+	
+	@include card;
+	
+	padding: 0 10px 10px 10px;
+	width: 80%;
+	position: relative;
+	top: 5px;
+	border-top: 7px solid $prim-color;
+	border-bottom: 3px solid $prim-color;
+	
+	.char-title {
+	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin: 20px 0 10px;
+
+		.char-name {
+			margin:0;
+			color: $black;
+		}
+		.char-class {
+			font-size: 18px;
+			margin: 0;
+			color: $black;
+		}
+	}
+
+	.char-sheet {
+		
+	}
+
+}

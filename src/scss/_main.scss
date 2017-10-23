@@ -1,3 +1,13 @@
+//color themes
+
+    // https://images.google.com/imgres?imgurl=https%3A%2F%2Fdesignmodo.com%2Fwp-content%2Fuploads%2F2013%2F08%2FSpade.jpg&imgrefurl=https%3A%2F%2Fdesignmodo.com%2Fwebsites-urban-landscapes%2F&docid=N9L6J_XPQn97RM&tbnid=gJx85MVMKa0RmM%3A&vet=1&w=600&h=359&source=sh%2Fx%2Fim
+    // bright red   #F70302
+    // dark red     #A20000
+    // white        #f7f7f7 
+    // dark bluegrey #1F262E
+    // less dark bluegrey #27313B
+
+
 // text colors
 $prim-color: #1e8c9a;
 $sec-color: #34bfc6;
@@ -10,28 +20,131 @@ $sec-color: #34bfc6;
   // 
   $char-box-color: #f9e6c5;
   $input-color: #b2b2b2;
- 
-$btn-color: #E74C3C;
-$btn-highlight: #FF5442;
+
+$btn-color: #F06060;
+$btn-highlight: #FF6F6F;
+$btn-press: #df4f4f;
+$btn-border-color: #9E2C2D;
+
+$row-color: #bbb;
+$dropdown-color: #aaa;
 
 $bg-color: #1e8c9a;
-$txt-color: #020d0e;
+$black: #020d0e;
 $white: #ECF0F1;
+$border-color: #777;
+$off-white: #d1d1d1;
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus");
 /* |Lobster|Lobster+Two   font-family: 'Lobster', 'Lobster Two', 'Satisfy', 'Open Sans'; */
 
-$font-stack: 
-'Marcellus',
-'Open Sans',
-     Helvetica, arial,
+// MIXINS //////////////////////////////
+
+@mixin card{
+    background-color: $off-white;
+    border: 1px solid #777;
+    padding: 20px 25px;
+    width: 100%;
+}
+
+// VARIABLES ///////////////////////////
+$radius: 50px;
+
+$header-font-stack: 
+'Marcellus', 'Open Sans', Helvetica, arial,
     sans-serif;
 
+$body-font-stack: 'Open Sans', Helvetica, arial,
+sans-serif;
+
+// FALLBACKS //////////////////////////
 * {
     box-sizing: border-box;
 }
 
 body {
-    background-color: $bg-color;
-    font-family: 'Marcellus', 'Open Sans', Helvetica, arial, sans-serif;
+    background: url('https://www.toptal.com/designers/subtlepatterns/patterns/binding_dark.png') #0D0D0D repeat;
+    font-family: $body-font-stack;
+
 }
+a {
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5 {
+    font-family: $header-font-stack;
+    color: $white;
+}
+div, p, ul, li, a, button, span, input {
+    font-family: $body-font-stack;
+    color: $black;
+}
+input {
+    padding: 2px 4px;
+    border: $border-color;
+} 
+// MAIN STYLES USED EVERYWHERE //////////
+
+.page {
+    padding: 0 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width:960px;
+    margin: 0 auto;
+}
+.card {
+    @include card;
+}
+// BUTTONS /////////////////////////////////////////////
+.btn {
+    border-radius: $radius;
+    border: none;
+    color: $white;
+    background-color: $btn-color;
+    padding: 5px 15px;
+    box-shadow: 0 5px 0 0 $btn-border-color;
+}
+.btn:hover {
+    background-color: $btn-highlight;
+    
+}
+.btn:active {
+    background-color: $btn-highlight;
+    position: relative;
+    top: 4px;
+    box-shadow: 0 1px 0 0 $btn-border-color;
+}
+.select-btn {
+    width: 20%;
+    color: $black;
+    border-top-left-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 50px;
+    border:none;
+    background-color: $white;
+    box-shadow: 0 5px 0 0 $border-color;
+    height: 30px;
+    display:inline-block;
+}
+.select-btn:hover {
+    background-color: #fff;
+}
+.select-btn:active {
+    position: relative;
+    top: 4px;
+    box-shadow: 0 1px 0 0 $border-color;
+}
+.to-top {
+    margin: 40px 0;
+
+}
+//     ///////////////////////////////
+.view-title {
+    font-family: $header-font-stack;
+    font-weight: 800;
+}
+.sub-title {
+    color: $white;
+}
+

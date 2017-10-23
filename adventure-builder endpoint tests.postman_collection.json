@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "getAllCharacters",
+			"name": "getUser",
 			"event": [
 				{
 					"listen": "test",
@@ -17,45 +17,13 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"const res = pm.response.json();",
-							"",
-							"pm.test(\"getting all characters\", function (){",
-							"    const allCharacters = [",
-							"    {",
-							"        \"character_id\": 1,",
-							"        \"character_name\": \"HarrisonFord\",",
-							"        \"gender\": \"female\",",
-							"        \"dexterity\": 1,",
-							"        \"strength\": 2,",
-							"        \"charisma\": 6,",
-							"        \"health_points\": 19,",
-							"        \"alive\": 1,",
-							"        \"class_id\": 1,",
-							"        \"user_id\": 1,",
-							"        \"class_name\": \"test\",",
-							"        \"base_dexterity\": 0,",
-							"        \"base_strength\": 0,",
-							"        \"base_charisma\": 5,",
-							"        \"male_class_img\": \"http://placekitten.com/234/232\",",
-							"        \"female_class_img\": \"http://placekitten.com/234/232\",",
-							"        \"start_health_points\": 18",
-							"    }",
-							"]",
-							"",
-							"let flag = true;",
-							"for (let prop in allCharacters[0]){",
-							"    if (typeof allCharacters[0][prop] != typeof res[0][prop]) flag = false;",
-							"}",
-							"pm.expect(flag).to.eql(true);",
-							"})"
+							"});"
 						]
 					}
 				}
 			],
 			"request": {
-				"url": "http://localhost:4000/api/getAllCharacters/1",
+				"url": "http://localhost:4000/api/getUser",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -184,51 +152,6 @@
 			"response": []
 		},
 		{
-			"name": "getSelectedStory",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"const res = pm.response.json();",
-							"",
-							"pm.test('grab selected story', function(){",
-							"    const selectedData = [",
-							"    {",
-							"        \"story_id\": 1,",
-							"        \"story_name\": \"harrison for punches ryan gosling\",",
-							"        \"user_id\": 1,",
-							"        \"story_description\": \"it actually happened\",",
-							"        \"story_level\": 1,",
-							"        \"completed_at\": \"2017-10-17T22:53:10.000Z\"",
-							"    }",
-							"]",
-							"let flag = true;",
-							"for (let prop in selectedData[0]){",
-							"    if (selectedData[0][prop] != res[0][prop]) flag = false;",
-							"}",
-							"pm.expect(flag).to.eql(true);",
-							"})",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:4000/api/story/1",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
 			"name": "getMostRecentStories",
 			"event": [
 				{
@@ -275,6 +198,108 @@
 			],
 			"request": {
 				"url": "http://localhost:4000/api/stories",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getAllCharacters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"getting all characters\", function (){",
+							"    const allCharacters = [",
+							"    {",
+							"        \"character_id\": 1,",
+							"        \"character_name\": \"HarrisonFord\",",
+							"        \"gender\": \"female\",",
+							"        \"dexterity\": 1,",
+							"        \"strength\": 2,",
+							"        \"charisma\": 6,",
+							"        \"health_points\": 19,",
+							"        \"alive\": 1,",
+							"        \"class_id\": 1,",
+							"        \"user_id\": 1,",
+							"        \"class_name\": \"test\",",
+							"        \"base_dexterity\": 0,",
+							"        \"base_strength\": 0,",
+							"        \"base_charisma\": 5,",
+							"        \"male_class_img\": \"http://placekitten.com/234/232\",",
+							"        \"female_class_img\": \"http://placekitten.com/234/232\",",
+							"        \"start_health_points\": 18",
+							"    }",
+							"]",
+							"",
+							"let flag = true;",
+							"for (let prop in allCharacters[0]){",
+							"    if (typeof allCharacters[0][prop] != typeof res[0][prop]) flag = false;",
+							"}",
+							"pm.expect(flag).to.eql(true);",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/getAllCharacters",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSelectedStory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const res = pm.response.json();",
+							"",
+							"pm.test('grab selected story', function(){",
+							"    const selectedData = [",
+							"    {",
+							"      \"story_id\": 1,",
+							"    \"story_name\": \"harrison ford punches ryan gosling\",",
+							"    \"user_id\": 1,",
+							"    \"story_description\": \"it actually happened\",",
+							"    \"story_level\": 1,",
+							"    \"completed_at\": \"2017-10-17T22:53:10.000Z\",",
+							"    \"start_encounter_id\": 1",
+							"    }",
+							"]",
+							"let flag = true;",
+							"for (let prop in selectedData[0]){",
+							"    if (selectedData[0][prop] != res[prop]) flag = false;",
+							"}",
+							"pm.expect(flag).to.eql(true);",
+							"})",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/story/1",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -360,30 +385,6 @@
 			],
 			"request": {
 				"url": "http://localhost:4000/api/storyName/sample",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "getUser",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:4000/api/getUser",
 				"method": "GET",
 				"header": [],
 				"body": {},

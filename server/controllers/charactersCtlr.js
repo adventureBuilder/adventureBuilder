@@ -23,5 +23,14 @@ module.exports={
             res.status(200).send(result[0]);
         })
         .catch((err)=>console.log(err,`see addCharacter endpoint`))
+    },
+    changeHP: (req,res)=>{
+        const db = req.app.get('db');
+        db.changeHP(req.body.health_points,req.body.character_id)
+           .then((result)=>{
+            res.status(200).send(result[0]);
+        })
+        .catch((err)=>console.log(err,`see changeHP endpoint`))
+   
     }
 }

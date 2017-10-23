@@ -31,8 +31,9 @@ class Tavern extends Component {
                     <NewUser />
                     
                     {console.log(this.props.characters, "Tavern characters state")}
-
+                    
                     <MyCharacters characterList={this.state.characters} />
+                    
                     <br />
                     <MyStories />
                 </div>

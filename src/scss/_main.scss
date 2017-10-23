@@ -8,9 +8,27 @@
     // less dark bluegrey #27313B
 
 
+    // $prim-color: #1e8c9a;
+    // $sec-color: #34bfc6;
+
+    // $btn-color: #F06060;
+    // $btn-highlight: #FF6F6F;
+    // $btn-press: #df4f4f;
+    // $btn-border-color: #9E2C2D;
+    
+    // $row-color: #bbb;
+    // $dropdown-color: #aaa;
+
+    // $bg-color: #1e8c9a;
+    // $black: #020d0e;
+    // $white: #ECF0F1;
+    // $border-color: #777;
+    // $off-white: #d1d1d1;
+
+
 // text colors
-$prim-color: #1e8c9a;
-$sec-color: #34bfc6;
+$prim-color: #1F262E;
+$sec-color: #27313B;
 
 // Encounters card
   // yellow border
@@ -21,17 +39,17 @@ $sec-color: #34bfc6;
   $char-box-color: #f9e6c5;
   $input-color: #b2b2b2;
 
-$btn-color: #F06060;
-$btn-highlight: #FF6F6F;
-$btn-press: #df4f4f;
-$btn-border-color: #9E2C2D;
+$btn-color: #F70302;
+$btn-highlight: #FF0B0A;
+$btn-press: #B21010;
+$btn-border-color: #A20000;
 
 $row-color: #bbb;
 $dropdown-color: #aaa;
 
-$bg-color: #1e8c9a;
+$bg-color: #1F262E;
 $black: #020d0e;
-$white: #ECF0F1;
+$white: #f7f7f7;
 $border-color: #777;
 $off-white: #d1d1d1;
 
@@ -41,8 +59,7 @@ $off-white: #d1d1d1;
 // MIXINS //////////////////////////////
 
 @mixin card{
-    background-color: $off-white;
-    border: 1px solid #777;
+    
     padding: 20px 25px;
     width: 100%;
 }
@@ -72,10 +89,24 @@ a {
 }
 h1,h2,h3,h4,h5 {
     font-family: $header-font-stack;
-    color: $white;
+    color: $black;
 }
 div, p, ul, li, a, button, span, input {
     font-family: $body-font-stack;
+    color: $black;
+}
+.title {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0;
+    display: inline-block;
+    color: $white;
+}
+.view-title {
+    font-family: $header-font-stack;
+    font-weight: 800;
+}
+.sub-title {
     color: $black;
 }
 input {
@@ -89,11 +120,19 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width:960px;
+    max-width: 960px;
     margin: 0 auto;
+    background-color: $white
 }
 .card {
     @include card;
+    background-color: $off-white;
+    border: 1px solid #777;
+}
+.block-card {
+    @include card;
+    background-color: $prim-color;
+    border: 1px solid #777;
 }
 // BUTTONS /////////////////////////////////////////////
 .btn {
@@ -135,16 +174,21 @@ input {
     top: 4px;
     box-shadow: 0 1px 0 0 $border-color;
 }
-.to-top {
+ .to-top {
     margin: 40px 0;
+//     position: fixed;
+//     bottom: 10px;
+//     right: 0;
+}
+// .to-top .btn {
+//     border-top-left-radius: 50px;
+//     border-top-right-radius: 0px;
+//     border-bottom-right-radius: 0px;
+//     border-bottom-left-radius: 50px;
+//     box-shadow: 0px 5px 0 0 $btn-border-color;
 
-}
+// }
+
 //     ///////////////////////////////
-.view-title {
-    font-family: $header-font-stack;
-    font-weight: 800;
-}
-.sub-title {
-    color: $white;
-}
+
 

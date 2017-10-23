@@ -42,14 +42,14 @@ export default class NewCharacter extends Component {
     createChar() {
         // grouping content needed to send to create the character
         let newChar = {
-            characterName : this.state.charName,
-            gender : '',
-            dexterity : this.state.classes[this.state.class - 1].base_dexterity,
-            strength : this.state.classes[this.state.class - 1].base_strength,
-            charisma : this.state.classes[this.state.class - 1].base_charisma,
-            healthPoints : this.state.classes[this.state.class - 1].start_health_points,
-            alive : 1,
-            classId : parseInt(this.state.class)
+            characterName: this.state.charName,
+            gender: '',
+            dexterity: this.state.classes[this.state.class - 1].base_dexterity,
+            strength: this.state.classes[this.state.class - 1].base_strength,
+            charisma: this.state.classes[this.state.class - 1].base_charisma,
+            healthPoints: this.state.classes[this.state.class - 1].start_health_points,
+            alive: 1,
+            classId: parseInt(this.state.class)
         }
         console.log('newChar', newChar)
         axios.post('/api/character', newChar).then(
@@ -60,7 +60,7 @@ export default class NewCharacter extends Component {
     render() {
 
         const charStatDisplay = (
-            
+
             <div className="char-row char-stats">
                 <div className="char-stat-row">
                     <h3>Srength(STR)</h3>
@@ -76,39 +76,41 @@ export default class NewCharacter extends Component {
                 </div>
 
             </div>
-            
-            
+
+
         )
 
         return (
             <div className="new-character">
 
                 <Menu />
-                <h2>Create A Character</h2>
+                <div className="page">
+                    <h2>Create A Character</h2>
 
-                <div className="new-character-block">
-                    <div className="char-row">
-                        <h3>Name: </h3>
-                        <input onChange={(e) => this.changeChar(e.target.name, e.target.value)} name="charName" type="text" />
+                    <div className="new-character-block">
+                        <div className="char-row">
+                            <h3>Name: </h3>
+                            <input onChange={(e) => this.changeChar(e.target.name, e.target.value)} name="charName" type="text" />
+                        </div>
+                        <div className="char-row">
+                            <h3>Class: </h3>
+
+                            <select className="select-box" name="class" onChange={(e) => this.changeChar(e.target.name, e.target.value)}>
+                                <option value="Choose Your Class" selected default disabled>Choose Your Class</option>
+                                {this.state.classes.map((charClass, i) => {
+                                    return <option key={i} value={charClass.class_id}>{charClass.class_name}</option>
+                                })}
+
+                            </select>
+                        </div>
+
+
+                        {this.state.class ? charStatDisplay : ''}
+
+                        {(this.state.class && this.state.charName) ? <button onClick={() => this.createChar()}>Create</button> : ''}
+
+
                     </div>
-                    <div className="char-row">
-                        <h3>Class: </h3>
-
-                        <select className="select-box" name="class" onChange={(e) => this.changeChar(e.target.name, e.target.value)}>
-                            <option value="Choose Your Class" selected default disabled>Choose Your Class</option>
-                            {this.state.classes.map((charClass, i) => {
-                                return <option key={i} value={charClass.class_id}>{charClass.class_name}</option>
-                            })}
-
-                        </select>
-                    </div>
-
-
-                    { this.state.class ? charStatDisplay : '' }
-
-                    { (this.state.class && this.state.charName) ? <button onClick={()=>this.createChar()}>Create</button> : ''}
-                   
-
                 </div>
                 <Footer />
             </div>

@@ -11,7 +11,7 @@ module.exports = {
             successEncounter,
             failedEncounter,
             optionImagesId,
-            healthConsquences}= req.body;
+            healthConsequences}= req.body;
     
         db.addOption([encounterId,
             optionName,
@@ -23,7 +23,7 @@ module.exports = {
             successEncounter,
             failedEncounter,
             optionImagesId,
-            healthConsquences]).then(_=>{
+            healthConsequences]).then(_=>{
                 res.status(200).send('option added');
             })
             .catch(err => {

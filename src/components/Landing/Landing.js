@@ -1,5 +1,5 @@
 // Displays game description text and "log in" button
-import './../../App.css';
+// import './../../App.css';
 
 import React, { Component } from 'react';
 

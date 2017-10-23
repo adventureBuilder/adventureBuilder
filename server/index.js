@@ -150,7 +150,7 @@ app.get(`/api/classes`, classesCtlr.getClasses);
 
 //imageEndpoints
 app.get(`/api/images/encounter`, imageCtrl.getEncounterImages);
-app.get(`/api/images/Option`, imageCtrl.getOptionImages);
+app.get(`/api/images/option`, imageCtrl.getOptionImages);
 
 
 //auth endpoints

@@ -32,7 +32,7 @@ export default class NewStory extends Component {
             storyLevel: this.state.storyLevel
         }
         axios.post('/api/story', body).then(resp=>{
-            console.log(resp);
+            this.props.history.push(`/storycreator/${resp.data.story_id}`)
         })
     }
     render() {

@@ -1,0 +1,47 @@
+.my-characters-list {
+	width: 100%;
+}
+.tavern-char-container {
+
+	margin: 15px 0;
+	
+	
+
+	.tavern-char-row {
+		// display:flex;
+		// justify-content: space-between;
+		
+
+		.tavern-char-name-container {
+
+			background-color: $row-color;
+			padding: 3px 5px;
+			width: 80%;
+			height: 30px;
+			box-shadow: 0 5px 0 0 $border-color;
+			display:inline-block;
+
+			.tavern-char-name {
+				min-width: 150px;
+				background-color: transparent;
+				border: none;
+				color: $btn-color;
+				text-align: left;
+			}
+
+		}
+
+		
+		
+	}
+	
+	
+}
+
+.down-arrow {
+	color: $black;
+}
+.my-stories {
+	width: 100%;
+}
+

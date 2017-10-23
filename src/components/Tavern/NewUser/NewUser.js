@@ -34,11 +34,11 @@ class NewUser extends Component {
 
     render() {
         return (
-            <div> {console.log('state:', this.props.state)}
+            <div className="new-user"> {console.log('state:', this.props.state)}
                 { this.props.username ? <h3>Welcome {this.props.username}</h3> : (<div>
-                    <h3>User Name:</h3>
-                    <p><input type="text" onChange={(e) => this.usernameChange(e)}  placeholder="Add a username" /></p>
-                    <a><button onClick={()=>this.usernameClick(this.state.username)} >Save</button></a>
+                    <h3>Set Your Author Name:</h3>
+                    <p><input type="text" onChange={(e) => this.usernameChange(e)}  placeholder="Author Name" /></p>
+                    <a><button className="btn" onClick={()=>this.usernameClick(this.state.username)} >Save</button></a>
 
                     {this.props.username}
                 </div>)

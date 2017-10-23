@@ -10,6 +10,7 @@ import MyStories from '../MyStories/MyStories';
 import NewUser from './NewUser/NewUser';
 import { getCharacters } from '../../ducks/reducer';
 
+
 class Tavern extends Component {
     constructor() {
         super()
@@ -24,14 +25,13 @@ class Tavern extends Component {
 
     render() {
         return (
+
             <div className="tavern">
                 <Menu />
                 <div className="page">
                     <h2 className="view-title">Tavern</h2>
                     <NewUser />
-                    
-                    {console.log(this.props.characters, "Tavern characters state")}
-                    
+
                     <MyCharacters characterList={this.state.characters} />
                     
                     <br />

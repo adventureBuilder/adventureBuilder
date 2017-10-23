@@ -12,6 +12,11 @@ import Tavern from './components/Tavern/Tavern';
 import StorySelection from './components/StorySelection/StorySelection';
 // the routing for our story selection menu
 import NewCharacter from './components/MyCharacters/NewCharacter/NewCharacter';
+// the routing for our new Story
+import NewStory from './components/NewStory/NewStory';
+// the routing for our story creator
+import StoryCreator from './components/StoryCreator/StoryCreator';
+// the route for our about page
 import About from './components/About/About';
 
 
@@ -23,6 +28,8 @@ export default (
         <Route path='/tavern' component={Tavern}/>
         <Route path='/storyselection' component={StorySelection}/>
         <Route path='/newcharacter' component={NewCharacter}/>
+        <Route path='/newstory' component={NewStory}/>
+        <Route path='/storycreator/:id' component={StoryCreator}/>
         <Route path='/about' component={About}/>
     </Switch>
 )

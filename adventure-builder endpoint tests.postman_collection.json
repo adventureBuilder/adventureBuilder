@@ -1,0 +1,432 @@
+{
+	"variables": [],
+	"info": {
+		"name": "adventure-builder endpoint tests",
+		"_postman_id": "717495d4-81d8-cc83-c37b-b44b4568af6f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/getUser",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSelectedCharacter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/getSelectedCharacter/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getEncounter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"Checking name of encounter\", function (){",
+							"    const storyData = ",
+							"    {",
+							"    \"encounter_id\": 1,",
+							"    \"encounter_name\": \"Giant Cat attack\",",
+							"    \"encounter_description\": \"you are attacked by a giant cat with fangs\",",
+							"    \"final_encounter\": 0,",
+							"    \"story_id\": 1,",
+							"    \"encounter_background_images_id\": 1,",
+							"    \"image_name\": \"Giant Cat attack\",",
+							"    \"image_src\": \"http://placekitten.com/300/250\",",
+							"    \"options\": [",
+							"        {",
+							"            \"encounter_option_id\": 1,",
+							"            \"encounter_id\": 1,",
+							"            \"option_name\": \"sneak\",",
+							"            \"option_description\": \"try to sneak past the evil cat\",",
+							"            \"option_odds\": \"1d4+dex\",",
+							"            \"options_pass_case\": 3,",
+							"            \"success_text\": \"you snooked away\",",
+							"            \"failed_text\": \"the cat bite you\",",
+							"            \"success_encounter\": 1,",
+							"            \"failed_encounter\": 1,",
+							"            \"option_images_id\": 1,",
+							"            \"health_consquences\": 3,",
+							"            \"image_name\": \"sneak cat\",",
+							"            \"image_src\": \"http://placekitten.com/400/441\"",
+							"        },",
+							"        {",
+							"            \"encounter_option_id\": 2,",
+							"            \"encounter_id\": 1,",
+							"            \"option_name\": \"flirt\",",
+							"            \"option_description\": \"try to make the cat fall in love with your devilish charm\",",
+							"            \"option_odds\": \"1d4+cha\",",
+							"            \"options_pass_case\": 3,",
+							"            \"success_text\": \"you seduced the cat and now you have a have cat have person baby\",",
+							"            \"failed_text\": \"the cat bite you\",",
+							"            \"success_encounter\": 1,",
+							"            \"failed_encounter\": 1,",
+							"            \"option_images_id\": 1,",
+							"            \"health_consquences\": 3,",
+							"            \"image_name\": \"sneak cat\",",
+							"            \"image_src\": \"http://placekitten.com/400/441\"",
+							"        },",
+							"        {",
+							"            \"encounter_option_id\": 3,",
+							"            \"encounter_id\": 1,",
+							"            \"option_name\": \"fight\",",
+							"            \"option_description\": \"kinda rude tho?\",",
+							"            \"option_odds\": \"1d4+str\",",
+							"            \"options_pass_case\": 3,",
+							"            \"success_text\": \"you killed away the cat\",",
+							"            \"failed_text\": \"the cat bite you\",",
+							"            \"success_encounter\": 1,",
+							"            \"failed_encounter\": 1,",
+							"            \"option_images_id\": 1,",
+							"            \"health_consquences\": 3,",
+							"            \"image_name\": \"sneak cat\",",
+							"            \"image_src\": \"http://placekitten.com/400/441\"",
+							"        }",
+							"    ]",
+							"}",
+							"let flag = true;",
+							"for (let prop in storyData){",
+							"    if(typeof storyData[prop] != typeof res[prop]) flag = false;",
+							"}",
+							"pm.expect(flag).to.eql(true);",
+							"})",
+							"    ",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/getEncounters/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getMostRecentStories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const res = pm.response.json();",
+							"",
+							"pm.test('Checking recent story data', function(){",
+							"    ",
+							"",
+							"",
+							"const recentData = [",
+							"    {",
+							"        \"story_id\": 7,",
+							"        \"story_name\": \"asdfasd\",",
+							"        \"user_id\": 1,",
+							"        \"story_description\": \"qref\",",
+							"        \"story_level\": 1,",
+							"        \"completed_at\": null,",
+							"        \"start_encounter_id\": null,",
+							"        \"user_name\": \"Blake\",",
+							"        \"email\": \"adventureBuilder2049@gmail.com\",",
+							"        \"name\": \"adventurer\",",
+							"        \"profile_picture\": \"http://placekitten.com/234/250\",",
+							"        \"auth_id\": \"asdtfasdgsfdgsdfgsdf\"",
+							"    }",
+							"]",
+							"",
+							"let flag = true;",
+							"for (let prop in recentData[0]){",
+							"    if (typeof recentData[0][prop] != typeof res[0][prop]) flag = false;",
+							"}",
+							"pm.expect(flag).to.eql(true);",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/stories",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getAllCharacters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"getting all characters\", function (){",
+							"    const allCharacters = [",
+							"    {",
+							"        \"character_id\": 1,",
+							"        \"character_name\": \"HarrisonFord\",",
+							"        \"gender\": \"female\",",
+							"        \"dexterity\": 1,",
+							"        \"strength\": 2,",
+							"        \"charisma\": 6,",
+							"        \"health_points\": 19,",
+							"        \"alive\": 1,",
+							"        \"class_id\": 1,",
+							"        \"user_id\": 1,",
+							"        \"class_name\": \"test\",",
+							"        \"base_dexterity\": 0,",
+							"        \"base_strength\": 0,",
+							"        \"base_charisma\": 5,",
+							"        \"male_class_img\": \"http://placekitten.com/234/232\",",
+							"        \"female_class_img\": \"http://placekitten.com/234/232\",",
+							"        \"start_health_points\": 18",
+							"    }",
+							"]",
+							"",
+							"let flag = true;",
+							"for (let prop in allCharacters[0]){",
+							"    if (typeof allCharacters[0][prop] != typeof res[0][prop]) flag = false;",
+							"}",
+							"pm.expect(flag).to.eql(true);",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/getAllCharacters",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getSelectedStory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const res = pm.response.json();",
+							"",
+							"pm.test('grab selected story', function(){",
+							"    const selectedData = [",
+							"    {",
+							"      \"story_id\": 1,",
+							"    \"story_name\": \"harrison ford punches ryan gosling\",",
+							"    \"user_id\": 1,",
+							"    \"story_description\": \"it actually happened\",",
+							"    \"story_level\": 1,",
+							"    \"completed_at\": \"2017-10-17T22:53:10.000Z\",",
+							"    \"start_encounter_id\": 1",
+							"    }",
+							"]",
+							"let flag = true;",
+							"for (let prop in selectedData[0]){",
+							"    if (selectedData[0][prop] != res[prop]) flag = false;",
+							"}",
+							"pm.expect(flag).to.eql(true);",
+							"})",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/story/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "searchStoryByLevel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const res = pm.response.json();",
+							"",
+							"pm.test('get story by level', function (){",
+							"    const levelData = [",
+							"    {",
+							"        \"story_id\": 1,",
+							"        \"story_name\": \"harrison for punches ryan gosling\",",
+							"        \"user_id\": 1,",
+							"        \"story_description\": \"it actually happened\",",
+							"        \"story_level\": 1,",
+							"        \"completed_at\": \"2017-10-17T22:53:10.000Z\",",
+							"        \"user_name\": \"adventureBuilder\",",
+							"        \"email\": \"adventureBuilder2049@gmail.com\",",
+							"        \"name\": \"adventurer\",",
+							"        \"profile_picture\": \"http://placekitten.com/234/250\",",
+							"        \"auth_id\": \"string\"",
+							"    }",
+							"]",
+							"",
+							"let flag = true;",
+							"for (let prop in levelData[0]){",
+							"    if (typeof levelData[0][prop] != typeof res[0][prop]) flag = false;",
+							"}",
+							"pm.expect(flag).to.eql(true);",
+							"})",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/levels/stories/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getStoryByName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"searching should disregard casing and return a result if words match\", function (){",
+							"    pm.expect(res[0].story_name).to.eql('Sample Story');",
+							"});",
+							"",
+							"pm.test(\"searching with story name (sample) should return an array of 1 length\", function(){",
+							"    pm.expect(res.length).to.eql(1);",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/storyName/sample",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getUsersMostRecentStories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const res = pm.response.json();",
+							"",
+							"pm.test(\"searching (blak) should disregard casing and return result username of search query should be Blake\", function (){",
+							"",
+							"",
+							" pm.expect(res[0].user_name).to.eql('Blake');",
+							"})",
+							"",
+							"pm.test(\"array of stories of blake should equal 3\", function(){",
+							"    pm.expect(res.length).to.eql(3);",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/user/stories/blak",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

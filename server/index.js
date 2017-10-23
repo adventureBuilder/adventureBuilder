@@ -123,11 +123,11 @@ app.put(`/api/updateUser`, userCtlr.updateUser);
 app.post(`/api/character`, characterCtlr.createCharacter);
 app.get(`/api/getAllCharacters`, characterCtlr.getAllCharacters);
 app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedCharacter);
-app.post('/api/character/changeHP', characterCtlr.changeHP)
+app.post('/api/character/changeHP', characterCtlr.changeHP);
 
 //Story Endpoints
-app.post(`/api/story`, storiesCtlr.addStory)
-app.put(`/api/story/:storyId`, storiesCtlr.addStory)
+app.post(`/api/story`, storiesCtlr.addStory);
+app.put(`/api/story/:storyId`, storiesCtlr.completeStory);
 
 app.get(`/api/storyDetails/:storyId`, storiesCtlr.getStoryDetails);
 app.get(`/api/story/:storyId`, storiesCtlr.getSelectedStory);
@@ -138,8 +138,8 @@ app.get(`/api/levels/stories/:level`, storiesCtlr.searchStoryByLevel);
 app.get(`/api/storyName/:storyName`, storiesCtlr.getStoryByName);
 
 //Encounter Endpoints
-app.post(`/api/encounter`, encounterCtlr.addEncounter)
-app.post(`/api/firstEncounter`, encounterCtlr.addFirstEncounter)
+app.post(`/api/encounter`, encounterCtlr.addEncounter);
+app.post(`/api/firstEncounter`, encounterCtlr.addFirstEncounter);
 app.get(`/api/getEncounters/:encounterId`, encounterCtlr.getEncounter);
 
 

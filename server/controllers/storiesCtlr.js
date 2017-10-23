@@ -11,8 +11,8 @@ module.exports = {
     completeStory: (req,res) =>{
         const db = req.app.get('db');
         const {storyId} = req.params;
-        db.completeStory(storyId).then(_=>{
-            res.status(200).send();
+        db.completeStory(storyId).then(resp=>{
+            res.status(200).send(resp[0]);
         })
     },
     getMostRecentStories: (req, res) => {

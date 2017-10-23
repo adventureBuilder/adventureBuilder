@@ -127,7 +127,7 @@ app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedChara
 
 //Story Endpoints
 app.post(`/api/story`, storiesCtlr.addStory)
-app.put(`/api/story/storyId`, storiesCtlr.addStory)
+app.put(`/api/story/:storyId`, storiesCtlr.completeStory)
 
 app.get(`/api/storyDetails/:storyId`, storiesCtlr.getStoryDetails);
 app.get(`/api/story/:storyId`, storiesCtlr.getSelectedStory);

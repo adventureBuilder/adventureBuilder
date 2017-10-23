@@ -4,7 +4,8 @@ module.exports = {
         const {user_id} = req.session.user; // for testing should be req.user
         const {storyName, storyDescription, storyLevel} = req.body;
         db.addStory([storyName, user_id, storyDescription, storyLevel]).then(resp =>{
-            res.status(200).send(result[0]);
+            console.log(resp);
+            res.status(200).send(resp[0]);
         })
     },
     completeStory: (req,res) =>{
@@ -66,6 +67,9 @@ module.exports = {
                 db.getStoryEncounters(req.params.storyId)
                 .then(result =>{
                     story.encounters = result;
+                    if(story.encounters.length === 0){
+                        res.status(200).send(story);
+                    } 
                     story.encounters.map((encounter, index) => {
                         db.getOptions(encounter.encounter_id).then((resp) => {
                             story.encounters[index].options = resp;

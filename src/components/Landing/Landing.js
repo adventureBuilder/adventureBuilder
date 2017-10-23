@@ -1,6 +1,5 @@
 // Displays game description text and "log in" button
 
-
 import React, { Component } from 'react';
 
 import Menu from './../Menu/Menu';

@@ -147,7 +147,7 @@ export default class StoryCreator extends Component {
                 <div className='creator_container'>
                     <div className='encounters_display_container'>
                         {encounters}
-                        {encounters.length > 0 && <button onClick={this.openNewEncounter}>add Encounter</button>}
+                        {encounters.length > 0 && <button onClick={this.openNewEncounter}>Add Encounter</button>}
                         {this.isValid() && <button onClick={_=>this.completeStory()}>Complete Story</button>}
                     </div>
 

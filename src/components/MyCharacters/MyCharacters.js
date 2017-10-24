@@ -9,7 +9,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { getCharacters, getSelectedCharacter } from '../../ducks/reducer';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 
-// var CSSTransitionGroup = require('react-transition-group/CSSTransitionGroup')
+
 const styles = {
     transition: 'all 1s ease-out'
 };
@@ -65,8 +65,8 @@ class MyCharacters extends Component {
         // console.log(this.props.selectedCharacter, `this is the selected character`)
         //console.log(this.state.showModule, this.state.characterIdModuleToShow, `state of showModule`)
 
-        const characterList = this.props.characters.map((character, i) => {
-            <div>
+        const characterList = this.props.characters.map((character, i) => (
+            <div className="tavern-char-container">
 
                 <div className="tavern-char-row">
                     <div className="arrow-dropdown"></div>
@@ -77,15 +77,15 @@ class MyCharacters extends Component {
                 </div>
 
 
-                <div className={`tavern-char-container ${this.state[character.character_id] && 'show'}`} key={character.character_id}>
+                <div className={`${this.state[character.character_id] && 'show'}`} key={character.character_id}>
                     {/* <CSSTransition key={i} classNames="example" timeout={{ enter: 500, exit: 300 }}> */}
-                    {(this.state.characterIdModuleToShow == character.character_id + 'NameButton') && <CharacterDisplay character={character} /> }
+                    {(this.state.characterIdModuleToShow == character.character_id + 'NameButton') && <CharacterDisplay character={character} />}
                     {/* </CSSTransition> */}
 
                 </div>
             </div>
 
-        }
+        )
         );
 
         return (
@@ -95,7 +95,7 @@ class MyCharacters extends Component {
                     {/* <CSSTransitionGroup  transitionName="example"
                 transitionEnterTimeout={500}
         transitionLeaveTimeout={300}>   <TransitionGroup>*/}
-                   {characterList}
+                    {characterList}
                     {/* </TransitionGroup></CSSTransitionGroup> */}
 
                     <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>

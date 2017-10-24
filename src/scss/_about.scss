@@ -1,0 +1,20 @@
+.about {
+	.team-row {
+		border-bottom: 10px solid $black;
+		padding: 20px 10px;
+		margin: 40px 0;
+		width: 100%;
+	}
+	.team-col {
+		display: inline-block;
+		width: 50%;
+	}
+	.bio-img {
+		width: 300px;
+		height: auto;
+		border: 5px solid $border-color;
+		border-radius: 200px;
+	
+	}
+
+}

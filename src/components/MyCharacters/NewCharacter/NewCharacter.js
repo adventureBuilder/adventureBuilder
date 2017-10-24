@@ -90,7 +90,7 @@ export default class NewCharacter extends Component {
                     <div className="new-character-block">
                         <div className="char-row">
                             <h3>Name: </h3>
-                            <input onChange={(e) => this.changeChar(e.target.name, e.target.value)} name="charName" type="text" />
+                            <input className="base-input" onChange={(e) => this.changeChar(e.target.name, e.target.value)} name="charName" type="text" />
                         </div>
                         <div className="char-row">
                             <h3>Class: </h3>

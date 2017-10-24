@@ -40,7 +40,7 @@ $sec-color: #27313B;
   $input-color: #b2b2b2;
 
 $btn-color: #F70302;
-$btn-highlight: #FF0B0A;
+$btn-highlight: #FF1D1C;
 $btn-press: #B21010;
 $btn-border-color: #A20000;
 
@@ -110,7 +110,7 @@ div, p, ul, li, a, button, span, input {
     color: $black;
 }
 input {
-    padding: 2px 4px;
+    padding: 2px 4px 2px 6px;
     border: $border-color;
 } 
 // MAIN STYLES USED EVERYWHERE //////////
@@ -173,6 +173,10 @@ input {
     position: relative;
     top: 4px;
     box-shadow: 0 1px 0 0 $border-color;
+}
+.base-input {
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 0 0 $border-color;
 }
  .to-top {
     margin: 40px 0;

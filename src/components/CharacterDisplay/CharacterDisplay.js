@@ -6,22 +6,23 @@ import React from 'react';
 export default function CharacterDisplay({ character }) {
 
     return (
-        <div className="characterDisplayContainer">
+        <div className="char-display-container">
+            <div className="char-title">
+                <h2 className="char-name">{character.character_name}</h2>
+                <h3 className="char-class">The&nbsp;{character.class_name}</h3>
+            </div>
 
-            <h2>{character.character_name}</h2>
-            <h3>The {character.class_name}</h3>
-            
             <div className="char-sheet">
-               {/* <div>
+                {/* <div>
                     <div>Class </div>
                      eliminated race and coins
                     <div>Race: </div>
                     <div>Coin: </div> 
                 </div> 
                 <div>*/}
-                    <div>STR: {character.strength}</div>
-                    <div>DEX: {character.dexterity}</div>
-                    <div>CHA: {character.charisma}</div>
+                <div>STRENGTH: {character.strength}</div>
+                <div>DEXTERITY: {character.dexterity}</div>
+                <div>CHARISMA: {character.charisma}</div>
                 {/* </div> */}
             </div>
 

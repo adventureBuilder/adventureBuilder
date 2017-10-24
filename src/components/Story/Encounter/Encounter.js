@@ -14,7 +14,7 @@ export default class Encounter extends Component {
         this.setResults = this.setResults.bind(this)
     }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         this.setState({
             resultText: '',
             redirectEncounterId: ''
@@ -31,25 +31,32 @@ export default class Encounter extends Component {
 
     render() {
 
-        let optionsArr = this.props.encounter.options && this.props.encounter.options.map(option => {
-            return <Option key={option.encounter_option_id} setResults={this.setResults} option={option} />
+        let optionsArr = this.props.encounter.options && this.props.encounter.options.map((option, i) => {
+            return <Option key={option.encounter_option_id} id={i} setResults={this.setResults} option={option} />
         })
+        console.log('optionsArr', optionsArr);
         return (
             <div>
-                encounter
-                <img src={this.props.encounter.image_src} alt={this.props.encounter.image_name} />
-                {this.props.encounter.encounter_name}
-                {this.props.encounter.encounter_description}
+                <h2 className="encounter-title">{this.props.encounter.encounter_name}</h2>
+                <p className="encounter-description">
+                    {this.props.encounter.encounter_description}
+                </p>
+                <div>
+                    <img className="encounter-image" src={this.props.encounter.image_src} alt={this.props.encounter.image_name} />
+                </div>
+               
+
+
                 {
                     this.state.resultText
                         ?
                         <div>
                             {this.state.resultText}
-                            <button onClick={_=>{this.props.setEncounter(this.state.redirectEncounterId)}} >Next Encounter</button>
+                            <button className="btn" onClick={_ => { this.props.setEncounter(this.state.redirectEncounterId) }} >Next Encounter</button>
                         </div>
                         :
-                        <div>
-                            options
+                        <div className="options">
+                            <h3>Options</h3>
                             {optionsArr}
 
                         </div>

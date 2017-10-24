@@ -5,6 +5,8 @@ import axios from 'axios';
 const initialState = {
     user: { username:'' },
     selectedCharacter: { "character_id": 1, "character_name": "HarrisonFord", "gender": "female", "dexterity": 1, "strength": 2, "charisma": 6, "health_points": 19, "alive": 1, "class_id": 1, "user_id": 1, "class_name": "test", "base_dexterity": 0, "base_strength": 0, "base_charisma": 5, "male_class_img": "http://placekitten.com/234/232", "female_class_img": "http://placekitten.com/234/232", "start_health_points": 18 },
+    selectedCharacterHP: null,
+    selectedCharacterAliveOrDead: null,
     characters: []
 };
 
@@ -18,6 +20,8 @@ const UPDATE_USER = 'UPDATE_USER';
 const GET_CHARACTERS = 'GET_CHARACTERS';
 
 const GET_SELECTED_CHARACTER = 'GET_SELECTED_CHARACTER';
+
+const CHANGE_HEALTH_POINTS = 'CHANGE_HEALTH_POINTS';
 
 
 
@@ -68,6 +72,18 @@ export function getSelectedCharacter (characterId) {
     }
 }
 
+export function changeHP(character_id,old_health_points,new_points){
+ var health_points = old_health_points + new_points;
+ return{
+        type: CHANGE_HEALTH_POINTS,
+        payload: axios.post(`/api/character/changeHP`,{health_points: health_points, character_id: character_id})
+        .then(res=>{
+            return res.data
+        })
+        .catch(err=>console.log(err, 'error from get changeHP axios function'))
+    }
+}
+
 
 
 // Reducer
@@ -85,7 +101,11 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {characters: action.payload});
 
         case GET_SELECTED_CHARACTER + '_FULFILLED':
-        return Object.assign({}, state, {selectedCharacter: action.payload});
+        return Object.assign({}, state, {selectedCharacter: action.payload, selectedCharacterHP: action.payload.health_points, selectedCharacterAliveOrDead: action.payload.alive });
+
+        case CHANGE_HEALTH_POINTS + '_FULFILLED':
+         return Object.assign({}, state, {selectedCharacterHP: action.payload.health_points, selectedCharacterAliveOrDead: action.payload.alive});
+        
 
         default: return state;
 

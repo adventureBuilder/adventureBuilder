@@ -3,11 +3,11 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import {withRouter} from "react-router-dom";
 
 import Menu from './../../Menu/Menu';
+import Footer from './../../Menu/Footer';
 
-class NewCharacter extends Component {
+export default class NewCharacter extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -109,9 +109,9 @@ class NewCharacter extends Component {
                     { (this.state.class && this.state.charName) ? <button onClick={()=>this.createChar()}>Create</button> : ''}
                    
 
-                </div> 
+                </div>
+                <Footer />
             </div>
         );
     }
 }
-export default withRouter(NewCharacter);

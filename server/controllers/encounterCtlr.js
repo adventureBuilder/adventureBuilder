@@ -25,7 +25,7 @@ module.exports = {
     },
     addFirstEncounter: (req, res) => {
         const db = req.app.get('db');
-        const  {encounterName, encounterDescription, finalEncounter, storyId, encounterBackGroundImage} = req.body
+        const {encounterName, encounterDescription, finalEncounter, storyId, encounterBackGroundImage} = req.body
         db.addEncounter([encounterName, encounterDescription, finalEncounter, storyId, encounterBackGroundImage]).then(result => {
             db.updateFirstEncounter([result[0].encounter_id, storyId]).then(_=>{
                 res.status(200).send(result[0]);

@@ -64,8 +64,8 @@ class MyCharacters extends Component {
 
         // console.log(this.props.selectedCharacter, `this is the selected character`)
         //console.log(this.state.showModule, this.state.characterIdModuleToShow, `state of showModule`)
-       
-        const characterList = this.props.characters.filter(char=> char.alive).map((character, i) =>
+
+        const characterList = this.props.characters.filter(char => char.alive).map((character, i) =>
             <div className="tavern-char-container" key={i}>
                 <div className="tavern-char-row">
                     <div className="arrow-dropdown"></div>
@@ -84,7 +84,6 @@ class MyCharacters extends Component {
                 </div>
             </div>
 
-        )
         );
 
         return (

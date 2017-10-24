@@ -8,7 +8,7 @@ import Footer from './../Menu/Footer';
 import MyCharacters from '../MyCharacters/MyCharacters';
 import MyStories from '../MyStories/MyStories';
 import NewUser from './NewUser/NewUser';
-import { getCharacters } from '../../ducks/reducer';
+import { getCharacters, getUser } from '../../ducks/reducer';
 
 
 class Tavern extends Component {
@@ -21,6 +21,7 @@ class Tavern extends Component {
 
     componentDidMount() {
         this.props.getCharacters();
+        this.props.getUser();
     }
 
     render() {
@@ -50,4 +51,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getCharacters })(Tavern)
+export default connect(mapStateToProps, { getCharacters, getUser })(Tavern)

@@ -3,7 +3,7 @@ import axios from 'axios';
 import EncounterDisplay from './EncounterDisplay/EncounterDisplay';
 import AddEncounter from './AddEncounter/AddEncounter';
 import AddOption from './AddOption/AddOption';
-import './StoryCreator.css'
+// import './StoryCreator.css'
 
 export default class StoryCreator extends Component {
     constructor() {

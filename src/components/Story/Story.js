@@ -10,6 +10,9 @@ import Encounter from './Encounter/Encounter';
 import FinalEncounter from './FinalEncounter/FinalEncounter';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 
+// import luteIcon from '../../images/ab-lute-icon.svg';
+// import daggerIcon from '../../images/ab-dagger-icon.svg';
+
 class Story extends Component {
     constructor(props) {
         super(props);

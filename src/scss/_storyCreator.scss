@@ -1,0 +1,18 @@
+.creator_container{
+    margin: auto;
+    width: 1170px;
+    border: 2px solid black;
+    margin: auto;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: row;
+    background: white;
+}
+.encounters_display_container{
+    border: 2px solid red;
+    flex-grow: 1;
+}
+.creator_display_container{
+    border: 2px solid yellow;
+    flex-grow: 3;
+}

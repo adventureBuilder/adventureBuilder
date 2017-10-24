@@ -31,10 +31,9 @@ class Tavern extends Component {
                 <div className="page">
                     <h2 className="view-title">Tavern</h2>
                     <NewUser />
-                    
-
 
                     <MyCharacters characterList={this.state.characters} />
+                    
                     <br />
                     <MyStories />
                 </div>

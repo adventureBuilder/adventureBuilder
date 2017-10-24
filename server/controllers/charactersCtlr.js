@@ -28,16 +28,13 @@ module.exports={
         const db = req.app.get('db');
         db.changeHP(req.body.health_points,req.body.character_id)
            .then((result)=>{
-                if (result.health_points > 0){
+                if (result[0].health_points > 0){
                          res.status(200).send(result[0])
                 } else {
                          db.killCharacter(req.body.character_id)
                          .then(result=>res.status(200).send(result[0]))
                           .catch((err)=>console.log(err,`see changeHP.killCharacter endpoint`))
                 }
-            
-           
-                db.killCharacter(req.body.character_id)
         })
         .catch((err)=>console.log(err,`see changeHP.changeHP endpoint`))
    

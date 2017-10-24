@@ -10,7 +10,15 @@
 	.tavern-char-row {
 		// display:flex;
 		// justify-content: space-between;
-		
+		.arrow-dropdown {
+			height:0;
+			width:0;
+			border-top:15px solid transparent;
+			border-left:30px solid red;
+			border-bottom:15px solid transparent;
+			display:inline-block;
+			
+		}
 
 		.tavern-char-name-container {
 
@@ -58,3 +66,20 @@
 
 
 //   Paul finished coding in a menu drop animation
+.example-enter {
+	opacity: 0.01;
+  }
+  
+  .example-enter.example-enter-active {
+	opacity: 1;
+	transition: opacity 2s ease-in;
+  }
+  
+  .example-exit {
+	opacity: 1;
+  }
+  
+  .example-exit.example-exit-active {
+	opacity: 0.01;
+	transition: opacity 2s ease-in;
+  }

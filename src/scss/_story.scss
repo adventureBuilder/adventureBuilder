@@ -38,14 +38,170 @@
 	.encounter-description {
 
 	}
-	.encounter-image {
-		display:block;
-		margin: 0 auto;
-		width: 70%;
-		height: auto;
-		max-height: 300px;
+	.encounter-image-container {
+		position:relative;
+		overflow: hidden;
 
+		.encounter-image {
+			display:block;
+			margin: 0 auto;
+			width: 80%;
+			height: auto;
+			max-height: 300px;
+
+		}
 	}
+
+	/* OPTIONS STYLING */
+	.options {
+		
+	}
+	.option-0 {
+		position: absolute;
+		top: 0;
+		left: 10%;
+		height: 300px;
+		width: 80%;
+
+		.option-name {
+			background-color: #777;
+			padding:10px;
+			position: absolute;
+			top: 125px;
+			left: -25px;
+			height: 50px;
+			text-align:center;
+			font-size: 28px;
+			box-shadow: 8px 10px 25px 0 #555;
+			margin: 0;
+			
+		}
+		.option-icon {
+			width: 25px; 
+			height: 25px;
+			margin: 0 10px;
+			position: relative;
+			
+			
+		}
+		.option-arrow {
+			display:inline-block;
+			height: 0;
+			width: 0;
+			border-left: 25px solid #777;
+			border-top: 25px solid transparent;
+			border-bottom: 25px solid transparent;
+			position: absolute;
+			top:0;
+			right:-25px;
+		}
+		.option-arrow-tab {
+			display:inline-block;
+			height: 0;
+			width: 0;
+			border-left: 25px solid transparent;
+			border-top: 25px solid #555;
+			position: absolute;
+			bottom:-25px;
+			left:0px;
+		}
+		.option-description {
+
+		}
+		.btn {
+
+		}
+		.option-card {
+			background-color: $white;
+			padding: 20px;
+			height: 200px;
+			
+			min-width: 300px;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			
+		}
+		.option-card-peek {
+			bottom: 200px;
+		}
+		
+	}
+
+	.option-1 {
+		position: absolute;
+		top: 0;
+		right: 10%;
+		height: 300px;
+		width: 80%;
+
+		.option-name {
+			background-color: #777;
+			padding:10px;
+			position: absolute;
+			top: 125px;
+			right: -25px;
+			height: 50px;
+			text-align:center;
+			font-size: 28px;
+			box-shadow: -8px 10px 25px 0 #555;
+			margin: 0;
+			
+		}
+		.option-icon {
+			width: 25px; 
+			height: 25px;
+			margin: 0 10px;
+			
+			
+		}
+		.option-arrow {
+			display:inline-block;
+			height: 0;
+			width: 0;
+			border-right: 25px solid #777;
+			border-top: 25px solid transparent;
+			border-bottom: 25px solid transparent;
+			position: absolute;
+			top:0;
+			left:-25px;
+		}
+		.option-arrow-tab {
+			display:inline-block;
+			height: 0;
+			width: 0;
+			border-right: 25px solid transparent;
+			border-top: 25px solid #555;
+			position: absolute;
+			bottom:-25px;
+			right:0px;
+		}
+		.option-description {
+
+		}
+		.btn {
+
+		}
+		.option-card {
+			background-color: $white;
+			padding: 20px;
+			height: 200px;
+			
+			min-width: 300px;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			
+		}
+		.option-card-peek {
+			bottom: 200px;
+		}
+		
+	}
+
+
 
 	.char-display-container {
 		width: 100%;

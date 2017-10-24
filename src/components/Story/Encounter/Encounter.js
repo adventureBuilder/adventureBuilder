@@ -41,13 +41,9 @@ export default class Encounter extends Component {
                 <p className="encounter-description">
                     {this.props.encounter.encounter_description}
                 </p>
-                <div>
+                <div className="encounter-image-container">
                     <img className="encounter-image" src={this.props.encounter.image_src} alt={this.props.encounter.image_name} />
-                </div>
-               
-
-
-                {
+                    {
                     this.state.resultText
                         ?
                         <div>
@@ -56,11 +52,16 @@ export default class Encounter extends Component {
                         </div>
                         :
                         <div className="options">
-                            <h3>Options</h3>
+                            
                             {optionsArr}
 
                         </div>
                 }
+                </div>
+               
+
+
+                
             </div>
         );
     }

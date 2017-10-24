@@ -9,8 +9,17 @@ export default class FinalEncounter extends Component {
             <img src={this.props.encounter.image_src} alt={this.props.encounter.image_name} />
             {this.props.encounter.encounter_name}
             {this.props.encounter.encounter_description}
-            <button onClick={this.props.restartStory}>Restart Story</button>
+            {this.props.encounter.encounter_id == 21 ? 
+            <div>
+                <Link to='/cemetery'><button>Visit your mangeled body in the cemetery!</button></Link>
+            </div>
+            :
+            <div>
+                <button onClick={this.props.restartStory}>Restart Story</button>
             <Link to='/storyselection'>Go back to story Selection</Link>
+            </div>
+            }
+            
         </div>
         );
     }

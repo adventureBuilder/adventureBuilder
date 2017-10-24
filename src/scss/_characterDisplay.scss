@@ -1,13 +1,13 @@
 .char-display-container {
 	
 	@include card;
-	
+	background-color: $white;
 	padding: 0 10px 10px 10px;
 	width: 80%;
 	position: relative;
 	top: 5px;
-	border-top: 7px solid $prim-color;
-	border-bottom: 3px solid $prim-color;
+	border-top: 7px solid $sec-color;
+	border-bottom: 3px solid $sec-color;
 	
 	.char-title {
 	

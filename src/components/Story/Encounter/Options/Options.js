@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { changeHP } from '../../../../ducks/reducer'
 
 class Options extends Component {
     constructor() {
@@ -39,7 +40,13 @@ class Options extends Component {
         if(num < this.props.option.options_pass_case){
             //set fail text
             //sets redirect encounter
-            this.props.setResults(this.props.option.failed_text, this.props.option.failed_encounter);
+            this.props.changeHP(this.props.character.character_id, this.props.character.health_points, this.props.option.health_consequences).then(res => {
+                if (this.props.character.alive) {
+                    this.props.setResults(this.props.option.failed_text, this.props.option.failed_encounter);
+                } else {
+                    this.props.setResults(this.props.option.failed_text + ' You dead!', 21)
+                }
+            })
         }else{
             // sets success text
             //sets redirect encounter
@@ -48,10 +55,17 @@ class Options extends Component {
     }
     render() {
         return (
-            <div className={this.props.id}>
-                <h4 className="option-name">{this.props.option.option_name}</h4>
-                <p className="option-description">{this.props.option.option_description}</p>
-                <button className="btn" onClick={_=>{this.chooseOption()}}>Attempt</button>
+            <div className={'option-'+this.props.id}>
+                <div className="option-card">
+                    <p className="option-description">{this.props.option.option_description}</p>
+                    <button className="btn" onClick={_=>{this.chooseOption()}}>Attempt</button>
+                </div>
+                <h4 className="option-name"><img className="option-icon" src={this.props.option.image_src} alt="" />{this.props.option.option_name}
+                    
+                    <div className="option-arrow"></div>
+                    <div className="option-arrow-tab"></div>
+                </h4>
+                
             </div>
         );
     }
@@ -63,4 +77,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Options);
+export default connect(mapStateToProps, {changeHP})(Options);

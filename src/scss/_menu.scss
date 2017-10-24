@@ -1,6 +1,7 @@
 .menu{
 
-padding: 20px 20px 0 20px;
+padding: 10px 20px 0 20px;
+height: 65px;
 margin-bottom: 20px;
 display: flex;
 justify-content: space-between;
@@ -26,12 +27,7 @@ align-items: center;
 
 			}
 		}
-		.title {
-			font-size: 28px;
-			font-weight: 800;
-			margin: 0;
-			display: inline-block;
-		}
+		
 	}
 	.menu-btn {
 		background-color: $white;
@@ -39,6 +35,21 @@ align-items: center;
 		border: 1px solid $encounter-box-color;
 		border-radius: $radius;
 		color: $black;
+	}
+	.tavern-btn {
+
+	}
+	.tavern-btn:hover {
+		border-bottom: 1px solid $btn-color;
+	}
+	.tavern-btn:active {
+		
+	}
+	.tavern-icon {
+		width: 50px;
+		height: auto;
+		
+		padding-bottom: 5px;
 	}
 
 

@@ -15,7 +15,8 @@ class StorySelection extends Component {
         super(props);
         this.state = {
             storiesArray: [],
-            noSearchResults: false
+            noSearchResults: false,
+            searchType: 'Title'
         }
     }
 
@@ -126,9 +127,9 @@ class StorySelection extends Component {
                             <select className="select-btn search-select-box" name="searchType" onChange={
                                 (e) => this.changeStorySearch(e.target.name, e.target.value)
                             }>
-                                <option value="Search By" selected default disabled>Search By</option>
+                                
+                                <option selected default value="Title" >Title</option>
                                 <option value="Author">Author</option>
-                                <option value="Title" >Title</option>
                                 <option value="Newest" >Newest</option>
                             </select>
 

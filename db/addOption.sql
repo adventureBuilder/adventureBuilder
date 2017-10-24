@@ -10,7 +10,7 @@ INSERT INTO encounter_options
     success_encounter,
     failed_encounter,
     option_images_id,
-    health_consquences
+    health_consequences
 )
 values
 (

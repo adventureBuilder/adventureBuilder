@@ -427,6 +427,60 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "changeHP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"const res = pm.response.json();",
+							"var test={",
+							"    \"character_id\": 7,",
+							"    \"character_name\": \"Happy\",",
+							"    \"gender\": \"\",",
+							"    \"dexterity\": 2,",
+							"    \"strength\": -1,",
+							"    \"charisma\": 0,",
+							"    \"health_points\": 100,",
+							"    \"alive\": 1,",
+							"    \"class_id\": 3,",
+							"    \"user_id\": 1",
+							"}",
+							"",
+							"pm.test(\"make sure character is updated\",function(){",
+							"var flag = true;",
+							"(res.character_id === test.character_id && res.health_points === test.health_points) ? flag=true : flag = false;",
+							"pm.expect(flag).to.eql(true);",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:4000/api/character/changeHP",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"character_id\":7,\n\t\"health_points\":100\n}"
+				},
+				"description": "make sure sql file updates health_points properly"
+			},
+			"response": []
 		}
 	]
 }

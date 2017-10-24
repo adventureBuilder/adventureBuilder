@@ -71,7 +71,8 @@ class MyCharacters extends Component {
 
                 <div className={`${this.state[character.character_id] && 'show'}`} key={character.character_id}>
                     
-                    {(this.state.characterIdModuleToShow == character.character_id + 'NameButton') && <CharacterDisplay character={character} slideVisible={this.state.slideVisible} openSlide={this.openSlide}/>}
+                    {(this.state.characterIdModuleToShow == character.character_id + 'NameButton') &&
+                    <CharacterDisplay character={character} slideVisible={this.state.slideVisible} openSlide={this.openSlide}/>}
               
 
                 </div>

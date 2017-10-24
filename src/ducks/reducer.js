@@ -101,7 +101,7 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {characters: action.payload});
 
         case GET_SELECTED_CHARACTER + '_FULFILLED':
-        return Object.assign({}, state, {selectedCharacter: action.payload});
+        return Object.assign({}, state, {selectedCharacter: action.payload, selectedCharacterHP: action.payload.health_points, selectedCharacterAliveOrDead: action.payload.alive });
 
         case CHANGE_HEALTH_POINTS + '_FULFILLED':
          return Object.assign({}, state, {selectedCharacterHP: action.payload.health_points, selectedCharacterAliveOrDead: action.payload.alive});

@@ -123,7 +123,7 @@ app.put(`/api/updateUser`, userCtlr.updateUser);
 app.post(`/api/character`, characterCtlr.createCharacter);
 app.get(`/api/getAllCharacters`, characterCtlr.getAllCharacters);
 app.get(`/api/getSelectedCharacter/:characterId`, characterCtlr.getSelectedCharacter);
-app.post('/api/character/changeHP', characterCtlr.changeHP);
+app.put('/api/character/changeHP', characterCtlr.changeHP);
 
 //Story Endpoints
 app.post(`/api/story`, storiesCtlr.addStory);

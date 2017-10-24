@@ -37,11 +37,12 @@ class Cemetery extends Component {
 
         return (
             <div className="my-characters-list">
+                <Menu />
                 <h3 className="sub-title">Cemetery:</h3>
 
                 {characterList}
 
-                <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>
+                {<Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>}
 
             </div>
         );

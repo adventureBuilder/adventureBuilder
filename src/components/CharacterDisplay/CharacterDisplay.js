@@ -3,12 +3,12 @@
 
 import React from 'react';
 
-export default function CharacterDisplay({ character }) {
+export default function CharacterDisplay({ character, slideVisible }) {
 
     return (
         <div className="char-display-container">
             <div className="char-title">
-                <h2 className="char-name">{character.character_name}</h2>
+                <h2 className={`char-name ${slideVisible ? 'slide open' : 'slide'}`}>{character.character_name}</h2>
                 <h3 className="char-class">The&nbsp;{character.class_name}</h3>
             </div>
 

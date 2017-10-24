@@ -44,4 +44,17 @@
 .my-stories {
 	width: 100%;
 }
+// Paul coded in a menu drop animation from here below
+.slide{
+	height: 0px;
+	width: 100%;
+	background: lightgrey;
+	transition: .9s;
+}
+// this next part adjusts the height of the drop down menu
+.open{
+	height: 33px;
+}
 
+
+//   Paul finished coding in a menu drop animation

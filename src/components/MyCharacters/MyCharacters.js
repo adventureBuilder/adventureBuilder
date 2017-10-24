@@ -14,6 +14,7 @@ class MyCharacters extends Component {
             characterList: [],
             selectedCharacterId: null,
             characterIdModuleToShow: null,
+            slideVisible: false
         }
         // this.handleClick=this.handleClick.bind(this);
     }
@@ -21,6 +22,12 @@ class MyCharacters extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ characterList: nextProps.characterList })
     };
+
+    openSlide(){
+        this.setState({
+            slideVisible: !this.state.slideVisible
+        })
+    }
 
     /* handleClick(characterId){
         this.props.getSelectedCharacter(characterId)
@@ -40,11 +47,11 @@ class MyCharacters extends Component {
             <div className="tavern-char-container" key={i}>
                 <div className="tavern-char-row">
                     <div className="tavern-char-name-container">
-                        <button className="tavern-char-name" id={`${character.character_id}NameButton`} onClick={() => this.setState({ characterIdModuleToShow: character.character_id })}><span className="down-arrow">&#9660;</span>  {character.character_name}</button>
+                        <button className="tavern-char-name" id={`${character.character_id}NameButton`} onClick={() => this.setState({ characterIdModuleToShow: character.character_id, slideVisible: !this.state.slideVisible })}><span className="down-arrow">&#9660;</span>  {character.character_name}</button>
                     </div>
                     <Link to={`/storyselection`}><button className="select-btn" id={character.character_id} onClick={() => { this.props.getSelectedCharacter(character.character_id); }}>PLAY</button></Link>
                 </div>
-                <div>{(this.state.characterIdModuleToShow === character.character_id) ? <CharacterDisplay character={character} /> : ''}</div>
+                <div>{(this.state.characterIdModuleToShow === character.character_id) ? <CharacterDisplay character={character} slideVisible={this.state.slideVisible} openSlide={this.openSlide}/> : ''}</div>
             </div>)
 
         return (

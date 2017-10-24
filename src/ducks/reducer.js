@@ -72,8 +72,9 @@ export function getSelectedCharacter (characterId) {
     }
 }
 
-export function changeHP(health_points, character_id){
-    return{
+export function changeHP(character_id,old_health_points,new_points){
+ var health_points = old_health_points + new_points;
+ return{
         type: CHANGE_HEALTH_POINTS,
         payload: axios.post(`/api/character/changeHP`,{health_points: health_points, character_id: character_id})
         .then(res=>{
@@ -103,7 +104,7 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {selectedCharacter: action.payload});
 
         case CHANGE_HEALTH_POINTS + '_FULFILLED':
-         return Object.assign({}, state, {selectedCharacterHP: action.payload.health_points});
+         return Object.assign({}, state, {selectedCharacterHP: action.payload.health_points, selectedCharacterAliveOrDead: action.payload.alive});
         
 
         default: return state;

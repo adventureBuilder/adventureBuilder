@@ -20,12 +20,12 @@ export default class StoryCreator extends Component {
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         axios.get(`/api/storyDetails/${this.props.match.params.id}`).then(resp => {
             this.setState({
                 story: resp.data
             });
-            if(!resp.data.start_encounter_id){
+            if (!resp.data.start_encounter_id) {
                 this.setState({
                     view: 'FIRST_ENCOUNTER',
                     encounter: null
@@ -33,14 +33,43 @@ export default class StoryCreator extends Component {
             }
         });
     }
-    
-    reloadStoryDetails(){
+
+    isValid() {
+        let finalEncounter = false;
+        let hasOptions = true;
+        let startEncounter = false;
+
+        if(this.state.story.encounters){
+            if(this.state.story.start_encounter_id){
+                startEncounter = true;
+            }
+            this.state.story.encounters.forEach(encounter=> {
+                if(parseInt(encounter.final_encounter) === 1){
+                    finalEncounter = true;
+                }else if(encounter.options.length < 1){
+                    hasOptions = false;
+                }
+            });
+        } 
+        if(startEncounter && finalEncounter && hasOptions){
+            return true;
+        }
+        return false;
+    }
+
+    completeStory(){
+        axios.put(`/api/story/${this.state.story.story_id}`).then(_=>{
+            this.props.history.push('/tavern');
+        })
+    }
+
+    reloadStoryDetails() {
         axios.get(`/api/storyDetails/${this.props.match.params.id}`).then(resp => {
-            console.log(resp)
+
             this.setState({
                 story: resp.data
             });
-            if(!resp.data.start_encounter_id){
+            if (!resp.data.start_encounter_id) {
                 this.setState({
                     view: 'FIRST_ENCOUNTER',
                     encounter: null
@@ -49,7 +78,7 @@ export default class StoryCreator extends Component {
         });
     }
 
-    resetView(){
+    resetView() {
         this.setState({
             view: '',
             encounter: null
@@ -57,14 +86,14 @@ export default class StoryCreator extends Component {
         this.reloadStoryDetails();
     }
 
-    openNewOption(encounter){
+    openNewOption(encounter) {
         this.setState({
             view: 'OPTION',
             encounter: encounter
         });
     }
-    
-    openNewEncounter(){
+
+    openNewEncounter() {
         this.setState({
             view: 'ENCOUNTER',
             encounter: null
@@ -73,40 +102,40 @@ export default class StoryCreator extends Component {
 
     render() {
         let encounters = this.state.story.encounters ?
-        this.state.story.encounters.map(encounter => (
-            <EncounterDisplay
-                encounter={encounter}
-                key={encounter.encounter_id}
-                openNewOption={this.openNewOption}
-            />
-        ))
-        :
-        ''
-        ;
+            this.state.story.encounters.map(encounter => (
+                <EncounterDisplay
+                    encounter={encounter}
+                    key={encounter.encounter_id}
+                    openNewOption={this.openNewOption}
+                />
+            ))
+            :
+            ''
+            ;
 
         let view = 'Click add encounter or option to start editing';
         switch (this.state.view) {
             case 'FIRST_ENCOUNTER':
-                view = <AddEncounter 
-                    resetView={this.resetView} 
-                    isFirst={true} 
-                    storyId={this.props.match.params.id}/>
+                view = <AddEncounter
+                    resetView={this.resetView}
+                    isFirst={true}
+                    storyId={this.props.match.params.id} />
                 break;
-        
+
             case 'ENCOUNTER':
                 view = <AddEncounter
-                 resetView={this.resetView} 
-                 isFirst={false} 
-                 storyId={this.props.match.params.id}/>
+                    resetView={this.resetView}
+                    isFirst={false}
+                    storyId={this.props.match.params.id} />
                 break;
-        
+
             case 'OPTION':
-                view = <AddOption 
-                    resetView={this.resetView} 
+                view = <AddOption
+                    resetView={this.resetView}
                     encounter={this.state.encounter}
-                    storyEncounters={this.state.story.encounters}/>
+                    storyEncounters={this.state.story.encounters} />
                 break;
-        
+
             default:
                 view = 'Click add encounter or option to start editing';
                 break;
@@ -115,16 +144,17 @@ export default class StoryCreator extends Component {
             <div>
                 <h1>story Creator</h1>
                 {this.state.story && this.state.story.story_name}
-            <div className='creator_container'>
-                <div className='encounters_display_container'>
-                    {encounters}
-                    {encounters.length > 0 && <button onClick={this.openNewEncounter}>add Encounter</button>}
-                </div>
+                <div className='creator_container'>
+                    <div className='encounters_display_container'>
+                        {encounters}
+                        {encounters.length > 0 && <button onClick={this.openNewEncounter}>add Encounter</button>}
+                        {this.isValid() && <button onClick={_=>this.completeStory()}>Complete Story</button>}
+                    </div>
 
-                <div className='creator_display_container'>
-                    {view}
+                    <div className='creator_display_container'>
+                        {view}
+                    </div>
                 </div>
-            </div>
             </div>
 
         );

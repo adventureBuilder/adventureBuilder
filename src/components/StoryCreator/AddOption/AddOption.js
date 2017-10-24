@@ -56,6 +56,9 @@ export default class AddOption extends Component {
             optionImagesId: this.state.optionImagesId,
             healthConsequences: this.state.healthConsequences
         }
+        axios.post('/api/option', body).then(resp =>{
+            this.props.resetView();
+        })
     }
 
 
@@ -319,7 +322,7 @@ export default class AddOption extends Component {
                     }
                 </div>
 
-                {this.isValid() && <button>Save Option</button>}
+                {this.isValid() && <button onClick={_=>this.saveOption()}>Save Option</button>}
             </div>
         );
     }

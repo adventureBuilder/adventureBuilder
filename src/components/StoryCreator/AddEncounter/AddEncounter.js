@@ -27,6 +27,7 @@ export default class AddEncounter extends Component {
             encounterBackGroundImage: parseInt(imageId)
         })
     }
+
     changeName(name) {
         this.setState({
             encounterName: name
@@ -69,7 +70,7 @@ export default class AddEncounter extends Component {
             storyId: this.props.storyId, 
             encounterBackGroundImage: this.state.encounterBackGroundImage
         }
-        console.table(body);
+
         axios.post('/api/firstEncounter', body).then(_=>{
             this.props.resetView();
         });
@@ -82,7 +83,7 @@ export default class AddEncounter extends Component {
             storyId: this.props.storyId, 
             encounterBackGroundImage: this.state.encounterBackGroundImage
         }
-        console.table(body);
+        
         axios.post('/api/encounter', body).then(_=>{
             this.props.resetView();
         });

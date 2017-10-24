@@ -1,3 +1,4 @@
 UPDATE stories 
 SET completed_at = NOW() 
-WHERE story_id = $1;
+WHERE story_id = $1
+RETURNING *;

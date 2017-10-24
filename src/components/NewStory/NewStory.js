@@ -10,6 +10,11 @@ export default class NewStory extends Component {
             storyLevel: 1
         }
     }
+
+    isValid(){
+        return this.state.storyName !== '' && this.state.storyDescription !== ''
+    }
+
     changeName(name) {
         this.setState({
             storyName: name
@@ -57,7 +62,7 @@ export default class NewStory extends Component {
                 onChange={e => this.changeLevel(e.target.value)} 
                 value={this.state.storyLevel}
                 />
-                <button onClick={_=>this.submitStory()}>Submit</button>
+                {this.isValid() && <button onClick={_=>this.submitStory()}>Submit</button>}
             </div>
         );
     }

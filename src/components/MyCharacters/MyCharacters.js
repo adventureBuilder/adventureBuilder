@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+// import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { getCharacters, getSelectedCharacter } from '../../ducks/reducer';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
@@ -21,9 +21,7 @@ class MyCharacters extends Component {
             characterList: [],
             selectedCharacterId: null,
             characterIdModuleToShow: null,
-            show: false,
-            opacity: 0
-
+            slideVisible: false
         }
         this.charDisplayDrop = this.charDisplayDrop.bind(this);
     }
@@ -32,19 +30,13 @@ class MyCharacters extends Component {
         this.setState({ characterList: nextProps.characterList })
     };
 
-    /* handleClick(characterId){
-        this.props.getSelectedCharacter(characterId)
-     }*/
-
-    //()=>this.props.getSelectedCharacter(character.character_id)
-
-
-    //this.setState({selectedCharacterId: character})
-    onHide() {
+    openSlide(){
         this.setState({
-            opacity: 1
+            slideVisible: !this.state.slideVisible
         })
     }
+
+   
 
     charDisplayDrop(e) {
         if (this.state[e.target.id]) {
@@ -70,16 +62,17 @@ class MyCharacters extends Component {
                 <div className="tavern-char-row">
                     <div className="arrow-dropdown"></div>
                     <div className="tavern-char-name-container">
-                        <button className="tavern-char-name" id={`${character.character_id}NameButton`} value={character.character_name} onClick={(e) => this.charDisplayDrop(e)}><span className="down-arrow">&#9660;</span>  {character.character_name}</button>
+                       
+                        <button className="tavern-char-name" id={`${character.character_id}NameButton`} value={character.character_name} onClick={() => this.setState({ characterIdModuleToShow: character.character_id, slideVisible: !this.state.slideVisible })}><span className="down-arrow">&#9660;</span>  {character.character_name}</button>
                     </div>
                     <Link to={`/storyselection`}><button className="select-btn" id={character.character_id} onClick={() => { this.props.getSelectedCharacter(character.character_id); }}>PLAY</button></Link>
                 </div>
 
 
                 <div className={`${this.state[character.character_id] && 'show'}`} key={character.character_id}>
-                    {/* <CSSTransition key={i} classNames="example" timeout={{ enter: 500, exit: 300 }}> */}
-                    {(this.state.characterIdModuleToShow == character.character_id + 'NameButton') && <CharacterDisplay character={character} />}
-                    {/* </CSSTransition> */}
+                    
+                    {(this.state.characterIdModuleToShow == character.character_id + 'NameButton') && <CharacterDisplay character={character} slideVisible={this.state.slideVisible} openSlide={this.openSlide}/>}
+              
 
                 </div>
             </div>
@@ -90,12 +83,9 @@ class MyCharacters extends Component {
             <div className="my-characters-list">
                 <h3 className="sub-title">My Characters:</h3>
                 <div className="block-card">
-                    {/* <CSSTransitionGroup  transitionName="example"
-                transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}>   <TransitionGroup>*/}
+                   
                     {characterList}
-                    {/* </TransitionGroup></CSSTransitionGroup> */}
-
+                    
                     <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>
 
                 </div>

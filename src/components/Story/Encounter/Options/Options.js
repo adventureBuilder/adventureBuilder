@@ -53,7 +53,8 @@ class Options extends Component {
                     <p className="option-description">{this.props.option.option_description}</p>
                     <button className="btn" onClick={_=>{this.chooseOption()}}>Attempt</button>
                 </div>
-                <h4 className="option-name">{this.props.option.option_name}
+                <h4 className="option-name"><img className="option-icon" src={this.props.option.image_src} alt="" />{this.props.option.option_name}
+                    
                     <div className="option-arrow"></div>
                     <div className="option-arrow-tab"></div>
                 </h4>

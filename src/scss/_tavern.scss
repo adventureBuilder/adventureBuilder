@@ -66,25 +66,17 @@
 
 
 .dropdown {
-	animation: dropdown2 .8s;
+	transition: .8s;
+	height: 200px;
+	overflow: hidden;
   }
-  
-  @keyframes dropdown2 {
-	0% {height: 0px}
-	
-	100% {height: 200px}
-  }
-
-  
 
   .dropup{
-	  animation: dropup2 .8s;
-  }
-  @keyframes dropup2{
-	  0% {height:200px}
-	  100% {height:0px}
-  }
-
+		transition: .8s;
+		height: 0px;
+		overflow: hidden;
+	}
+	
   .fadingpower {
 	animation: fadingpower2 1s;
   }

@@ -57,7 +57,10 @@ export function getCharacters() {
             .then(res => {
                 return res.data
             })
-            .catch(err => console.log(err, 'error from get characters axios function'))
+            .catch(err => {
+                console.log(err, 'error from get characters axios function')
+                return [];
+            })
     }
 }
 
@@ -78,7 +81,7 @@ export function changeHP(character_id, old_health_points, new_points) {
         type: CHANGE_HEALTH_POINTS,
         payload: axios.put(`/api/character/changeHP`, { health_points: health_points, character_id: character_id })
             .then(res => {
-                return res.data
+                return res.data 
             })
             .catch(err => console.log(err, 'error from get changeHP axios function'))
     }

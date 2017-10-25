@@ -6,7 +6,7 @@ import React from 'react';
 export default function CharacterDisplay({ character, slideVisible }) {
 
     return (
-        <div className={`char-name ${slideVisible ? 'slide open' : 'slide'}char-display-container`}>
+        <div className={`char-name char-display-container`}>
             
             <div className="char-title">
                 <h2 className="fadingpower">{character.character_name}</h2>

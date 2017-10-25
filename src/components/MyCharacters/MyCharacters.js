@@ -75,7 +75,6 @@ class MyCharacters extends Component {
                 </div>
             </div>
 
-
         );
 
         return (

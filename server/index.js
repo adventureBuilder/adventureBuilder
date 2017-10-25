@@ -46,7 +46,7 @@ app.use((req, res, next) =>{
     if(!req.session.user){
         req.session.user = {
             user_id: 1,
-            username: "harrison ford", 
+            user_name: "harrison ford", 
             email: "adventureBuilder2049@gmail.com", 
             name: "adventure", 
             profile_picture : "http://www.placekitten.com/200/250"
@@ -74,7 +74,7 @@ app.use((req, res, next) =>{
 //             return done(null, user[0]);
 //         }else{
 //             let auth_id = profile.id; 
-//             let username = profile.displayName ? profile.displayName : ""; 
+//             let username = ""; 
 //             let email = profile.emails ? profile.emails[0].value : "";
 //             let name = "";
 //             let img = profile.picture ? profile.picture: "";
@@ -131,6 +131,7 @@ app.put(`/api/story/:storyId`, storiesCtlr.completeStory);
 
 app.get(`/api/storyDetails/:storyId`, storiesCtlr.getStoryDetails);
 app.get(`/api/story/:storyId`, storiesCtlr.getSelectedStory);
+app.get(`/api/user/stories`, storiesCtlr.getUserStories);
 
 app.get(`/api/stories`, storiesCtlr.getMostRecentStories);
 app.get(`/api/user/stories/:username`, storiesCtlr.getUsersMostRecentStories);

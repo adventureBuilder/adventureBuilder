@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Menu from '../Menu/Menu';
 
 export default class NewStory extends Component {
     constructor() {
@@ -42,19 +43,22 @@ export default class NewStory extends Component {
     }
     render() {
         return (
-            <div>
-                Story Name: 
-                <input 
+                <div>
+                <Menu />
+                <div className="new-story-container page">
+                    <h2 className="view-title" >Create a Story</h2>
+                <h3>Story Name:</h3>
+                <input className="base-input"
                 type='text'
                 onChange={e => this.changeName(e.target.value)} 
                 value={this.state.storyName}
                 />
-                Story Description: 
+                <h3>Story Description:</h3>
                 <textarea 
                 onChange={e => this.changeDescription(e.target.value)} 
                 value={this.state.storyDescription}
                 />
-                Story Name: 
+              <h3>Difficulty Level:</h3> 
                 <input 
                 type='number'
                 max='9'
@@ -62,7 +66,8 @@ export default class NewStory extends Component {
                 onChange={e => this.changeLevel(e.target.value)} 
                 value={this.state.storyLevel}
                 />
-                {this.isValid() && <button onClick={_=>this.submitStory()}>Submit</button>}
+                {this.isValid() && <button className='btn create-story-submit-btn' onClick={_=>this.submitStory()}>Submit</button>}
+            </div>
             </div>
         );
     }

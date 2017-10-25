@@ -3,6 +3,7 @@ import axios from 'axios';
 import EncounterDisplay from './EncounterDisplay/EncounterDisplay';
 import AddEncounter from './AddEncounter/AddEncounter';
 import AddOption from './AddOption/AddOption';
+import Menu from '../Menu/Menu';
 // import './StoryCreator.css'
 
 export default class StoryCreator extends Component {
@@ -142,19 +143,22 @@ export default class StoryCreator extends Component {
         }
         return (
             <div>
-                <h1>story Creator</h1>
+                <Menu/>
                 {this.state.story && this.state.story.story_name}
+                <div className='page'>
+                    <h2>Story Creator</h2>
                 <div className='creator_container'>
                     <div className='encounters_display_container'>
-                        {encounters}
-                        {encounters.length > 0 && <button onClick={this.openNewEncounter}>Add Encounter</button>}
-                        {this.isValid() && <button onClick={_=>this.completeStory()}>Complete Story</button>}
+                       {encounters}
+                        {encounters.length > 0 && <button className='btn' onClick={this.openNewEncounter}>Add Encounter</button>}
+                        {this.isValid() && <button className='btn' onClick={_=>this.completeStory()}>Complete Story</button>}
                     </div>
 
                     <div className='creator_display_container'>
                         {view}
                     </div>
                 </div>
+            </div>
             </div>
 
         );

@@ -111,14 +111,15 @@ export default class AddEncounter extends Component {
                 {
                     this.props.isFirst
                     &&
-                    <p> This is the starting encounter of your story! where the user will begin their epic quest.</p>
+                    <h3> This is the starting encounter of your story! where the user will begin their epic quest.</h3>
                 }
 
-                Name: <input onChange={e => this.changeName(e.target.value)} value={this.state.encounterName} />
-                Description: <textarea onChange={e => this.changeDescription(e.target.value)} value={this.state.encounterDescription} />
-                background image:
+               <h3> Name:</h3> <input className="base-input" onChange={e => this.changeName(e.target.value)} value={this.state.encounterName} />
+                <h3>Description:</h3> <textarea className="base-input" onChange={e => this.changeDescription(e.target.value)} value={this.state.encounterDescription} />
+               <h3> Background Image:</h3>
                     {imageSelector}
-                preview :
+                <h3>Preview :</h3>
+                <div className="story-creator-img">
                 {
                     this.state.encounterBackGroundImage != -1
                         ?
@@ -126,8 +127,9 @@ export default class AddEncounter extends Component {
                             src={selectedImage.image_src}
                             alt={selectedImage.image_name} />
                         :
-                        <div>No Image Selected</div>
+                        <div><h3>No Image Selected</h3></div>
                 }
+                </div>
                 {
                     !this.props.isFirst
                     &&
@@ -139,7 +141,7 @@ export default class AddEncounter extends Component {
                         </select>
                     </div>
                 }
-                {this.isValid() && <button onClick={_=>this.save()}>Save</button>}
+                {this.isValid() && <button className='btn' onClick={_=>this.save()}>Save</button>}
 
             </div>
         );

@@ -10,6 +10,9 @@
 .encounters_display_container{
     flex-grow: 1;
     width: 100%;
+    .save-first-encounter-btn{
+        padding: 50px;
+    }
     
     
     .creator-encounter-display{
@@ -17,6 +20,7 @@
         flex-direction: column;
         width: 300px;
         margin: 20px;
+        
 
         .creator-options{
             margin: 15px 0 15px 35px;
@@ -35,8 +39,31 @@
         img{
             height: 100%;
             width: 100%;
+           
         }
+        
+        
+        margin-bottom: 20px;
     }
+    
+    
 }
 
+.add-another-encounter-btn{
+    margin-top: 330px;
+   
+}
+
+.pad-it{
+    margin-bottom: 2px;
+}
+
+.indent-it{
+    margin-left: 25px;
+}
+
+
+.story-creator-add-img{
+    margin-top: 10px;
+}
 

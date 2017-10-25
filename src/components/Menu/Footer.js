@@ -8,6 +8,7 @@ export default function Footer() {
 		<div className="footer">
 			<h1 className="title">Footer</h1>
 			<Link to='/about'><button className="btn">About This Project</button></Link>
+			<h4></h4>
 		</div>
 	)
 }

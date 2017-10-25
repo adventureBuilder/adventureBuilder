@@ -104,7 +104,7 @@ export default class AddEncounter extends Component {
         )
 
         let selectedImage = this.state.encounterImages.find(image => {
-            return this.state.encounterBackGroundImage == image.encounter_background_images_id
+            return this.state.encounterBackGroundImage === parseInt(image.encounter_background_images_id)
         });
         return (
             <div>
@@ -123,7 +123,7 @@ export default class AddEncounter extends Component {
                 {
                     this.state.encounterBackGroundImage != -1
                         ?
-                        <img
+                        <img 
                             src={selectedImage.image_src}
                             alt={selectedImage.image_name} />
                         :

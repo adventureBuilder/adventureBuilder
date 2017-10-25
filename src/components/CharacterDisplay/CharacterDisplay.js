@@ -27,7 +27,7 @@ export default function CharacterDisplay({ character, slideVisible }) {
                 <div className="fadingpower">STRENGTH: {character.strength}</div>
                 <div className="fadingpower">DEXTERITY: {character.dexterity}</div>
                 <div className="fadingpower">CHARISMA: {character.charisma}</div>
-                {/* </div> */}
+                 </div> 
             </div>
 
         </div>

@@ -138,22 +138,24 @@ export default class StoryCreator extends Component {
                 break;
 
             default:
-                view = 'Click add encounter or option to start editing';
+                view = '';
                 break;
         }
         return (
             <div>
                 <Menu/>
                 {this.state.story && this.state.story.story_name}
-                <div className='page'>
-                    <h2>Story Creator</h2>
-                <div className='creator_container'>
-                    <div className='encounters_display_container'>
-                       {encounters}
-                        {encounters.length > 0 && <button className='btn' onClick={this.openNewEncounter}>Add Encounter</button>}
-                        {this.isValid() && <button className='btn' onClick={_=>this.completeStory()}>Complete Story</button>}
-                    </div>
-
+                    <div className='page'>
+                        <h2>Story Creator</h2>
+                    <div className='creator_container'>
+                        {encounters.length > 0 &&
+                        <div className='encounters_display_container'>
+                            <h3>Add options to your encounter! In each encounter players will have to choose from one of the three options you provide.</h3>
+                            {encounters}
+                            {encounters.length > 0 && <button className='btn add-another-encounter-btn' onClick={this.openNewEncounter}>Add Another Encounter</button>}
+                            {this.isValid() && <button className='btn' onClick={_=>this.completeStory()}>Complete Story</button>}
+                        </div>
+                    }
                     <div className='creator_display_container'>
                         {view}
                     </div>

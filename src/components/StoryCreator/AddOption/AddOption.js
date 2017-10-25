@@ -176,22 +176,20 @@ export default class AddOption extends Component {
         );
         return (
             <div>
-                Add Option
-                {this.props.encounter.encounter_name}
-                {this.props.encounter.encounter_description}
-                previous options:
-                {previousEncounters}
-                new Option:
+                <h3 className="pad-it">Selected Encounter:</h3> <span className="indent-it">{this.props.encounter.encounter_name}</span>
+                <h3 className="pad-it">Selected Encounter Description:</h3> <span className="indent-it">{this.props.encounter.encounter_description}</span>
+                <h3 className="pad-it">Previous Options:</h3><span className="indent-it"> {previousEncounters}</span><br/>
+                <h2>New Option</h2>
                 <div>
-                    Option Name:
-                    <input onChange={e => this.changeName(e.target.value)} type='text' value={this.state.optionName} />
+                    <h3>Option Name:</h3>
+                    <input className="base-input pad-it " onChange={e => this.changeName(e.target.value)} type='text' value={this.state.optionName} />
                 </div>
                 <div>
-                    Option Description:
-                    <textarea onChange={e => this.changeDescription(e.target.value)} value={this.state.optionDescription} />
+                    <h3>Option Description:</h3>
+                    <textarea className="base-input pad-it " onChange={e => this.changeDescription(e.target.value)} value={this.state.optionDescription} />
                 </div>
                 <div>
-                    Option Image:
+                    <h3>Option Image:</h3>
                     <select value={this.state.optionImagesId} onChange={e => this.changeOptionImage(e.target.value)}>
                         <option value={-1}>Select One</option>
                         {imageOptions}
@@ -199,14 +197,14 @@ export default class AddOption extends Component {
                     <div>
                         {optionImage
                             ?
-                            <img src={optionImage.image_src} alt={optionImage.image_name} />
+                            <img className="pad-it story-creator-add-img" src={optionImage.image_src} alt={optionImage.image_name} />
                             :
-                            <p>No option image selected yet</p>}
+                            <p className="indent-it">No option image selected yet</p>}
                     </div>
                 </div>
                 <div>
-                    Number of dice to roll.:
-                    <select onChange={e => this.changeNumOfDice(e.target.value)} value={this.state.numOfDice} >
+                   <h3> Number of Dice to Roll:</h3>
+                    <select  onChange={e => this.changeNumOfDice(e.target.value)} value={this.state.numOfDice} >
                         <option defaultValue value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
@@ -218,7 +216,7 @@ export default class AddOption extends Component {
                     </select>
                 </div>
                 <div>
-                    sides of dice to roll:
+                   <h3>Sides of Dice to Roll:</h3>
                     <select onChange={e => this.changeSidesOfDice(e.target.value)} value={this.state.sideOfDice} >
                         <option defaultValue value={4}>4</option>
                         <option value={6}>6</option>
@@ -230,28 +228,28 @@ export default class AddOption extends Component {
                     </select>
                 </div>
                 <div>
-                    modifiers:
+                   <h3>Modifiers:</h3>
 
                     <div>
                         <input type='radio' name='modifier' value='' onChange={e => this.changeModifier(e.target.value)} />
-                        None
+                        <span className="indent-it">None</span>
                     </div>
                     <div>
-                        <input type='radio' name='modifier' value='str' onChange={e => this.changeModifier(e.target.value)} />
-                        Strength
+                        <input  type='radio' name='modifier' value='str' onChange={e => this.changeModifier(e.target.value)} />
+                        <span className="indent-it">Strength</span>
                     </div>
                     <div>
                         <input type='radio' name='modifier' value='dex' onChange={e => this.changeModifier(e.target.value)} />
-                        Dexterity
+                        <span className="indent-it">Dexterity</span>
                     </div>
                     <div>
-                        <input type='radio' name='modifier' value='cha' onChange={e => this.changeModifier(e.target.value)} />
-                        Charisma
+                        <input  type='radio' name='modifier' value='cha' onChange={e => this.changeModifier(e.target.value)} />
+                        <span className="indent-it">Charisma</span>
                     </div>
                 </div>
                 <div>
-                    needed roll to pass
-                    <input
+                   <h3> Needed Roll to Pass</h3>
+                    <input className="base-input"
                         onChange={e => this.changePassCase(e.target.value)}
                         type='number'
                         value={this.state.optionPassCase}
@@ -259,22 +257,22 @@ export default class AddOption extends Component {
                         max={this.state.numOfDice * this.state.sideOfDice} />
                 </div>
                 <div>
-                    health Consequences:
-                    <input
+                    <h3>Health Consequences:</h3>
+                    <input className="base-input"
                         type='number'
                         value={this.state.healthConsequences}
                         onChange={e => this.changeHealthConsequence(e.target.value)}
-                        min={0}
+                        min={-3}
                         max={5} />
                 </div>
                 <div>
-                    success Text:
-                    <textarea
+                    <h3>Success Text:</h3>
+                    <textarea 
                         onChange={e => this.changeSuccessText(e.target.value)}
                         value={this.state.successText} />
                 </div>
                 <div>
-                    success encounter
+                   <h3> Success Encounter</h3>
                     <select
                         onChange={e => this.changeSuccesEncounter(e.target.value)}
                         value={this.state.successEncounter}>
@@ -283,25 +281,25 @@ export default class AddOption extends Component {
                     </select>
                 </div>
                 <div>
-                    preview success encounter:
+                   <h3>Preview Success Encounter:</h3>
                     {
                         this.state.successEncounter === -1
                             ?
-                            <p>no Success encounter select</p>
+                            <p className="indent-it">No success encounter selected</p>
                             :
-                            <img
+                            <img className="pad-it story-creator-add-img"
                                 src={successEncounterImage.image_src}
                                 alt={successEncounterImage.image_name} />
                     }
                 </div>
                 <div>
-                    fail Text:
-                    <textarea
+                   <h3>Fail Text:</h3>
+                    <textarea 
                         onChange={e => this.changeFailText(e.target.value)}
                         value={this.state.failText} />
                 </div>
                 <div>
-                    failed encounter
+                    <h3>Failed Encounter</h3>
                     <select
                         onChange={e => this.changeFailedEncounter(e.target.value)}
                         value={this.state.failedEncounter}>
@@ -310,19 +308,21 @@ export default class AddOption extends Component {
                     </select>
                 </div>
                 <div>
-                    preview failed encounter:
+                   <h3> Preview Failed Encounter:</h3>
+                    <div className="indent-it">
                     {
                         this.state.failedEncounter === -1
                             ?
                             <p>no failed encounter select</p>
                             :
-                            <img
+                            <img className="pad-it story-creator-add-img" 
                                 src={failedEncounterImage.image_src}
                                 alt={failedEncounterImage.image_name} />
                     }
+                    </div>
                 </div>
 
-                {this.isValid() && <button onClick={_=>this.saveOption()}>Save Option</button>}
+                {this.isValid() && <button className="btn" onClick={_=>this.saveOption()}>Save Option</button>}
             </div>
         );
     }

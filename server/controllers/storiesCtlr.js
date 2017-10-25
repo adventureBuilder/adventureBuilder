@@ -1,17 +1,17 @@
 module.exports = {
     addStory: (req, res) => {
         const db = req.app.get('db');
-        const {user_id} = req.session.user; // for testing should be req.user
-        const {storyName, storyDescription, storyLevel} = req.body;
-        db.addStory([storyName, user_id, storyDescription, storyLevel]).then(resp =>{
+        const { user_id } = req.session.user; // for testing should be req.user
+        const { storyName, storyDescription, storyLevel } = req.body;
+        db.addStory([storyName, user_id, storyDescription, storyLevel]).then(resp => {
             console.log(resp);
             res.status(200).send(resp[0]);
         })
     },
-    completeStory: (req,res) =>{
+    completeStory: (req, res) => {
         const db = req.app.get('db');
-        const {storyId} = req.params;
-        db.completeStory(storyId).then(resp=>{
+        const { storyId } = req.params;
+        db.completeStory(storyId).then(resp => {
             res.status(200).send(resp[0]);
         })
     },
@@ -73,27 +73,31 @@ module.exports = {
                 let story = result[0];
                 let counter = 0;
                 db.getStoryEncounters(req.params.storyId)
-                .then(result =>{
-                    story.encounters = result;
-                    if(story.encounters.length === 0){
-                        res.status(200).send(story);
-                    } 
-                    story.encounters.map((encounter, index) => {
-                        db.getOptions(encounter.encounter_id).then((resp) => {
-                            story.encounters[index].options = resp;
-                            counter++;
-                            if(counter === story.encounters.length){
-                                res.status(200).send(story)
-                            }
+                    .then(result => {
+                        story.encounters = result;
+                        if (story.encounters.length === 0) {
+                            res.status(200).send(story);
+                        }
+                        
+                        story.encounters = story.encounters.map(encounter => {
+                            encounter.options = [];
+                            return encounter;
+                        
+                        });
+                        
+                        db.getOptions(req.params.storyId).then((resp) => {
+                            resp.forEach((option)=> {
+                                story.encounters.find(encounter => encounter.encounter_id === option.encounter_id)
+                                .options.push(option);
+                            });
+                            res.send(story)
                         })
-                        .catch((err) => console.log(err, ` check getStoryDetails endpoint`))
+                            .catch((err) => console.log(err, ` check getStoryDetails endpoint`))
+
                     })
-                    
-                })
-                .catch((err) => console.log(err, `see getStoryDetails endpoint`))
+                    .catch((err) => console.log(err, `see getStoryDetails endpoint`))
             })
             .catch((err) => console.log(err, `see getStoryDetails endpoint`))
     }
 
 }
-

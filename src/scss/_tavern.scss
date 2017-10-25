@@ -65,6 +65,47 @@
 }
 
 
+.dropdown {
+	animation: dropdown2 .8s;
+  }
+  
+  @keyframes dropdown2 {
+	0% {height: 0px}
+	
+	100% {height: 200px}
+  }
+
+  
+
+  .dropup{
+	  animation: dropup2 .8s;
+  }
+  @keyframes dropup2{
+	  0% {height:200px}
+	  100% {height:0px}
+  }
+
+  .fadingpower {
+	animation: fadingpower2 1s;
+  }
+  
+  @keyframes fadingpower2 {
+	0% {opacity: 0}
+	50%{opacity: 0}
+	100% {opacity: 1}
+  }
+
+  .fadingpower3 {
+	animation: fadingpower4 1s;
+  }
+  
+  @keyframes fadingpower4 {
+	0% {opacity: 1}
+	50%{opacity: 0}
+	100% {opacity: 0}
+  }
+
+
 //   Paul finished coding in a menu drop animation
 .example-enter {
 	opacity: 0.01;

@@ -56,31 +56,3 @@ align-items: center;
 }
 
 
-.moveymove {
-    animation: move 3s;
-    -webkit-animation: move 3s;
-  }
-  
-  @keyframes move {
-    from {
-      margin-left: 100%;
-      width: 300%; 
-    }
-  
-    to {
-      margin-left: 0%;
-      width: 100%;
-    }
-  }
-              
-  @-webkit-keyframes move {
-    from {
-      margin-left: 100%;
-      width: 300%; 
-    }
-  
-    to {
-      margin-left: 0%;
-      width: 100%;
-    }
-  }

@@ -85,7 +85,7 @@ module.exports = {
                         
                         });
                         
-                        db.getOptions(req.params.storyId).then((resp) => {
+                        db.getStoryOptions(req.params.storyId).then((resp) => {
                             resp.forEach((option)=> {
                                 story.encounters.find(encounter => encounter.encounter_id === option.encounter_id)
                                 .options.push(option);

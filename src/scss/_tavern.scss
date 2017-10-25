@@ -5,8 +5,6 @@
 
 	margin: 15px 0;
 	
-	
-
 	.tavern-char-row {
 		// display:flex;
 		// justify-content: space-between;
@@ -24,7 +22,7 @@
 
 			background-color: $row-color;
 			padding: 3px 5px;
-			width: 80%;
+			width: 75%;
 			height: 30px;
 			box-shadow: 0 5px 0 0 $border-color;
 			display:inline-block;
@@ -36,14 +34,8 @@
 				color: $btn-color;
 				text-align: left;
 			}
-
 		}
-
-		
-		
 	}
-	
-	
 }
 
 .down-arrow {
@@ -52,18 +44,6 @@
 .my-stories {
 	width: 100%;
 }
-// Paul coded in a menu drop animation from here below
-.slide{
-	height: 0px;
-	width: 100%;
-	background: lightgrey;
-	transition: .9s;
-}
-// this next part adjusts the height of the drop down menu
-.open{
-	height: 33px;
-}
-
 
 .dropdown {
 	transition: .8s;
@@ -95,24 +75,4 @@
 	0% {opacity: 1}
 	50%{opacity: 0}
 	100% {opacity: 0}
-  }
-
-
-//   Paul finished coding in a menu drop animation
-.example-enter {
-	opacity: 0.01;
-  }
-  
-  .example-enter.example-enter-active {
-	opacity: 1;
-	transition: opacity 2s ease-in;
-  }
-  
-  .example-exit {
-	opacity: 1;
-  }
-  
-  .example-exit.example-exit-active {
-	opacity: 0.01;
-	transition: opacity 2s ease-in;
   }

@@ -59,26 +59,27 @@ export default class NewCharacter extends Component {
 
     render() {
 
-        const charStatDisplay = (
-
-            <div className="char-row char-stats">
-                <div className="char-stat-row">
-                    <h3>Srength(STR)</h3>
-                    <div>{this.state.class ? this.state.classes[this.state.class - 1].base_strength : ''}</div>
-                </div>
-                <div className="char-stat-row">
-                    <h3>Dexterity(DEX)</h3>
-                    <div>{this.state.class ? this.state.classes[this.state.class - 1].base_dexterity : ''}</div>
-                </div>
-                <div className="char-stat-row">
-                    <h3>Charisma(CHA)</h3>
-                    <div>{this.state.class ? this.state.classes[this.state.class - 1].base_charisma : ''}</div>
-                </div>
-
-            </div>
+        // const charStatDisplay = (
 
 
-        )
+        //     // <div className="char-row char-stats">
+        //     //     <div className="char-stat-row">
+        //     //         <h3>Srength(STR)</h3>
+        //     //         <div>{this.state.class && this.state.classes[this.state.class - 1].base_strength}</div>
+        //     //     </div>
+        //     //     <div className="char-stat-row">
+        //     //         <h3>Dexterity(DEX)</h3>
+        //     //         <div>{this.state.class && this.state.classes[this.state.class - 1].base_dexterity}</div>
+        //     //     </div>
+        //     //     <div className="char-stat-row">
+        //     //         <h3>Charisma(CHA)</h3>
+        //     //         <div>{this.state.class && this.state.classes[this.state.class - 1].base_charisma}</div>
+        //     //     </div>
+
+        //     // </div>
+
+
+        // )
 
         return (
             <div className="new-character">
@@ -95,17 +96,48 @@ export default class NewCharacter extends Component {
                         <div className="char-row">
                             <h3>Class: </h3>
 
-                            <select className="select-box" name="class" onChange={(e) => this.changeChar(e.target.name, e.target.value)}>
+                            <div className="char-create-container">
+                                {this.state.classes.map((charClass, i) => {
+                                    return (
+                                        <div className="char-class-block">
+                                            <img src={charClass.img} alt={charClass.class_name} />
+                                            <div className="char-class-text-box">
+                                                <h2>{charClass.class_name}</h2>
+                                                <p>{charClass.class_description}</p>
+                                            </div>
+
+                                            <div className="char-stats">
+                                                <div className="char-stat-row">
+                                                    <h3>Strength (STR)</h3>
+                                                    <h3>{charClass.base_strength}</h3>
+                                                </div>
+                                                <div className="char-stat-row">
+                                                    <h3>Dexterity (DEX)</h3>
+                                                    <h3>{charClass.base_dexterity}</h3>
+                                                </div>
+                                                <div className="char-stat-row">
+                                                    <h3>Charisma (CHA)</h3>
+                                                    <h3>{charClass.base_charisma}</h3>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+
+                            </div>
+                            {/*<select className="select-box" name="class" onChange={(e) => this.changeChar(e.target.name, e.target.value)}>
                                 <option value="Choose Your Class" selected default disabled>Choose Your Class</option>
+
                                 {this.state.classes.map((charClass, i) => {
                                     return <option key={i} value={charClass.class_id}>{charClass.class_name}</option>
                                 })}
 
-                            </select>
+                            </select>*/}
                         </div>
 
 
-                        {this.state.class ? charStatDisplay : ''}
+                        {/*this.state.class ? charStatDisplay : ''*/}
 
                         {(this.state.class && this.state.charName) ? <button onClick={() => this.createChar()}>Create</button> : ''}
 

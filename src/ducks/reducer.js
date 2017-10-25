@@ -89,6 +89,7 @@ export function changeHP(character_id, old_health_points, new_points) {
 
 
 
+
 // Reducer
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -107,7 +108,7 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, { selectedCharacter: action.payload });
 
         case CHANGE_HEALTH_POINTS + '_FULFILLED':
-            let tempChar = Object.assign({}, state.selectedCharacter, { health_points: action.payload.health_points, alive: action.payload.alive } )
+            let tempChar = Object.assign({}, state.selectedCharacter, { health_points: action.payload.health_points, alive: action.payload.alive })
             return Object.assign({}, state, { selectedCharacter: tempChar });
 
 

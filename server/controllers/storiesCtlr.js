@@ -23,6 +23,14 @@ module.exports = {
             })
             .catch((err) => console.log(err, `see getMostRecentStories endpoint`));
     },
+    getUserStories: (req, res) => {
+        const db = req.app.get('db');
+        db.getUserStories(req.session.user.user_id) //set to req.user when aut is up
+            .then((result) => {
+                res.status(200).send(result);
+            })
+            .catch((err) => console.log(err, `see get user stories end point`))
+    },
     getUsersMostRecentStories: (req, res) => {
         const db = req.app.get('db');
         db.getUsersMostRecentStories(`%${req.params.username.toLowerCase()}%`)

@@ -12,36 +12,60 @@ class Cemetery extends Component {
         super(props)
         this.state = {
             characterList: [],
-            selectedCharacterId: null,
             characterIdModuleToShow: null,
+            modulesToShow: []
         }
         // this.handleClick=this.handleClick.bind(this);
     }
     componentDidMount() {
         this.props.getCharacters();
     }
+
+    showModule(characterId) {
+
+        let tempArr = this.state.modulesToShow.slice();
+        let index = tempArr.indexOf(characterId);
+
+        if (index === -1) {
+            tempArr.push(characterId);
+        } else {
+            tempArr.splice(index, 1);
+        }
+
+        this.setState({
+            modulesToShow: tempArr
+        })
+    }
+
     render() {
 
-        console.log(this.props.selectedCharacter, `this is the selected character`)
-        //console.log(this.state.showModule, this.state.characterIdModuleToShow, `state of showModule`)
 
         const characterList = this.props.characters.filter(char => !char.alive).map((character, i) =>
             <div className="tavern-char-container" key={i}>
                 <div className="tavern-char-row">
-                    <div className="tavern-char-name-container">
-                        <button className="tavern-char-name" id={`${character.character_id}NameButton`} onClick={() => this.setState({ characterIdModuleToShow: character.character_id })}><span className="down-arrow">&#9660;</span>  {character.character_name}</button>
+                    <div className="tavern-char-name-container" onClick={_ => this.showModule(character.character_id)}>
+                        <button className="tavern-char-name"
+                            >
+                            <span className="down-arrow">&#9660;</span>  {character.character_name}</button>
                     </div>
                 </div>
-                <div>{(this.state.characterIdModuleToShow === character.character_id) ? <CharacterDisplay character={character} /> : ''}</div>
+                <div onClick={_ => this.showModule(character.character_id)}
+                    className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
+                    ?
+                    'dropup'
+                    :
+                    'dropdown')
+                }><CharacterDisplay character={character} /></div>
             </div>)
 
         return (
             <div className="my-characters-list">
+                <Menu />
                 <h3 className="sub-title">Cemetery:</h3>
 
                 {characterList}
 
-                <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>
+                {<Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>}
 
             </div>
         );

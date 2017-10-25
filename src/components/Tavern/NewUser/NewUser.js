@@ -8,12 +8,12 @@ import { getUser, updateUser } from '../../../ducks/reducer';
 
 class NewUser extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
 
-            username: ''
+            username: ""
 
         }
         this.usernameChange = this.usernameChange.bind(this);

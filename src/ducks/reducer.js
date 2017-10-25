@@ -57,7 +57,10 @@ export function getCharacters() {
             .then(res => {
                 return res.data
             })
-            .catch(err => console.log(err, 'error from get characters axios function'))
+            .catch(err => {
+                console.log(err, 'error from get characters axios function')
+                return [];
+            })
     }
 }
 
@@ -78,11 +81,12 @@ export function changeHP(character_id, old_health_points, new_points) {
         type: CHANGE_HEALTH_POINTS,
         payload: axios.put(`/api/character/changeHP`, { health_points: health_points, character_id: character_id })
             .then(res => {
-                return res.data
+                return res.data 
             })
             .catch(err => console.log(err, 'error from get changeHP axios function'))
     }
 }
+
 
 
 
@@ -104,7 +108,7 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, { selectedCharacter: action.payload });
 
         case CHANGE_HEALTH_POINTS + '_FULFILLED':
-            let tempChar = Object.assign({}, state.selectedCharacter, { health_points: action.payload.health_points, alive: action.payload.alive } )
+            let tempChar = Object.assign({}, state.selectedCharacter, { health_points: action.payload.health_points, alive: action.payload.alive })
             return Object.assign({}, state, { selectedCharacter: tempChar });
 
 

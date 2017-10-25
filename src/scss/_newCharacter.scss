@@ -1,0 +1,36 @@
+.new-character-block {
+	width: 100%;
+	.char-create-container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.char-class-text-box {
+		background-color: $white;
+		padding: .75rem 1.25rem;
+
+	}
+	.char-class-block {
+		display: flex;
+		flex-direction: column;
+		width: 30%;
+		margin-right: 20px;
+		border: 1px solid $border-color;
+	}
+
+	.char-stats {
+		padding: 20px;
+		background-color: $prim-color;
+		color: $white;
+		.char-stat-row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 5px 0;
+		}
+		h3 {
+			color: $white;
+			margin: 0;
+		}
+	}
+	
+}

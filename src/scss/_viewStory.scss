@@ -1,10 +1,13 @@
 .story-container {
 	
-	margin: 40px 0;
+	// margin: 40px 0;
 	border-top: 7px solid $prim-color;
-	border-bottom: 3px solid $prim-color;
+	// border-bottom: 3px solid $prim-color;
 	background-color:$white;
 	padding: 20px;
+	.btn {
+		max-width: 400px;
+	}
     .story-header {
         display: flex;
 		justify-content: space-between;

@@ -16,19 +16,17 @@
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 		border-bottom-left-radius: 50px;
-		
 		padding-left: 15px;
-		
+		background-color: $grey;
+		color: $white;
 	}
 	.search-select-box:hover {
-	// 	background-color: $btn-highlight;
+		background-color: $grey-highlight;
 		
 	}
 	.search-select-box:active {
-	// 	background-color: $btn-highlight;
-	// 	position: relative;
-	// 	top: 4px;
-	// 	box-shadow: 0 1px 0 0 $btn-border-color;
+		background-color: $grey-push;
+		
 	}
 
 	.search-input {
@@ -36,6 +34,7 @@
 		box-shadow: 0 5px 0 0 $border-color;
 		width: 60%;
 		padding-left: 15px;
+		border-top: 1px solid $border-color;
 		
 	}
 	.search-btn {
@@ -72,4 +71,7 @@
 }
 .story-results {
 	width: 100%;
+	.sub-title {
+		margin:40px 0 0 0;
+	}
 }

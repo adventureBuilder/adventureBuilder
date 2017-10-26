@@ -42,7 +42,9 @@ class MyCharacters extends Component {
         const characterList = this.props.characters
             .filter(char => char.alive)
             .map((character, i) => {
+                console.log('character', character)
                 return (
+                    
                     <div className="tavern-char-container" key={character.character_id}>
                         <div className="tavern-char-row">
 
@@ -52,7 +54,7 @@ class MyCharacters extends Component {
 
                                     className="tavern-char-name"
                                     value={character.character_name}>
-                                    <div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
+                                    <div><div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
                                 ?
                                 'arrow-up'
                                 :
@@ -60,7 +62,8 @@ class MyCharacters extends Component {
                             }></div><span className="down-arrow">
                                         &#9660;
                                     </span>
-                                    {character.character_name}
+                                    {character.character_name}</div>
+                                    <div>{character.class_name}</div>
                                 </button>
                             </div>
                             <Link to={`/storyselection`}>

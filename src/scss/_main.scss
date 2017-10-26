@@ -51,8 +51,11 @@ $bg-color: #1F262E;
 $black: #020d0e;
 $white: #f7f7f7;
 $grey: #414850;
+$grey-highlight: #555;
+$grey-push: #333;
+
 $border-color: #777;
-$off-white: #d1d1d1;
+$off-white: #e1e1e1;
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus");
 /* |Lobster|Lobster+Two   font-family: 'Lobster', 'Lobster Two', 'Satisfy', 'Open Sans'; */
@@ -127,7 +130,7 @@ input, textarea {
     align-items: center;
     max-width: 960px;
     margin: 0 auto;
-    background-color: $white;
+    background-color: $off-white;
 }
 .card {
     @include card;

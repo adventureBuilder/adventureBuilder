@@ -33,17 +33,20 @@
             box-shadow: 0 5px 0 0 $border-color;
             display: inline-block;
             .tavern-char-name {
+                width: 100%;
                 min-width: 150px;
                 background-color: transparent;
                 border: none;
                 color: $btn-color;
                 text-align: left;
+                display: flex;
+                justify-content: space-between;
             }
 		}
 		
 	}
 	.char-display-container {
-		width: 75%;
+		// width: 75%;
 	}
 }
 
@@ -59,12 +62,16 @@
     transition: .8s;
     height: 200px;
     overflow: hidden;
+    border-bottom: 5px solid $grey;
+    width: 75%
 }
 
 .dropup {
     transition: .8s;
     height: 0px;
     overflow: hidden;
+    border-bottom: 5px solid $grey;
+    width: 75%
 }
 
 .fadingpower {

@@ -1,11 +1,17 @@
 .new-character-block {
 	width: 100%;
+	.char-row {
+		margin-bottom: 40px;
+	}
+	.base-input {
+		width: 100%;
+	}
 	.char-create-container {
 		display: flex;
 		flex-wrap: wrap;
 	}
 	.char-class-text-box {
-		background-color: $white;
+		background-color: #fff;
 		padding: .75rem 1.25rem;
 
 	}
@@ -17,7 +23,7 @@
 		margin-right: 20px;
 		border: 1px solid $border-color;
 	}
-/* luminari */
+
 	.char-stats {
 		padding: 20px;
 		background-color: $prim-color;

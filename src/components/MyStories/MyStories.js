@@ -25,16 +25,22 @@ class MyStories extends Component {
     render() {
         let storiesarr = this.state.stories.map(story => {
             return (
-                <div key = {story.story_id}>
+                <div key={story.story_id}>
                     {story.story_name}
                 </div>
-            ) 
+            )
         })
         return (
             <div className="my-stories">
-                <h3 className="sub-title">My Stories:</h3>
-                <div className="card">Most Recent : {(this.state.stories.length > 0) ? storiesarr : "(you do not have any recent stories)"} </div>
-                <Link to="/newstory" className="btn hide-mobile">Create New Story</Link>
+                <div className="block-card">
+                    <h3 className="sub-title">My Stories</h3>
+
+                    <div className="block-card-inner">
+                        {(this.state.stories.length > 0) ? storiesarr : "(you do not have any recent stories)"}
+                        <br/>
+                        <Link to="/newstory" className="btn hide-mobile">Create New Story</Link>
+                    </div>
+                </div>
             </div>
         );
     }

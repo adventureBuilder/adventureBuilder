@@ -1,12 +1,23 @@
-.new-story-container{
+.new-story {
     color: $black;
-
-    input{
-        border: 1px solid black;
+    .new-story-container {
+        width: 100%;
+        max-width: 700px;
     }
-    .create-story-submit-btn{
+    .story-row {
+        text-align: center;
+        width: 100%;
+        margin: 20px 0;
+        h3 {
+            
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+        }
+    }
+    .create-story-submit-btn {
         margin-top: 30px;
     }
 }
-
-

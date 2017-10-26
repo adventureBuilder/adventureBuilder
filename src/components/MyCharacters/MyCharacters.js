@@ -44,7 +44,7 @@ class MyCharacters extends Component {
             .map((character, i) => {
                 console.log('character', character)
                 return (
-                    
+
                     <div className="tavern-char-container" key={character.character_id}>
                         <div className="tavern-char-row">
 
@@ -55,14 +55,14 @@ class MyCharacters extends Component {
                                     className="tavern-char-name"
                                     value={character.character_name}>
                                     <div><div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
-                                ?
-                                'arrow-up'
-                                :
-                                'arrow-down')
-                            }></div><span className="down-arrow">
-                                        &#9660;
+                                        ?
+                                        'arrow-up'
+                                        :
+                                        'arrow-down')
+                                    }></div><span className="down-arrow">
+                                            &#9660;
                                     </span>
-                                    {character.character_name}</div>
+                                        {character.character_name}</div>
                                     <div>{character.class_name}</div>
                                 </button>
                             </div>
@@ -99,9 +99,13 @@ class MyCharacters extends Component {
 
                     <div className="block-card-inner">
                         {characterList}
-                    <br/>
+                        
+                        <div className="my-character-footer-menu">
 
-                    <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>
+                            <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>
+                            <Link to={`/cemetery`}><button className="btn">Visit Cemetery</button></Link>
+
+                        </div>
                     </div>
 
                 </div>

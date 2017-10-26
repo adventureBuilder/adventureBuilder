@@ -1,0 +1,29 @@
+// TABLET
+@media (max-width:799px) {
+    .new-character-block {
+		
+        .char-class-block {
+            flex-wrap: wrap;
+			width: 100%;
+			margin: 0 0 40px 0;
+        }
+    }
+}
+
+// MOBILE
+@media (max-width:426px) {
+    .page {
+        padding: 0 0 40px 0;
+    }
+    .card {
+        padding: 15px 5px;
+    }
+    .story-container {
+        padding: 20px 5px;
+        width: 100%;
+    }
+    .char-display-container {
+        padding: 0;
+	}
+	
+}

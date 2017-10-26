@@ -13,7 +13,7 @@ export default class ViewStory extends Component {
                         {this.props.story.story_name}
                     </h2>
                     <h3 className="story-level">
-                        Level: {this.props.story.story_level}
+                        Difficulty Level: {this.props.story.story_level}
                     </h3>
                 </div>
 
@@ -21,7 +21,7 @@ export default class ViewStory extends Component {
 
                 <div className="story-footer">
                     <div className="story-author">Author: <h3>{this.props.story.user_name}</h3></div>
-                    <Link to={`/story/${this.props.story.story_id}`}><button className="btn begin-story">Begin story!</button></Link>
+                    <Link to={`/story/${this.props.story.story_id}`}><button className="btn begin-story">Begin Story</button></Link>
                 </div>
 
             </div>

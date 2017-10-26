@@ -114,59 +114,64 @@ class StorySelection extends Component {
             <div id="story-selection-top" className="story-selection">
                 <Menu />
                 <div className="page">
-                <h2 className="view-title">Choose A Story</h2>
-                
-                <CharacterDisplay character={this.props.selectedCharacter} />
 
-                    
+                    <CharacterDisplay character={this.props.selectedCharacter} />
 
                     <div className="story-search-block">
-                        <h3>Search Stories:</h3>
+                        <h2 className="view-title">Choose A Story</h2>
 
-                        <form className="search-bar" onSubmit={(e) => this.startSearch(e)}>
-                            <select className="select-btn search-select-box" name="searchType" onChange={
-                                (e) => this.changeStorySearch(e.target.name, e.target.value)
-                            }>
-                                
-                                <option selected default value="Title" >Title</option>
-                                <option value="Author">Author</option>
-                                <option value="Newest" >Newest</option>
-                            </select>
+                        <div className="block-card">
+                            <h3 className="sub-title">Search Stories</h3>
+                            <div className="block-card-inner">
+                                <form className="search-bar" onSubmit={(e) => this.startSearch(e)}>
+                                    <select className="select-btn search-select-box" name="searchType" onChange={
+                                        (e) => this.changeStorySearch(e.target.name, e.target.value)
+                                    }>
 
-
-                            <input className="search-input" type="text" name="searchInput" onChange={(e) => this.changeStorySearch(e.target.name, e.target.value)} />
-                            {this.state.searchType ?
-                                <button type="submit" className="btn search-btn" >Search</button> :
-                                <div className="search-button-placeholder"></div>}
-                        </form>
+                                        <option selected default value="Title" >Title</option>
+                                        <option value="Author">Author</option>
+                                        <option value="Level" >Difficulty</option>
+                                        <option value="Newest" >Newest</option>
+                                    </select>
 
 
+                                    <input className="search-input" type="text" name="searchInput" onChange={(e) => this.changeStorySearch(e.target.name, e.target.value)} />
+                                    {this.state.searchType ?
+                                        <button type="submit" className="btn search-btn" >Search</button> :
+                                        <div className="search-button-placeholder"></div>}
+                                </form>
+
+                                <div className="story-results">
 
 
-                    </div>
-                    <div className="story-results">
-                        <div className="card">
+                                    <h4 className="sub-title">{this.state.noSearchResults ? 'No stories were found that matched your search.' : 'Your search results:'}</h4>
 
-                            {this.state.noSearchResults ? <p>No stories were found that matched your search.</p> : <p>Your search results:</p>}
+                                        {this.state.storiesArray.map((story, i) => {
+                                            return <ViewStory key={i} story={story} />
+                                        })}
+                        
+                                </div>
 
-                            {this.state.storiesArray.map((story, i) => {
-                                return <ViewStory key={i} story={story} />
-                            })}
+                            </div>
+                        
+                        </div>
+
+
+
+                        </div>
+                        <div className="to-top">
+                            <a href="#story-selection-top"><button className="btn">Back to top</button></a>
                         </div>
                     </div>
-                    <div className="to-top">
-                        <a href="#story-selection-top"><button className="btn">Back to top</button></a>
-                    </div>
+                    <Footer />
                 </div>
-                <Footer />
-            </div>
-        );
+                );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        selectedCharacter: state.selectedCharacter
+                    selectedCharacter: state.selectedCharacter
     }
 }
 export default connect(mapStateToProps, {})(StorySelection)

@@ -1,28 +1,41 @@
 .char-display-container {
     @include card;
     background-color: $white;
-    padding: 0 10px 10px 10px;
-    width: 80%;
-    position: relative;
-    top: 5px;
-    border-top: 7px solid $sec-color;
-	border-bottom: 3px solid $sec-color;
+    padding: 0;
+    width: 100%;
+    
+    // border-top: 7px solid $sec-color;
+	// border-bottom: 3px solid $sec-color;
 	overflow: hidden;
-    .char-title {
+    .sub-title.char-title {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        align-items: flex-end;
-        margin: 20px 0 10px;
+		align-items: flex-end;
+        
         .char-name {
             margin: 0;
-            color: $black;
+            color: $white;
         }
         .char-class {
             font-size: 18px;
             margin: 0;
-            color: $black;
+            color: $white;
         }
     }
-    .char-sheet {}
+    .char-sheet {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+	.char-hp {
+		padding: 0;
+	}
+	.stat-num {
+		display: inline-block;
+		border: 2px solid $grey;
+		padding: 3px 5px;
+		background-color: $sec-color;
+		color: $white;
+	}
 }

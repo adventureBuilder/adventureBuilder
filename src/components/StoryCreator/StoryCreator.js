@@ -142,7 +142,7 @@ export default class StoryCreator extends Component {
         }
         return (
             <div>
-                <h1>story Creator</h1>
+                <h1>Story Creator</h1>
                 {this.state.story && this.state.story.story_name}
                 <div className='creator_container'>
                     <div className='encounters_display_container'>

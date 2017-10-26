@@ -90,54 +90,54 @@ export default class NewCharacter extends Component {
 
                     <div className="new-character-block">
                         <div className="char-row">
-                            <h3>Name: </h3>
-                            <input className="base-input" onChange={(e) => this.changeChar(e.target.name, e.target.value)} name="charName" type="text" />
+                            <div className="block-card">
+                                <h3 className="sub-title">Name</h3>
+                                <div className="block-card-inner">
+                                    <input className="base-input" onChange={(e) => this.changeChar(e.target.name, e.target.value)} name="charName" type="text" />
+                                </div>
+                            </div>
                         </div>
                         <div className="char-row">
-                            <h3>Class: </h3>
+                            <div className="block-card">
+                                <h3 className="sub-title">Class</h3>
+                                <div className="block-card-inner">
 
-                            <div className="char-create-container">
-                                {this.state.classes.map((charClass, i) => {
-                                    return (
-                                        <div className="char-class-block">
-                                            <img src={charClass.img} alt={charClass.class_name} />
-                                            <div className="char-class-text-box">
-                                                <h2>{charClass.class_name}</h2>
-                                                <p>{charClass.class_description}</p>
-                                            </div>
+                                    <div className="char-create-container">
+                                        {this.state.classes.map((charClass, i) => {
+                                            return (
+                                                <div className="char-class-block">
+                                                    <img src={charClass.img} alt={charClass.class_name} />
+                                                    <div>
+                                                        <div className="char-class-text-box">
+                                                            <h2>{charClass.class_name}</h2>
+                                                            <p>{charClass.class_description}</p>
+                                                        </div>
 
-                                            <div className="char-stats">
-                                                <div className="char-stat-row">
-                                                    <h3>Strength (STR)</h3>
-                                                    <h3>{charClass.base_strength}</h3>
+                                                        <div className="char-stats">
+                                                            <div className="char-stat-row">
+                                                                <h3 className="stat-name">STR</h3>
+                                                                <h3 className="stat-num">{charClass.base_strength}</h3>
+                                                            </div>
+                                                            <div className="char-stat-row">
+                                                                <h3 className="stat-name">Dexterity (DEX)</h3>
+                                                                <h3 className="stat-num">{charClass.base_dexterity}</h3>
+                                                            </div>
+                                                            <div className="char-stat-row">
+                                                                <h3 className="stat-name">Charisma (CHA)</h3>
+                                                                <h3 className="stat-num">{charClass.base_charisma}</h3>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="char-stat-row">
-                                                    <h3>Dexterity (DEX)</h3>
-                                                    <h3>{charClass.base_dexterity}</h3>
-                                                </div>
-                                                <div className="char-stat-row">
-                                                    <h3>Charisma (CHA)</h3>
-                                                    <h3>{charClass.base_charisma}</h3>
-                                                </div>
+                                            )
+                                        })}
 
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-
+                                    </div>
+                                </div>
                             </div>
-                            {/*<select className="select-box" name="class" onChange={(e) => this.changeChar(e.target.name, e.target.value)}>
-                                <option value="Choose Your Class" selected default disabled>Choose Your Class</option>
 
-                                {this.state.classes.map((charClass, i) => {
-                                    return <option key={i} value={charClass.class_id}>{charClass.class_name}</option>
-                                })}
-
-                            </select>*/}
                         </div>
-
-
-                        {/*this.state.class ? charStatDisplay : ''*/}
 
                         {(this.state.class && this.state.charName) ? <button onClick={() => this.createChar()}>Create</button> : ''}
 

@@ -1,5 +1,11 @@
 .my-characters-list {
     width: 100%;
+
+    .my-character-footer-menu {
+        margin: 40px 0 20px 0;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .tavern-char-container {
@@ -62,7 +68,7 @@
     transition: .8s;
     height: 200px;
     overflow: hidden;
-    border-bottom: 5px solid $grey;
+    // border-bottom: 5px solid $grey;
     width: 75%
 }
 
@@ -70,7 +76,7 @@
     transition: .8s;
     height: 0px;
     overflow: hidden;
-    border-bottom: 5px solid $grey;
+    // border-bottom: 5px solid $grey;
     width: 75%
 }
 

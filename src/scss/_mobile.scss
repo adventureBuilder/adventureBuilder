@@ -8,6 +8,7 @@
 			margin: 0 0 40px 0;
         }
     }
+    
 }
 
 // MOBILE
@@ -24,6 +25,37 @@
     }
     .char-display-container {
         padding: 0;
-	}
-	
+    }
+    .team-row {
+        flex-direction: column;
+    }
+    .hide-mobile {
+        display:none !important;
+    }
+	.hide-desktop {
+        display: inherit !important;
+    }
+    .block-card-inner {
+        padding: 10px 5px;
+    }
+    .char-sheet {
+        flex-wrap: wrap;
+        h3, h4 {
+            margin: 5px 0;
+        }
+    }
+    .mobile-pad {
+        padding:0 10px;
+    }
+    .about .team-col {
+        width: 100%;
+    }
+
+    #heart:before,
+    #heart:after {
+        left: 15px;
+    }
+    #heart:after {
+        left: -10px;
+    }
 }

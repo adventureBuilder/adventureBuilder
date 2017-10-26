@@ -75,7 +75,7 @@ export default function About() {
 								<h3>Roles</h3>
 								<p>Did stuff</p>
 								<h3>Bio</h3>
-								<p>"Live it. Rock it. Do it. Volcom.</p>
+								<p>Live it. Rock it. Do it. Volcom.</p>
 							</div>
 							<div className="team-col">
 								<img className="bio-img" src={danImg} alt="" />

@@ -50,6 +50,7 @@ $dropdown-color: #aaa;
 $bg-color: #1F262E;
 $black: #020d0e;
 $white: #f7f7f7;
+$grey: #414850;
 $border-color: #777;
 $off-white: #d1d1d1;
 
@@ -105,11 +106,15 @@ div, p, ul, li, a, button, span, input {
 .view-title {
     font-family: $header-font-stack;
     font-weight: 800;
+    text-align: center;
+    font-size: 34px;
 }
 .sub-title {
-    color: $black;
+    color: $white;
+    background-color: $grey;
+    padding: 10px;
 }
-input {
+input, textarea {
     padding: 2px 4px 2px 6px;
     border: $border-color;
 } 
@@ -122,7 +127,7 @@ input {
     align-items: center;
     max-width: 960px;
     margin: 0 auto;
-    background-color: $white
+    background-color: $white;
 }
 .card {
     @include card;
@@ -130,10 +135,20 @@ input {
     border: 1px solid #777;
 }
 .block-card {
-    @include card;
-    background-color: $prim-color;
-    border: 1px solid #777;
+    
+    background-color: $white;
+    border: 5px solid $grey;
+    
+    h3 {
+        margin: 0;
+        padding-left: 20px;
+        font-size: 26px;
+    }
 }
+.block-card-inner {
+    padding: 20px;
+}
+
 // BUTTONS /////////////////////////////////////////////
 .btn {
     border-radius: $radius;
@@ -176,7 +191,7 @@ input {
 }
 .base-input {
     border: 1px solid #ccc;
-    box-shadow: 0 5px 0 0 $border-color;
+    box-shadow: 5px 5px 0 0 $black;
 }
  .to-top {
     margin: 40px 0;

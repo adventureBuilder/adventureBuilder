@@ -114,20 +114,18 @@ class StorySelection extends Component {
             <div id="story-selection-top" className="story-selection">
                 <Menu />
                 <div className="page">
-                <h2 className="view-title">Choose A Story</h2>
-                
-                <CharacterDisplay character={this.props.selectedCharacter} />
 
-                    
+                    <CharacterDisplay character={this.props.selectedCharacter} />
 
                     <div className="story-search-block">
-                        <h3>Search Stories:</h3>
+                        <h2 className="view-title">Choose A Story</h2>
+                        <h3 className="sub-title">Search Stories</h3>
 
                         <form className="search-bar" onSubmit={(e) => this.startSearch(e)}>
                             <select className="select-btn search-select-box" name="searchType" onChange={
                                 (e) => this.changeStorySearch(e.target.name, e.target.value)
                             }>
-                                
+
                                 <option selected default value="Title" >Title</option>
                                 <option value="Author">Author</option>
                                 <option value="Newest" >Newest</option>

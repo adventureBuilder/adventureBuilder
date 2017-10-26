@@ -12,11 +12,12 @@
 	.char-class-block {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		width: 30%;
 		margin-right: 20px;
 		border: 1px solid $border-color;
 	}
-
+/* luminari */
 	.char-stats {
 		padding: 20px;
 		background-color: $prim-color;

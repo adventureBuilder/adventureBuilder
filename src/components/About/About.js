@@ -54,6 +54,7 @@ export default function About() {
 								<p className="bio-roles">
 									<span className="role">Design</span>
 									<span className="role">Styling</span>
+									<span className="role">CSS Mobile</span>
 									<span className="role">Animations</span>
 									<span className="role">Components</span>
 									<span className="role">Redux</span>
@@ -76,7 +77,6 @@ export default function About() {
 								<p className="bio-roles">
 									<span className="role">Story Writing</span>
 									<span className="role">Database</span>
-									<span className="role">Styling</span>
 									<span className="role">Components</span>
 									<span className="role">Animations</span>
 									<span className="role">Testing</span>
@@ -98,6 +98,8 @@ export default function About() {
 								<p className="bio-blurb">Seth joined DevMountain because he likes to build things (pottery, jewelry, tee shirts, businesses) and is excited to combine that passion with the powerful tools available through web development.</p>
 								{/* <h3 className="bio-subhead">Roles</h3> */}
 								<p className="bio-roles">
+									<span className="role">Project Idea</span>
+									<span className="role">Wireframes</span>
 									<span className="role">Design</span>
 									<span className="role">Illustration</span>
 									<span className="role">Components</span>

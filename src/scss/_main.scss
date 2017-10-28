@@ -57,7 +57,7 @@ $grey-push: #383F47;
 $border-color: #777;
 $off-white: #e7e7e7;
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC");
 /* |Lobster|Lobster+Two   font-family: 'Lobster', 'Lobster Two', 'Satisfy', 'Open Sans'; */
 
 // MIXINS //////////////////////////////
@@ -72,7 +72,7 @@ $off-white: #e7e7e7;
 $radius: 50px;
 
 $header-font-stack: 
-'Marcellus', 'Open Sans', Helvetica, arial,
+'Marcellus SC', 'Open Sans', Helvetica, arial,
     sans-serif;
 
 $body-font-stack: 'Open Sans', Helvetica, arial,

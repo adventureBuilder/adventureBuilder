@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Menu from './../Menu/Menu';
 import Footer from './../Menu/Footer';
 
-import blakeImg2 from './../../images/blake-bio2.png';
+// import blakeImg2 from './../../images/blake-bio2.png';
 import blakeImg from './../../images/blake-adams.png';
 import paulImg from './../../images/paul-polzer.png';
 import sethImg from './../../images/seth-stephenson.png';
@@ -68,9 +67,9 @@ export default function About() {
 							<div className="team-col">
 								<h2>Seth Stephenson</h2>
 								<h3>Roles</h3>
-								<p>Design | Artwork | Components | React Reducer | Testing </p>
+								<p>Design | Illustration | Components | React Reducer | Testing </p>
 								<h3>Bio</h3>
-								<p>Seth has a cool bio</p>
+								<p>Seth joined DevMountain because he likes to build things (pottery, jewelry, tee shirts, businesses) and is excited to combine that passion with the powerful tools available through web development.</p>
 							</div>
 
 						</div>

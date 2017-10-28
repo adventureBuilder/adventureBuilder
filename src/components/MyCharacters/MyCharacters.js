@@ -9,11 +9,6 @@ import { Link } from 'react-router-dom';
 import { getSelectedCharacter } from '../../ducks/reducer';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 
-
-const styles = {
-    transition: 'all 1s ease-out'
-};
-
 class MyCharacters extends Component {
     constructor(props) {
         super(props)

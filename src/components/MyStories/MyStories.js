@@ -33,7 +33,7 @@ class MyStories extends Component {
         return (
             <div className="my-stories">
                 <div className="block-card">
-                    <h3 className="sub-title">My Stories</h3>
+                    <h2 className="sub-title">My Stories</h2>
 
                     <div className="block-card-inner">
                         {(this.state.stories.length > 0) ? storiesarr : "(you do not have any recent stories)"}

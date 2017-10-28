@@ -59,39 +59,17 @@ export default class NewCharacter extends Component {
 
     render() {
 
-        // const charStatDisplay = (
-
-
-        //     // <div className="char-row char-stats">
-        //     //     <div className="char-stat-row">
-        //     //         <h3>Srength(STR)</h3>
-        //     //         <div>{this.state.class && this.state.classes[this.state.class - 1].base_strength}</div>
-        //     //     </div>
-        //     //     <div className="char-stat-row">
-        //     //         <h3>Dexterity(DEX)</h3>
-        //     //         <div>{this.state.class && this.state.classes[this.state.class - 1].base_dexterity}</div>
-        //     //     </div>
-        //     //     <div className="char-stat-row">
-        //     //         <h3>Charisma(CHA)</h3>
-        //     //         <div>{this.state.class && this.state.classes[this.state.class - 1].base_charisma}</div>
-        //     //     </div>
-
-        //     // </div>
-
-
-        // )
-
         return (
             <div className="new-character">
 
                 <Menu />
                 <div className="page">
-                    <h2>Create A Character</h2>
+                    <h2 className="view-title">Create A Character</h2>
 
                     <div className="new-character-block">
                         <div className="char-row">
                             <div className="block-card">
-                                <h3 className="sub-title">Name</h3>
+                                <h2 className="sub-title">Name</h2>
                                 <div className="block-card-inner">
                                     <input className="base-input" onChange={(e) => this.changeChar(e.target.name, e.target.value)} name="charName" type="text" />
                                 </div>
@@ -99,7 +77,7 @@ export default class NewCharacter extends Component {
                         </div>
                         <div className="char-row">
                             <div className="block-card">
-                                <h3 className="sub-title">Class</h3>
+                                <h2 className="sub-title">Class</h2>
                                 <div className="block-card-inner">
 
                                     <div className="char-create-container">
@@ -115,17 +93,21 @@ export default class NewCharacter extends Component {
 
                                                         <div className="char-stats">
                                                             <div className="char-stat-row">
-                                                                <h3 className="stat-name">STR</h3>
+                                                                <h3 className="stat-name">Strength</h3>
                                                                 <h3 className="stat-num">{charClass.base_strength}</h3>
                                                             </div>
                                                             <div className="char-stat-row">
-                                                                <h3 className="stat-name">Dexterity (DEX)</h3>
+                                                                <h3 className="stat-name">Dexterity</h3>
                                                                 <h3 className="stat-num">{charClass.base_dexterity}</h3>
                                                             </div>
                                                             <div className="char-stat-row">
-                                                                <h3 className="stat-name">Charisma (CHA)</h3>
+                                                                <h3 className="stat-name">Charisma</h3>
                                                                 <h3 className="stat-num">{charClass.base_charisma}</h3>
                                                             </div>
+                                                            {/* <div className="char-stat-row">
+                                                                <h3 className="stat-name">Health</h3>
+                                                                <h3 className="stat-num">20</h3>
+                                                            </div> */}
 
                                                         </div>
                                                     </div>

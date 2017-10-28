@@ -9,11 +9,6 @@ import { Link } from 'react-router-dom';
 import { getSelectedCharacter } from '../../ducks/reducer';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 
-
-const styles = {
-    transition: 'all 1s ease-out'
-};
-
 class MyCharacters extends Component {
     constructor(props) {
         super(props)
@@ -54,12 +49,14 @@ class MyCharacters extends Component {
 
                                     className="tavern-char-name"
                                     value={character.character_name}>
-                                    <div><div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
+                                    <div>
+                                        {/* <div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
                                         ?
                                         'arrow-up'
                                         :
                                         'arrow-down')
-                                    }></div><span className="down-arrow">
+                                    }></div>*/}
+                                        <span className="down-arrow">
                                             &#9660;
                                     </span>
                                         {character.character_name}</div>
@@ -95,11 +92,11 @@ class MyCharacters extends Component {
         return (
             <div className="my-characters-list">
                 <div className="block-card">
-                    <h3 className="sub-title">My Characters</h3>
+                    <h2 className="sub-title">My Characters</h2>
 
                     <div className="block-card-inner">
                         {characterList}
-                        
+
                         <div className="my-character-footer-menu">
 
                             <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>

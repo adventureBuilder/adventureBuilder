@@ -48,7 +48,15 @@
                 display: flex;
                 justify-content: space-between;
             }
-		}
+           
+        }
+        .btn {
+            position: relative;
+            top: -5px;
+        }
+        .btn:active {
+            top: 0px;
+        }
 		
 	}
 	.char-display-container {

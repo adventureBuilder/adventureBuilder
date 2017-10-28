@@ -36,7 +36,7 @@ class NewUser extends Component {
             <div className="new-user"> {console.log('state:', this.props.state)}
                  { this.props.username ? <h3 className="mobile-pad">Welcome {this.props.username}</h3> : ( 
                 <div className="block-card">
-                    <h3 className="sub-title">Set Your Author Name</h3>
+                    <h2 className="sub-title">Set Your Author Name</h2>
                     <div className="block-card-inner">
                         <p><input className="base-input" type="text" onChange={(e) => this.usernameChange(e)} placeholder="Author Name" /></p>
                         <p><a><button className="btn" onClick={() => this.usernameClick(this.state.username)} >Save</button></a></p>

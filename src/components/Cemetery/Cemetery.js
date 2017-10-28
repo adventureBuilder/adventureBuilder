@@ -6,6 +6,7 @@ import { getCharacters } from '../../ducks/reducer';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 
 import Menu from './../Menu/Menu';
+import Footer from './../Menu/Footer';
 
 class Cemetery extends Component {
     constructor(props) {
@@ -62,18 +63,21 @@ class Cemetery extends Component {
             <div className="cemetery">
                 <div className="my-characters-list">
                     <Menu />
-                    <div className="block-card">
-                        <h3 className="sub-title">Cemetery</h3>
+                    <div className="page">
+                        <h2 className="view-title">Cemetery</h2>
+                        <div className="block-card">
+                            <h2 className="sub-title">Deceased Characters</h2>
 
-                        <div className="block-card-inner">
-                            {characterList}
+                            <div className="block-card-inner">
+                                {characterList}
 
 
-                            {<Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>}
+                                {<Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>}
 
+                            </div>
                         </div>
                     </div>
-
+                    <Footer />
                 </div>
             </div>
         );

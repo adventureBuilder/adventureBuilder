@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 import Menu from '../Menu/Menu';
+import Footer from '../Menu/Footer';
 
 export default class NewStory extends Component {
     constructor() {
@@ -49,7 +51,7 @@ export default class NewStory extends Component {
                     <div className="new-story-container">
                         <h2 className="view-title" >Create A Story</h2>
                         <div className="story-row">
-                            <h3 className="sub-title">Story Name</h3>
+                            <h2 className="sub-title">Story Name</h2>
                             <input className="base-input"
                                 type='text'
                                 onChange={e => this.changeName(e.target.value)}
@@ -57,14 +59,14 @@ export default class NewStory extends Component {
                             />
                         </div>
                         <div className="story-row">
-                            <h3 className="sub-title">Story Description</h3>
+                            <h2 className="sub-title">Story Description</h2>
                             <textarea className="base-input"
                                 onChange={e => this.changeDescription(e.target.value)}
                                 value={this.state.storyDescription}
                             />
                         </div>
                         <div className="story-row">
-                            <h3 className="sub-title">Difficulty Level</h3>
+                            <h2 className="sub-title">Difficulty Level</h2>
                             <input className="base-input"
                                 type='number'
                                 max='9'
@@ -78,6 +80,7 @@ export default class NewStory extends Component {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         );
     }

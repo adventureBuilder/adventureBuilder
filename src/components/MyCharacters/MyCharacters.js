@@ -90,7 +90,7 @@ class MyCharacters extends Component {
         return (
             <div className="my-characters-list">
                 <div className="block-card">
-                    <h3 className="sub-title">My Characters</h3>
+                    <h2 className="sub-title">My Characters</h2>
 
                     <div className="block-card-inner">
                         {characterList}

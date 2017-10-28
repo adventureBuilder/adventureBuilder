@@ -49,12 +49,14 @@ class MyCharacters extends Component {
 
                                     className="tavern-char-name"
                                     value={character.character_name}>
-                                    <div><div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
+                                    <div>
+                                        {/* <div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
                                         ?
                                         'arrow-up'
                                         :
                                         'arrow-down')
-                                    }></div><span className="down-arrow">
+                                    }></div>*/}
+                                        <span className="down-arrow">
                                             &#9660;
                                     </span>
                                         {character.character_name}</div>
@@ -94,7 +96,7 @@ class MyCharacters extends Component {
 
                     <div className="block-card-inner">
                         {characterList}
-                        
+
                         <div className="my-character-footer-menu">
 
                             <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>

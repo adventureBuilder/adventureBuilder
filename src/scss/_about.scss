@@ -51,12 +51,17 @@
     }
     .bio-name {
 
-	}
+    }
+    .nickname {
+        padding: 0;
+    }
 	.bio-subhead {
 
 	}
 	.bio-roles {
-		
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 		.role {
 			background-color: $grey;
 			display: inline-block;

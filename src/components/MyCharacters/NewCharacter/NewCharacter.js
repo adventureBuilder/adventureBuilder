@@ -104,10 +104,10 @@ export default class NewCharacter extends Component {
                                                                 <h3 className="stat-name">Charisma</h3>
                                                                 <h3 className="stat-num">{charClass.base_charisma}</h3>
                                                             </div>
-                                                            <div className="char-stat-row">
+                                                            {/* <div className="char-stat-row">
                                                                 <h3 className="stat-name">Health</h3>
                                                                 <h3 className="stat-num">20</h3>
-                                                            </div>
+                                                            </div> */}
 
                                                         </div>
                                                     </div>

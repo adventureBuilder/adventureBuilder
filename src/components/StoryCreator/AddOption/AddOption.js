@@ -32,10 +32,13 @@ export default class AddOption extends Component {
 
     isValid() {
         if (this.state.optionName !== '' &&
-            this.state.optionDescription !== '' &&
-            this.state.successText !== '' &&
-            this.state.failText !== '' &&
-            this.state.successEncounter !== -1 &&
+            this.state.optionDescription !== '' && 
+            this.state.optionDescription.length < 140 &&
+            this.state.successText !== '' && 
+            this.state.successText.length < 140 &&
+            this.state.failText !== '' && 
+            this.state.failText.length < 140 &&
+            this.state.successEncounter !== -1 && 
             this.state.failedEncounter !== -1 &&
             this.state.optionImagesId !== -1) {
             return true;
@@ -187,6 +190,7 @@ export default class AddOption extends Component {
                 <div>
                     <h3>Option Description:</h3>
                     <textarea className="base-input pad-it " onChange={e => this.changeDescription(e.target.value)} value={this.state.optionDescription} />
+                    <span className="indent-it"><i>{ this.state.optionDescription ? this.state.optionDescription.length : "0"}/140</i></span>
                 </div>
                 <div>
                     <h3>Option Image:</h3>
@@ -270,6 +274,7 @@ export default class AddOption extends Component {
                     <textarea 
                         onChange={e => this.changeSuccessText(e.target.value)}
                         value={this.state.successText} />
+                       <span className="indent-it"> <i>{ this.state.successText ? this.state.successText.length : "0"}/140</i></span>
                 </div>
                 <div>
                    <h3> Success Encounter</h3>
@@ -297,6 +302,8 @@ export default class AddOption extends Component {
                     <textarea 
                         onChange={e => this.changeFailText(e.target.value)}
                         value={this.state.failText} />
+                      <span className="indent-it">  <i>{ this.state.failText ? this.state.failText.length : "0"}/140</i></span>
+                      
                 </div>
                 <div>
                     <h3>Failed Encounter</h3>

@@ -76,5 +76,20 @@
 		border-top: 2px solid $grey;
 		border-bottom: 2px solid $grey;
 		padding: 10px 5px;
-	}
+    }
+    .tech-used-container {
+        width: 100%;
+        margin: 40px 0 40px 0;
+    }
+    .tech-used {
+       
+        display: flex;
+        justify-content: space-around;
+        div {
+            padding: 10px;
+            margin: 20px;
+            border: 1px solid $grey;
+        }
+    }
+
 }

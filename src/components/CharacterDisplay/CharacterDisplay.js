@@ -3,18 +3,23 @@
 
 import React from 'react';
 
-export default function CharacterDisplay({ character, slideVisible }) {
+export default function CharacterDisplay({ character }) {
 
     return (
         <div className={`char-name char-display-container`}>
 
-            <div className="char-title">
-                <h2 className="fadingpower">{character.character_name}</h2>
-
-                <div>
+            <div className="block-card">
+                <div className="sub-title char-title">
+                    <h2 className="char-name fadingpower">{character.character_name}</h2>
                     <h3 className="char-class fadingpower">The&nbsp;{character.class_name}</h3>
-                    <h3 className="char-hp fadingpower">HP:&nbsp;{character.health_points}</h3>
                 </div>
+                <div className="block-card-inner">
+
+                    <div className="char-sheet">
+                        <h3 className="char-hp fadingpower"><div id="heart"></div><div className="stat-num">{character.health_points}</div></h3>
+                        <h4 className="fadingpower stat-name">STRENGTH <div className="stat-num">{character.strength}</div></h4>
+                        <h4 className="fadingpower stat-name">DEXTERITY <div className="stat-num">{character.dexterity}</div></h4>
+                        <h4 className="fadingpower stat-name">CHARISMA <div className="stat-num">{character.charisma}</div></h4>
 
                 <div className="char-sheet">
 
@@ -37,6 +42,14 @@ export default function CharacterDisplay({ character, slideVisible }) {
 
             </div>
 
-       // </div>
+        </div>
+
+                    </div>
+                
+
+
+            
+    
+
     );
 }

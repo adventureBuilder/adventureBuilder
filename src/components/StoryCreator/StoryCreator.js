@@ -143,7 +143,11 @@ export default class StoryCreator extends Component {
         }
         return (
             <div>
+
                 <Menu/>
+
+                <h1>Story Creator</h1>
+
                 {this.state.story && this.state.story.story_name}
                     <div className='page'>
                         <h2>Story Creator</h2>

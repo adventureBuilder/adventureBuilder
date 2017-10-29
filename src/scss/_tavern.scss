@@ -1,71 +1,111 @@
 .my-characters-list {
-	width: 100%;
-}
-.tavern-char-container {
+    width: 100%;
 
-	margin: 15px 0;
-	
-	.tavern-char-row {
-		// display:flex;
-		// justify-content: space-between;
-		.arrow-dropdown {
-			height:0;
-			width:0;
-			border-top:15px solid transparent;
-			border-left:30px solid red;
-			border-bottom:15px solid transparent;
-			display:inline-block;
+    .my-character-footer-menu {
+        margin: 40px 0 20px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.tavern-char-container {
+    margin: 15px 0;
+    .tavern-char-row {
+        display:flex;
+		justify-content: space-between;
+		
+        .arrow-down {
+            height: 0;
+            width: 0;
+            border-top: 15px solid transparent;
+            border-left: 30px solid red;
+            border-bottom: 15px solid transparent;
+			display: inline-block;
 			
 		}
-
-		.tavern-char-name-container {
-
-			background-color: $row-color;
-			padding: 3px 5px;
-			width: 75%;
-			height: 30px;
-			box-shadow: 0 5px 0 0 $border-color;
-			display:inline-block;
-
-			.tavern-char-name {
-				min-width: 150px;
-				background-color: transparent;
-				border: none;
-				color: $btn-color;
-				text-align: left;
-			}
-		}
+		.arrow-down {
+            height: 0;
+            width: 0;
+            border-top: 15px solid transparent;
+            border-left: 30px solid red;
+            border-bottom: 15px solid transparent;
+            display: inline-block;
+        }
+        .tavern-char-name-container {
+            background-color: $row-color;
+            padding: 3px 5px;
+            width: 75%;
+            height: 30px;
+            box-shadow: 0 5px 0 0 $border-color;
+            display: inline-block;
+            .tavern-char-name {
+                width: 100%;
+                min-width: 150px;
+                background-color: transparent;
+                border: none;
+                color: $btn-color;
+                text-align: left;
+                display: flex;
+                justify-content: space-between;
+            }
+           
+        }
+        .btn {
+            position: relative;
+            top: -5px;
+        }
+        .btn:active {
+            top: 0px;
+        }
+		
 	}
+	
 }
 
 .down-arrow {
-	color: $black;
+    color: $black;
 }
+
 .my-stories {
-	width: 100%;
+    width: 100%;
 }
 
 .dropdown {
-	transition: .8s;
-	height: 200px;
-	overflow: hidden;
-  }
+    transition: .8s;
+    height: 200px;
+    overflow: hidden;
+    // border-bottom: 5px solid $grey;
+    width: 75%
+}
 
-  .dropup{
-		transition: .8s;
-		height: 0px;
-		overflow: hidden;
-	}
-	
-  .fadingpower {
-	animation: fadingpower2 1s;
-  }
-  
-  @keyframes fadingpower2 {
-	0% {opacity: 0}
-	50%{opacity: 0}
-	100% {opacity: 1}
-  }
+.dropup {
+    transition: .8s;
+    height: 0px;
+    overflow: hidden;
+    // border-bottom: 5px solid $grey;
+    width: 75%
+}
+
+.fadingpower {
+    animation: fadingpower2 1s;
+}
+
+@keyframes fadingpower2 {
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.fadingpower3 {
+    animation: fadingpower4 1s;
+}
+
 
   .fadingpower3 {
 	animation: fadingpower4 1s;
@@ -80,3 +120,16 @@
 	.my-stories-most-recent{
 		margin-bottom: 15px;
 	}
+
+@keyframes fadingpower4 {
+    0% {
+        opacity: 1
+    }
+    50% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+

@@ -6,6 +6,7 @@ import { getCharacters } from '../../ducks/reducer';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 
 import Menu from './../Menu/Menu';
+import Footer from './../Menu/Footer';
 
 class Cemetery extends Component {
     constructor(props) {
@@ -45,28 +46,39 @@ class Cemetery extends Component {
                 <div className="tavern-char-row">
                     <div className="tavern-char-name-container" onClick={_ => this.showModule(character.character_id)}>
                         <button className="tavern-char-name"
-                            >
+                        >
                             <span className="down-arrow">&#9660;</span>  {character.character_name}</button>
                     </div>
                 </div>
                 <div onClick={_ => this.showModule(character.character_id)}
                     className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
-                    ?
-                    'dropup'
-                    :
-                    'dropdown')
-                }><CharacterDisplay character={character} /></div>
+                        ?
+                        'dropup'
+                        :
+                        'dropdown')
+                    }><CharacterDisplay character={character} /></div>
             </div>)
 
         return (
-            <div className="my-characters-list">
-                <Menu />
-                <h3 className="sub-title">Cemetery:</h3>
+            <div className="cemetery">
+                <div className="my-characters-list">
+                    <Menu />
+                    <div className="page">
+                        <h2 className="view-title">Cemetery</h2>
+                        <div className="block-card">
+                            <h2 className="sub-title">Deceased Characters</h2>
 
-                {characterList}
+                            <div className="block-card-inner">
+                                {characterList}
 
-                {<Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>}
 
+                                {<Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>}
+
+                            </div>
+                        </div>
+                    </div>
+                    <Footer />
+                </div>
             </div>
         );
     }

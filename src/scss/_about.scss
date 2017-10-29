@@ -1,20 +1,80 @@
 .about {
-	.team-row {
-		border-bottom: 10px solid $black;
-		padding: 20px 10px;
-		margin: 40px 0;
-		width: 100%;
-	}
-	.team-col {
-		display: inline-block;
-		width: 50%;
-	}
-	.bio-img {
-		width: 300px;
-		height: auto;
-		border: 5px solid $border-color;
-		border-radius: 200px;
-	
-	}
+    .sub-title {
+        margin: 0;
+    }
+    .block-card-inner {
+        padding: 0;
+    }
+    .team-row {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 10px solid $grey;
+        padding: 40px 10px;
+        width: 100%;
+    }
+    .team-row:last-child {
+        border: none;
+    }
+    .team-row:nth-child(odd) {
+        background-color: $grey;
+        .bio-img {
+            border-color: $white;
+        }
+		h1,
+		h2,
+        h3,
+        p {
+            color: $white;
+		}
+		.bio-blurb {
+			border-top: 2px solid $white;
+			border-bottom: 2px solid $white;
+		}
+		.role {
+			background-color: $white;
+			color: $grey;
+		}
+    }
+    .team-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+    }
+    .bio-img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border: 5px solid $border-color;
+        border-radius: 200px;
+    }
+    .bio-name {
 
+    }
+    .nickname {
+        padding: 0;
+    }
+	.bio-subhead {
+
+	}
+	.bio-roles {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+		.role {
+			background-color: $grey;
+			display: inline-block;
+			padding: 5px 12px;
+			border-radius: 25px;
+			color: $white;
+			margin: 0 7px 5px 0;
+
+		}
+	}
+	.bio-blurb {
+		border-top: 2px solid $grey;
+		border-bottom: 2px solid $grey;
+		padding: 10px 5px;
+	}
 }

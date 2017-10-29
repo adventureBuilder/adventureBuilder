@@ -9,11 +9,6 @@ import { Link } from 'react-router-dom';
 import { getSelectedCharacter } from '../../ducks/reducer';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 
-
-const styles = {
-    transition: 'all 1s ease-out'
-};
-
 class MyCharacters extends Component {
     constructor(props) {
         super(props)
@@ -42,25 +37,35 @@ class MyCharacters extends Component {
         const characterList = this.props.characters
             .filter(char => char.alive)
             .map((character, i) => {
+                console.log('character', character)
                 return (
+
                     <div className="tavern-char-container" key={character.character_id}>
                         <div className="tavern-char-row">
-                            <div className="arrow-dropdown" onClick={_ => this.showModule(character.character_id)}></div>
+
                             <div className="tavern-char-name-container" onClick={_ => this.showModule(character.character_id)}>
 
                                 <button
-                                    
+
                                     className="tavern-char-name"
                                     value={character.character_name}>
-                                    <span className="down-arrow">
-                                        &#9660;
+                                    <div>
+                                        {/* <div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
+                                        ?
+                                        'arrow-up'
+                                        :
+                                        'arrow-down')
+                                    }></div>*/}
+                                        <span className="down-arrow">
+                                            &#9660;
                                     </span>
-                                    {character.character_name}
+                                        {character.character_name}</div>
+                                    <div>{character.class_name}</div>
                                 </button>
                             </div>
                             <Link to={`/storyselection`}>
                                 <button
-                                    className="select-btn"
+                                    className="btn"
                                     id={character.character_id}
                                     onClick={() => { this.props.getSelectedCharacter(character.character_id); }}>
                                     PLAY
@@ -86,12 +91,19 @@ class MyCharacters extends Component {
 
         return (
             <div className="my-characters-list">
-                <h3 className="sub-title">My Characters:</h3>
                 <div className="block-card">
+                    <h2 className="sub-title">My Characters</h2>
 
-                    {characterList}
+                    <div className="block-card-inner">
+                        {characterList}
 
-                    <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>
+                        <div className="my-character-footer-menu">
+
+                            <Link to={`/newcharacter`}><button className="btn">Start New Character</button></Link>
+                            <Link to={`/cemetery`}><button className="btn">Visit Cemetery</button></Link>
+
+                        </div>
+                    </div>
 
                 </div>
             </div>

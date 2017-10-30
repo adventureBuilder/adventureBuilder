@@ -1,54 +1,63 @@
 .new-character-block {
-	width: 100%;
-	.char-row {
-		margin-bottom: 40px;
-	}
-	.base-input {
-		width: 100%;
-	}
-	.char-create-container {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.char-class-text-box {
-		background-color: #fff;
-		padding: .75rem 1.25rem;
-
-	}
-	.char-class-block {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		width: 30%;
-		margin-right: 20px;
-		border: 1px solid $border-color;
-	}
-
-	.char-stats {
-		padding: 20px;
-		background-color: $prim-color;
-		color: $white;
-		.char-stat-row {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin: 5px 0;
-			padding: 0;
-		}
-		h3 {
-			color: $white;
-			margin: 0;
-			padding: 0;
-			font-size: 22px;
-		}
-		.stat-num {
-			background-color: $white;
-			color: $prim-color;
-			padding: 3px 5px;
-			margin-left: 10px;
-
-		}
-	}
-	
-	
+    width: 100%;
+    .char-row {
+        margin-bottom: 40px;
+    }
+    .base-input {
+        width: 100%;
+    }
+    .char-create-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .char-class-text-box {
+        background-color: #fff;
+        padding: .75rem 1.25rem;
+    }
+    .char-class-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30%;
+        margin-right: 20px;
+        border: 1px solid $border-color;
+    }
+    .char-stats {
+        padding: 20px;
+        background-color: $prim-color;
+        color: $white;
+        .char-stat-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px 0;
+            padding: 0;
+        }
+        h3 {
+            color: $white;
+            margin: 0;
+            padding: 0;
+            font-size: 22px;
+        }
+        .stat-num {
+            background-color: $white;
+            color: $prim-color;
+            padding: 3px 5px;
+            margin-left: 10px;
+        }
+    }
+    .new-char-btn {
+        .btn {
+            display: block;
+            width: 100%;
+            border-radius: 0;
+            padding: 10px;
+            font-size: 22px;
+            position: relative;
+            top: -5px;
+        }
+        .btn:active {
+            top: 0px;
+        }
+    }
 }

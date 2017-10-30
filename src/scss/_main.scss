@@ -40,7 +40,7 @@ $sec-color: #27313B;
   $input-color: #b2b2b2;
 
 $btn-color: #F70302;
-$btn-highlight: #FF1D1C;
+$btn-highlight: #FF2524;
 $btn-press: #B21010;
 $btn-border-color: #A20000;
 
@@ -51,13 +51,20 @@ $bg-color: #1F262E;
 $black: #020d0e;
 $white: #f7f7f7;
 $grey: #414850;
-$grey-highlight: #555;
-$grey-push: #333;
+$grey-highlight: #575E66;
+$grey-push: #383F47;
 
 $border-color: #777;
-$off-white: #e1e1e1;
+$off-white: #e7e7e7;
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC");
+
+@font-face {
+    font-family: 'Luminari';
+    src: local('Luminari'), url('../fonts/Luminari.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 /* |Lobster|Lobster+Two   font-family: 'Lobster', 'Lobster Two', 'Satisfy', 'Open Sans'; */
 
 // MIXINS //////////////////////////////
@@ -72,8 +79,7 @@ $off-white: #e1e1e1;
 $radius: 50px;
 
 $header-font-stack: 
-'Marcellus', 'Open Sans', Helvetica, arial,
-    sans-serif;
+'Luminari','Open Sans', Helvetica, arial, serif;
 
 $body-font-stack: 'Open Sans', Helvetica, arial,
 sans-serif;
@@ -84,16 +90,21 @@ sans-serif;
 }
 
 body {
-    background: url('https://www.toptal.com/designers/subtlepatterns/patterns/binding_dark.png') #0D0D0D repeat;
+    // background: url('https://www.toptal.com/designers/subtlepatterns/patterns/binding_dark.png') #0D0D0D repeat;
+    // background-color: $white;
     font-family: $body-font-stack;
-
+    
 }
 a {
     text-decoration: none;
 }
-h1,h2,h3,h4,h5 {
+h1,h2 {
     font-family: $header-font-stack;
     color: $black;
+    letter-spacing: 1px;
+}
+h2, h3, h4, h5 .footer-font {
+    font-family: 'Marcellus SC', 'Open Sans', Helvetica, arial, sans-serif;
 }
 div, p, ul, li, a, button, span, input {
     font-family: $body-font-stack;
@@ -111,6 +122,7 @@ div, p, ul, li, a, button, span, input {
     font-weight: 800;
     text-align: center;
     font-size: 34px;
+    margin-top:0;
 }
 .sub-title {
     color: $white;
@@ -124,7 +136,7 @@ input, textarea {
 // MAIN STYLES USED EVERYWHERE //////////
 
 .page {
-    padding: 0 20px 40px 20px;
+    padding: 40px 20px 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,6 +165,15 @@ input, textarea {
 }
 
 // BUTTONS /////////////////////////////////////////////
+.text-link {
+    color: $white;
+    border-bottom: 2px solid $btn-color;
+    display: inline-block;
+}
+.text-link:hover, .text-link:focus {
+    color: $btn-color;
+    border-bottom: 2px solid $btn-highlight;
+}
 .btn {
     border-radius: $radius;
     border: none;
@@ -163,7 +184,7 @@ input, textarea {
 }
 .btn:hover {
     background-color: $btn-highlight;
-    
+    color: #fff;
 }
 .btn:active {
     background-color: $btn-highlight;
@@ -180,12 +201,13 @@ input, textarea {
     border-bottom-right-radius: 50px;
     border:none;
     background-color: $white;
-    box-shadow: 0 5px 0 0 $border-color;
+    box-shadow: 0 5px 0 0 #2E353D;
     height: 30px;
     display:inline-block;
 }
 .select-btn:hover {
     background-color: #fff;
+    color: #fff;
 }
 .select-btn:active {
     position: relative;
@@ -198,19 +220,37 @@ input, textarea {
 }
  .to-top {
     margin: 40px 0;
-//     position: fixed;
-//     bottom: 10px;
-//     right: 0;
 }
-// .to-top .btn {
-//     border-top-left-radius: 50px;
-//     border-top-right-radius: 0px;
-//     border-bottom-right-radius: 0px;
-//     border-bottom-left-radius: 50px;
-//     box-shadow: 0px 5px 0 0 $btn-border-color;
 
-// }
+.hide-mobile {
+    display: inherit !important;
+}
+.hide-desktop {
+    display: none !important;
+}
 
-//     ///////////////////////////////
-
-
+#heart {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    
+}
+#heart:before,
+#heart:after {
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 0px;
+    width: 25px;
+    height: 40px;
+    background: $btn-color;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+#heart:after {
+    left: -15px;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}

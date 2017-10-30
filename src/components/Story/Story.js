@@ -48,14 +48,14 @@ class Story extends Component {
     }
 
     render() {
-        // console.log('story', this.state.story)
+
         return (
             <div className="story">
                 <Menu />
                 <div className="page">
                     <div className="story-header">
                         <h2 className="story-title">{this.state.story.story_name}</h2>
-                        <h3 className="story-author"></h3>
+                        {/* <h3 className="story-author"></h3> */}
                     </div>
                     <div className="card">
 

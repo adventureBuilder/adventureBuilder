@@ -1,29 +1,99 @@
-// TABLET
-@media (max-width:799px) {
-    .new-character-block {
-		
-        .char-class-block {
+    // TABLET
+    @media (max-width:799px) {
+        .new-character-block {
+            .char-class-block {
+                flex-wrap: wrap;
+                width: 100%;
+                margin: 0 0 40px 0;
+            }
+            .char-stats {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                .char-stat-row {
+                    margin-right: 20px;
+                }
+                .char-stat-row:nth-last-child(1) {
+                    margin: 0;
+                }
+            }
+        }
+    } // MOBILE
+    @media (max-width:426px) {
+        .page {
+            padding: 30px 0 30px 0;
+        }
+        .card {
+            padding: 15px 5px;
+        }
+        .menu {
+            padding-bottom: 10px;
+            h1 {
+                font-size: 24px;
+            }
+        }
+        .story-container {
+            padding: 20px 5px;
+            width: 100%;
+            .story-header {
+                flex-wrap: wrap;
+            }
+            .story-footer {
+                .begin-story {
+                    margin-top: 15px;
+                }
+            }
+            
+        }
+        .to-top {
+            margin: 0;   
+        }
+        .char-display-container {
+            padding: 0;
+        }
+        .team-row {
+            flex-direction: column;
+        }
+        .hide-mobile {
+            display: none !important;
+        }
+        .hide-desktop {
+            display: inherit !important;
+        }
+        .block-card-inner {
+            padding: 10px 5px;
+        }
+        .char-sheet {
             flex-wrap: wrap;
-			width: 100%;
-			margin: 0 0 40px 0;
+            h3,
+            h4 {
+                margin: 5px 0;
+            }
+        }
+        .new-character-block {
+            .char-stats {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                .char-stat-row {
+                    margin-right: 20px;
+                }
+                .char-stat-row:nth-last-child(1) {
+                    margin: 0;
+                }
+            }
+        }
+        .mobile-pad {
+            padding: 0 10px;
+        }
+        .about .team-col {
+            width: 100%;
+        }
+        #heart:before,
+        #heart:after {
+            left: 15px;
+        }
+        #heart:after {
+            left: -10px;
         }
     }
-}
-
-// MOBILE
-@media (max-width:426px) {
-    .page {
-        padding: 0 0 40px 0;
-    }
-    .card {
-        padding: 15px 5px;
-    }
-    .story-container {
-        padding: 20px 5px;
-        width: 100%;
-    }
-    .char-display-container {
-        padding: 0;
-	}
-	
-}

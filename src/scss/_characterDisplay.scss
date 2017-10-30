@@ -3,9 +3,6 @@
     background-color: $white;
     padding: 0;
     width: 100%;
-    
-    // border-top: 7px solid $sec-color;
-	// border-bottom: 3px solid $sec-color;
 	overflow: hidden;
     .sub-title.char-title {
         display: flex;
@@ -31,11 +28,13 @@
 	.char-hp {
 		padding: 0;
 	}
-	.stat-num {
-		display: inline-block;
-		border: 2px solid $grey;
-		padding: 3px 5px;
-		background-color: $sec-color;
-		color: $white;
-	}
+	
+}
+.stat-num {
+    display: inline-block;
+    border: 2px solid $grey;
+    padding: 3px 5px;
+    background-color: $prim-color;
+    color: $white;
+    text-align: center;
 }

@@ -1,7 +1,6 @@
 .creator_container{
     margin: auto;
-    width: 1170px;
-    border: 2px solid black;
+    width: 100%;
     margin: auto;
     min-height: 90vh;
     display: flex;
@@ -9,10 +8,62 @@
     background: white;
 }
 .encounters_display_container{
-    border: 2px solid red;
     flex-grow: 1;
+    width: 100%;
+    .save-first-encounter-btn{
+        padding: 50px;
+    }
+    
+    
+    .creator-encounter-display{
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin: 20px;
+        
+
+        .creator-options{
+            margin: 15px 0 15px 35px;
+         }
+    }
 }
 .creator_display_container{
-    border: 2px solid yellow;
     flex-grow: 3;
+    width: 75%;
+    padding: 20px;
+
+    .story-creator-img{
+        height: 250px;
+        width: 300px;
+        border: 1px solid black;
+        img{
+            height: 100%;
+            width: 100%;
+           
+        }
+        
+        
+        margin-bottom: 20px;
+    }
+    
+    
 }
+
+.add-another-encounter-btn{
+    margin-top: 330px;
+   
+}
+
+.pad-it{
+    margin-bottom: 2px;
+}
+
+.indent-it{
+    margin-left: 25px;
+}
+
+
+.story-creator-add-img{
+    margin-top: 10px;
+}
+

@@ -16,10 +16,13 @@ export default class Encounter extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({
-            optionsShow: false,
-            disableButtons: false
-        })
+        if (this.props.encounter.encounter_id !== nextProps.encounter.encounter_id) {
+
+            this.setState({
+                optionsShow: false,
+                disableButtons: false
+            })
+        }
     }
 
     resetOptionTabs() {
@@ -44,8 +47,8 @@ export default class Encounter extends Component {
                 option={option}
                 isDisable={this.state.disableButtons}
                 disableButtons={this.disableButtons}
-                resetOptionTabs={this.resetOptionTabs} 
-                setEncounter={this.props.setEncounter}/>
+                resetOptionTabs={this.resetOptionTabs}
+                setEncounter={this.props.setEncounter} />
         })
         return (
             <div>

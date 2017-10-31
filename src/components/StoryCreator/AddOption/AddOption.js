@@ -187,7 +187,7 @@ export default class AddOption extends Component {
                 <h3 className="sub-title">New Option</h3>
                 <div className="block-card-inner">
                     <div className="option-row">
-                        <h3 className="option-type-title">Option Name:</h3>
+                        <h3 className="option-type-title">Option Name: <small>(One word works best)</small></h3>
                         <input className="base-input pad-it " onChange={e => this.changeName(e.target.value)} type='text' value={this.state.optionName} />
                     </div>
                     <div className="option-row">
@@ -196,7 +196,7 @@ export default class AddOption extends Component {
                         <span className="indent-it"><i>{this.state.optionDescription ? this.state.optionDescription.length : "0"}/140</i></span>
                     </div>
                     <div className="option-row">
-                        <h3 className="option-type-title">Option Image:</h3>
+                        <h3 className="option-type-title">Option Icon:</h3>
                         <select className="base-input" value={this.state.optionImagesId} onChange={e => this.changeOptionImage(e.target.value)}>
                             <option value={-1}>Select One</option>
                             {imageOptions}
@@ -206,7 +206,7 @@ export default class AddOption extends Component {
                                 ?
                                 <img className="pad-it story-creator-add-img" src={optionImage.image_src} alt={optionImage.image_name} />
                                 :
-                                <p className="indent-it">No option image selected yet</p>}
+                                <p className="indent-it">No option icon selected yet.</p>}
                         </div>
                     </div>
                     <div className="option-row">
@@ -266,14 +266,15 @@ export default class AddOption extends Component {
                             max={this.state.numOfDice * this.state.sideOfDice} />
                     </div>
                     <div className="option-row">
-                        <h3 className="option-type-title small">Health Consequences:</h3>
-                        <p className="description">Positive number reduces hp. Negative number restores hp.</p>
-                        <input className="base-input"
+                        <h3 className="option-type-title inline">Health Consequences:</h3>
+                        <input className="base-input small"
                             type='number'
                             value={this.state.healthConsequences}
                             onChange={e => this.changeHealthConsequence(e.target.value)}
                             min={-3}
                             max={5} />
+                        <p className="description">Positive number reduces hp. Negative number restores hp.</p>
+                        
                     </div>
 
 
@@ -340,9 +341,8 @@ export default class AddOption extends Component {
                             }
                         </div>
                     </div>
+                    {this.isValid() ? <button className="btn" onClick={_ => this.saveOption()}>Save Option</button> : <p className="description invalid">Please fill out all fields in order to save the current Option.</p>}
                 </div>
-
-                {this.isValid() && <button className="btn" onClick={_ => this.saveOption()}>Save Option</button>}
             </div>
         );
     }

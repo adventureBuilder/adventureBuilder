@@ -40,26 +40,26 @@ export default class StoryCreator extends Component {
         let hasOptions = true;
         let startEncounter = false;
 
-        if(this.state.story.encounters){
-            if(this.state.story.start_encounter_id){
+        if (this.state.story.encounters) {
+            if (this.state.story.start_encounter_id) {
                 startEncounter = true;
             }
-            this.state.story.encounters.forEach(encounter=> {
-                if(parseInt(encounter.final_encounter) === 1){
+            this.state.story.encounters.forEach(encounter => {
+                if (parseInt(encounter.final_encounter) === 1) {
                     finalEncounter = true;
-                }else if(encounter.options.length < 1){
+                } else if (encounter.options.length < 1) {
                     hasOptions = false;
                 }
             });
-        } 
-        if(startEncounter && finalEncounter && hasOptions){
+        }
+        if (startEncounter && finalEncounter && hasOptions) {
             return true;
         }
         return false;
     }
 
-    completeStory(){
-        axios.put(`/api/story/${this.state.story.story_id}`).then(_=>{
+    completeStory() {
+        axios.put(`/api/story/${this.state.story.story_id}`).then(_ => {
             this.props.history.push('/tavern');
         })
     }
@@ -142,30 +142,44 @@ export default class StoryCreator extends Component {
                 break;
         }
         return (
-            <div>
+            <div className="story-creator">
 
-                <Menu/>
+                <Menu />
+                <div className='page'>
+                    <h2 className="view-title">Story Creator</h2>
 
-                <h1>Story Creator</h1>
 
-                {this.state.story && this.state.story.story_name}
-                    <div className='page'>
-                        <h2>Story Creator</h2>
-                    <div className='creator_container'>
-                        {encounters.length > 0 &&
-                        <div className='encounters_display_container'>
-                            <h3>Add options to your encounter! In each encounter players will have to choose from one of the three options you provide.</h3>
-                            {encounters}
-                            {encounters.length > 0 && <button className='btn add-another-encounter-btn' onClick={this.openNewEncounter}>Add Another Encounter</button>}
-                            {this.isValid() && <button className='btn' onClick={_=>this.completeStory()}>Complete Story</button>}
+                    <div className="block-card">
+                        <h2 className="sub-title">{this.state.story && this.state.story.story_name}</h2>
+                        <div className='creator_container'>
+
+
+                            {encounters.length > 0 &&
+                                <div className='encounters_display_container'>
+
+                                    <h3 className="sub-title">Add Options To Your Encounter</h3>
+                                    <div className="block-card-inner">
+                                    <p className="description">In each encounter players will have to choose from one of the three options you provide.</p>
+                                    <p className="description">(We recommend you create all encounters first to make linking between encounters easier when creating their options.)</p>
+                                    
+                                        {encounters}
+                                        {encounters.length > 0 && <button className='btn add-another-encounter-btn' onClick={this.openNewEncounter}>Add Another Encounter</button>}
+                                        {this.isValid() && <button className='btn' onClick={_ => this.completeStory()}>Complete Story</button>}
+                                    </div>
+                                </div>
+                            }
+                            <div className='creator_display_container'>
+
+                                {view}
+
+                            </div>
                         </div>
-                    }
-                    <div className='creator_display_container'>
-                        {view}
                     </div>
                 </div>
             </div>
             </div>
+
+
 
         );
     }

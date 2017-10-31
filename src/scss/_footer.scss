@@ -11,6 +11,8 @@
 	// background: linear-gradient($grey-highlight, $grey-push);
 	background-color: $grey;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
 }
 .footer-font {
 	font-family: 'Marcellus SC', 'Open Sans', Helvetica, arial, sans-serif;

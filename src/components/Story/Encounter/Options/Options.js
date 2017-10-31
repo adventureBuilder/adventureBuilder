@@ -12,6 +12,7 @@ class Options extends Component {
         this.state = {
             optionShow: false,
             nextEncounter: null,
+            oddsText: '',
             resultText: ''
         }
         this.clickOption = this.clickOption.bind(this);
@@ -23,6 +24,13 @@ class Options extends Component {
                 optionShow: nextProps.optionShow
             })
         }
+    }
+
+    oddsToString(){
+        let tempArr = this.props.option.option_odds.split('+');
+        let diceArr = String(tempArr.splice(0, 1)).split('d');
+
+        return `(${diceArr[0]}) ${diceArr[1]}-sided dice${tempArr.map(mod => ` + ${mod}`)}`
     }
 
     rollDice() {
@@ -58,12 +66,14 @@ class Options extends Component {
             this.props.changeHP(this.props.character.character_id, this.props.character.health_points, this.props.option.health_consequences).then(res => {
                 if (this.props.character.alive) {
                     this.setState({
+                        oddsText: `You rolled a ${num} out of ${this.oddsToString()}, and needed a ${this.props.option.options_pass_case} to pass.${this.props.option.health_consequences > 0 && ` You took ${this.props.option.health_consequences} damage.`}`,
                         resultText: this.props.option.failed_text,
                         nextEncounter: this.props.option.failed_encounter
                     });
                 } else {
                     this.setState({
-                        resultText: this.props.option.failed_text + ' You dead!',
+                        oddsText: `You rolled a ${num} out of ${this.oddsToString()}, and needed a ${this.props.option.options_pass_case} to pass.${this.props.option.health_consequences > 0 && ` You took ${this.props.option.health_consequences} damage.`}`,
+                        resultText: `${this.props.option.failed_text} You dead!`,
                         nextEncounter: 21
                     });
                 }
@@ -72,6 +82,7 @@ class Options extends Component {
             // sets success text
             //sets redirect encounter
             this.setState({
+                oddsText: `You rolled a ${num} out of ${this.oddsToString()}, and needed a ${this.props.option.options_pass_case} to pass.`,
                 resultText: this.props.option.success_text,
                 nextEncounter: this.props.option.success_encounter
             });
@@ -112,9 +123,11 @@ class Options extends Component {
 
                 </button>
                 <div className={`option-card ${(this.state.optionShow && `option-card-peek-${this.props.index}`)}`}>
+                    <h3>{this.props.option.option_name}</h3>
                     <p className="option-description">{this.props.option.option_description}</p>
                     {this.state.nextEncounter ?
                         <div>
+                            <h3>{this.state.oddsText}</h3>
                             {this.state.resultText}
                             <button className="btn" onClick={_ => { this.props.setEncounter(this.state.nextEncounter) }} >Next Encounter</button>
                         </div>

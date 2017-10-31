@@ -26,6 +26,9 @@ class Story extends Component {
     }
 
     componentDidMount() {
+        if(!this.props.character.character_id){
+            this.props.history.push('/tavern');
+        }
         axios.get(`/api/story/${this.state.storyId}`).then(resp => {
             let startEncounterId = resp.data.start_encounter_id;
             let story = resp.data;

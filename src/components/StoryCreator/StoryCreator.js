@@ -160,6 +160,7 @@ export default class StoryCreator extends Component {
                                     <h3 className="sub-title">Add Options To Your Encounter</h3>
                                     <div className="block-card-inner">
                                     <p className="description">In each encounter players will have to choose from one of the three options you provide.</p>
+                                    <p className="description">(We recommend you create all encounters first to make linking between encounters easier when creating their options.)</p>
                                     
                                         {encounters}
                                         {encounters.length > 0 && <button className='btn add-another-encounter-btn' onClick={this.openNewEncounter}>Add Another Encounter</button>}

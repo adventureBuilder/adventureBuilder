@@ -148,9 +148,11 @@ export default class AddOption extends Component {
     render() {
         let previousEncounters = this.props.encounter.options.map(option => {
             return (
-                <div key={option.encounter_option_id}>
-                    {option.option_name}
+                <div className="option-row" key={option.encounter_option_id}>
+
+                    <h3 className="option-type-title">{option.option_name}</h3>
                     {option.option_description}
+
                 </div>)
 
         });
@@ -181,9 +183,16 @@ export default class AddOption extends Component {
             <div>
 
                 <h3 className="sub-title">{this.props.encounter.encounter_name}</h3>
-                <p className="encounter-description">{this.props.encounter.encounter_description}</p>
+                <div className="block-card-inner">
+                    <p className="encounter-description">{this.props.encounter.encounter_description}</p>
+                </div>
 
-                <h3 className="pad-it">Previous Options:</h3><span className="indent-it"> {previousEncounters}</span><br />
+                <h3 className="sub-title">Created Options:</h3>
+                <div className="created-options">
+                    <div className="block-card-inner">
+                        {previousEncounters}
+                    </div>
+                </div>
                 <h3 className="sub-title">New Option</h3>
                 <div className="block-card-inner">
                     <div className="option-row">
@@ -274,7 +283,7 @@ export default class AddOption extends Component {
                             min={-3}
                             max={5} />
                         <p className="description">Positive number reduces hp. Negative number restores hp.</p>
-                        
+
                     </div>
 
 
@@ -288,6 +297,7 @@ export default class AddOption extends Component {
                     </div>
                     <div className="option-row">
                         <h3 className="option-type-title">Success Encounter</h3>
+                        <p className="description">Where the hero should go after succeeding this option.</p>
                         <select className="base-input"
                             onChange={e => this.changeSuccesEncounter(e.target.value)}
                             value={this.state.successEncounter}>
@@ -319,7 +329,8 @@ export default class AddOption extends Component {
 
                     </div>
                     <div className="option-row">
-                        <h3 className="option-type-title">Failed Encounter</h3>
+                        <h3 className="option-type-title">Fail Encounter</h3>
+                        <p className="description">Where the hero should go after failing this option.</p>
                         <select className="base-input"
                             onChange={e => this.changeFailedEncounter(e.target.value)}
                             value={this.state.failedEncounter}>

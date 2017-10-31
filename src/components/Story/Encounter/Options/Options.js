@@ -6,13 +6,31 @@ import { connect } from 'react-redux';
 import { changeHP } from '../../../../ducks/reducer'
 
 class Options extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
-            optionClick : null
+            optionShow: false,
+            nextEncounter: null,
+            oddsText: '',
+            resultText: ''
         }
         this.clickOption = this.clickOption.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.optionShow == false) {
+            this.setState({
+                optionShow: nextProps.optionShow
+            })
+        }
+    }
+
+    oddsToString(){
+        let tempArr = this.props.option.option_odds.split('+');
+        let diceArr = String(tempArr.splice(0, 1)).split('d');
+
+        return `(${diceArr[0]}) ${diceArr[1]}-sided dice${tempArr.map(mod => ` + ${mod}`)}`
     }
 
     rollDice() {
@@ -36,7 +54,7 @@ class Options extends Component {
                     break;
             }
         }
-
+        this.props.disableButtons();
         return num;
     }
 
@@ -47,38 +65,75 @@ class Options extends Component {
             //sets redirect encounter
             this.props.changeHP(this.props.character.character_id, this.props.character.health_points, this.props.option.health_consequences).then(res => {
                 if (this.props.character.alive) {
-                    this.props.setResults(this.props.option.failed_text, this.props.option.failed_encounter);
+                    this.setState({
+                        oddsText: `You rolled a ${num} out of ${this.oddsToString()}, and needed a ${this.props.option.options_pass_case} to pass.${this.props.option.health_consequences > 0 && ` You took ${this.props.option.health_consequences} damage.`}`,
+                        resultText: this.props.option.failed_text,
+                        nextEncounter: this.props.option.failed_encounter
+                    });
                 } else {
-                    this.props.setResults(this.props.option.failed_text + ' You dead!', 21)
+                    this.setState({
+                        oddsText: `You rolled a ${num} out of ${this.oddsToString()}, and needed a ${this.props.option.options_pass_case} to pass.${this.props.option.health_consequences > 0 && ` You took ${this.props.option.health_consequences} damage.`}`,
+                        resultText: `${this.props.option.failed_text} You dead!`,
+                        nextEncounter: 21
+                    });
                 }
             })
         } else {
             // sets success text
             //sets redirect encounter
-            this.props.setResults(this.props.option.success_text, this.props.option.success_encounter)
+            this.setState({
+                oddsText: `You rolled a ${num} out of ${this.oddsToString()}, and needed a ${this.props.option.options_pass_case} to pass.`,
+                resultText: this.props.option.success_text,
+                nextEncounter: this.props.option.success_encounter
+            });
         }
     }
-    clickOption(e) {
-        this.setState ({
-            optionClick : 'option-card-peek-' + e.target.value
-        })
+    clickOption() {
+        if (!this.state.optionShow && !this.props.optionShow) {
+            this.props.resetOptionTabs();
+            this.setState({
+                optionShow: true
+            })
+        } else if (this.props.optionShow && !this.state.optionShow) {
+            this.props.resetOptionTabs();
+            setTimeout(() => {
+                this.props.resetOptionTabs();
+                this.setState({
+                    optionShow: true
+                })
+            }, 900)
+
+        } else {
+            this.props.resetOptionTabs();
+        }
+
     }
+
     render() {
         return (
-            <div className={'option-' + this.props.id}>
+            <div className={'option-' + this.props.index}>
 
-                <button className="option-name" value={this.props.id} onClick={(e)=> this.clickOption(e)}>
-                    
-                        <img className="option-icon" src={this.props.option.image_src} alt="" />{this.props.option.option_name}
+                <button disabled={this.props.isDisable} className="option-name" onClick={this.clickOption}>
 
-                        <div className="option-arrow"></div>
-                        <div className="option-arrow-tab"></div>
-                        <div className="option-arrow-tab2"></div>
-                    
+                    <img className="option-icon" src={this.props.option.image_src} alt="" />{this.props.option.option_name}
+
+                    <div className="option-arrow"></div>
+                    <div className="option-arrow-tab"></div>
+                    <div className="option-arrow-tab2"></div>
+
                 </button>
-                <div className={`option-card ${(this.state.optionClick)}`}>
+                <div className={`option-card ${(this.state.optionShow && `option-card-peek-${this.props.index}`)}`}>
+                    <h3>{this.props.option.option_name}</h3>
                     <p className="option-description">{this.props.option.option_description}</p>
-                    <button className="btn" onClick={_ => { this.chooseOption() }}>Attempt</button>
+                    {this.state.nextEncounter ?
+                        <div>
+                            <h3>{this.state.oddsText}</h3>
+                            {this.state.resultText}
+                            <button className="btn" onClick={_ => { this.props.setEncounter(this.state.nextEncounter) }} >Next Encounter</button>
+                        </div>
+                        :
+                        <button className="btn" onClick={_ => { this.chooseOption() }}>Attempt</button>
+                    }
                 </div>
 
             </div>

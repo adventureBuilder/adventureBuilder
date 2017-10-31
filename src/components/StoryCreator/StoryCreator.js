@@ -177,6 +177,7 @@ export default class StoryCreator extends Component {
                     </div>
                 </div>
             </div>
+            </div>
 
 
 

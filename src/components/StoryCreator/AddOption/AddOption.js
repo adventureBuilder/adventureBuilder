@@ -33,11 +33,11 @@ export default class AddOption extends Component {
     isValid() {
         if (this.state.optionName !== '' &&
             this.state.optionDescription !== '' &&
-            this.state.optionDescription.length < 140 &&
+            this.state.optionDescription.length < 141 &&
             this.state.successText !== '' &&
-            this.state.successText.length < 140 &&
+            this.state.successText.length < 141 &&
             this.state.failText !== '' &&
-            this.state.failText.length < 140 &&
+            this.state.failText.length < 141 &&
             this.state.successEncounter !== -1 &&
             this.state.failedEncounter !== -1 &&
             this.state.optionImagesId !== -1) {
@@ -181,6 +181,7 @@ export default class AddOption extends Component {
         );
         return (
             <div>
+<<<<<<< HEAD
 
                 <h3 className="sub-title">{this.props.encounter.encounter_name}</h3>
                 <div className="block-card-inner">
@@ -354,6 +355,159 @@ export default class AddOption extends Component {
                     </div>
                     {this.isValid() ? <button className="btn" onClick={_ => this.saveOption()}>Save Option</button> : <p className="description invalid">Please fill out all fields in order to save the current Option.</p>}
                 </div>
+=======
+                <h3 className="pad-it">Selected Encounter:</h3> <span className="indent-it">{this.props.encounter.encounter_name}</span>
+                <h3 className="pad-it">Selected Encounter Description:</h3> <span className="indent-it">{this.props.encounter.encounter_description}</span>
+                <h3 className="pad-it">Previous Options:</h3><span className="indent-it"> {previousEncounters}</span><br/>
+                <h2>New Option</h2>
+                <div>
+                    <h3>Option Name:</h3>
+                    <input className="base-input pad-it " onChange={e => this.changeName(e.target.value)} type='text' value={this.state.optionName} />
+                </div>
+                <div>
+                    <h3>Option Description:</h3>
+                    <textarea className="base-input pad-it " onChange={e => this.changeDescription(e.target.value)} value={this.state.optionDescription} />
+                    <span className="indent-it"><i>{ this.state.optionDescription ? this.state.optionDescription.length : "0"}/140</i></span>
+                </div>
+                <div>
+                    <h3>Option Image:</h3>
+                    <select value={this.state.optionImagesId} onChange={e => this.changeOptionImage(e.target.value)}>
+                        <option value={-1}>Select One</option>
+                        {imageOptions}
+                    </select>
+                    <div>
+                        {optionImage
+                            ?
+                            <img className="pad-it story-creator-add-img" src={optionImage.image_src} alt={optionImage.image_name} />
+                            :
+                            <p className="indent-it">No option image selected yet</p>}
+                    </div>
+                </div>
+                <div>
+                   <h3> Number of Dice to Roll:</h3>
+                    <select  onChange={e => this.changeNumOfDice(e.target.value)} value={this.state.numOfDice} >
+                        <option defaultValue value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                        <option value={6}>6</option>
+                        <option value={7}>7</option>
+                        <option value={8}>8</option>
+                    </select>
+                </div>
+                <div>
+                   <h3>Sides of Dice to Roll:</h3>
+                    <select onChange={e => this.changeSidesOfDice(e.target.value)} value={this.state.sideOfDice} >
+                        <option defaultValue value={4}>4</option>
+                        <option value={6}>6</option>
+                        <option value={8}>8</option>
+                        <option value={10}>10</option>
+                        <option value={12}>12</option>
+                        <option value={20}>20</option>
+                        <option value={100}>100</option>
+                    </select>
+                </div>
+                <div>
+                   <h3>Modifiers:</h3>
+
+                    <div>
+                        <input type='radio' name='modifier' value='' onChange={e => this.changeModifier(e.target.value)} />
+                        <span className="indent-it">None</span>
+                    </div>
+                    <div>
+                        <input  type='radio' name='modifier' value='str' onChange={e => this.changeModifier(e.target.value)} />
+                        <span className="indent-it">Strength</span>
+                    </div>
+                    <div>
+                        <input type='radio' name='modifier' value='dex' onChange={e => this.changeModifier(e.target.value)} />
+                        <span className="indent-it">Dexterity</span>
+                    </div>
+                    <div>
+                        <input  type='radio' name='modifier' value='cha' onChange={e => this.changeModifier(e.target.value)} />
+                        <span className="indent-it">Charisma</span>
+                    </div>
+                </div>
+                <div>
+                   <h3> Needed Roll to Pass</h3>
+                    <input className="base-input"
+                        onChange={e => this.changePassCase(e.target.value)}
+                        type='number'
+                        value={this.state.optionPassCase}
+                        min={1}
+                        max={this.state.numOfDice * this.state.sideOfDice} />
+                </div>
+                <div>
+                    <h3>Health Consequences:</h3>
+                    <input className="base-input"
+                        type='number'
+                        value={this.state.healthConsequences}
+                        onChange={e => this.changeHealthConsequence(e.target.value)}
+                        min={-3}
+                        max={5} />
+                </div>
+                <div>
+                    <h3>Success Text:</h3>
+                    <textarea 
+                        onChange={e => this.changeSuccessText(e.target.value)}
+                        value={this.state.successText} />
+                       <span className="indent-it"> <i>{ this.state.successText ? this.state.successText.length : "0"}/140</i></span>
+                </div>
+                <div>
+                   <h3> Success Encounter</h3>
+                    <select
+                        onChange={e => this.changeSuccesEncounter(e.target.value)}
+                        value={this.state.successEncounter}>
+                        <option defaultValue value={-1}>Select One</option>
+                        {encounterOptions}
+                    </select>
+                </div>
+                <div>
+                   <h3>Preview Success Encounter:</h3>
+                    {
+                        this.state.successEncounter === -1
+                            ?
+                            <p className="indent-it">No success encounter selected</p>
+                            :
+                            <img className="pad-it story-creator-add-img"
+                                src={successEncounterImage.image_src}
+                                alt={successEncounterImage.image_name} />
+                    }
+                </div>
+                <div>
+                   <h3>Fail Text:</h3>
+                    <textarea 
+                        onChange={e => this.changeFailText(e.target.value)}
+                        value={this.state.failText} />
+                      <span className="indent-it">  <i>{ this.state.failText ? this.state.failText.length : "0"}/140</i></span>
+                      
+                </div>
+                <div>
+                    <h3>Failed Encounter</h3>
+                    <select
+                        onChange={e => this.changeFailedEncounter(e.target.value)}
+                        value={this.state.failedEncounter}>
+                        <option defaultValue value={-1}>Select One</option>
+                        {encounterOptions}
+                    </select>
+                </div>
+                <div>
+                   <h3> Preview Failed Encounter:</h3>
+                    <div className="indent-it">
+                    {
+                        this.state.failedEncounter === -1
+                            ?
+                            <p>no failed encounter select</p>
+                            :
+                            <img className="pad-it story-creator-add-img" 
+                                src={failedEncounterImage.image_src}
+                                alt={failedEncounterImage.image_name} />
+                    }
+                    </div>
+                </div>
+
+                {this.isValid() && <button className="btn" onClick={_=>this.saveOption()}>Save Option</button>}
+>>>>>>> master
             </div>
         );
     }

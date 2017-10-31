@@ -1,3 +1,11 @@
+
+.footer{
+   
+    padding: 20px;
+    .title{
+        padding-right: 15px;
+    }
+
 .footer {
 	padding: 40px;
 	// background: linear-gradient($grey-highlight, $grey-push);
@@ -10,4 +18,6 @@
 	font-family: 'Marcellus SC', 'Open Sans', Helvetica, arial, sans-serif;
 	color: $white;
 	font-size: 22px;
+}
+
 }

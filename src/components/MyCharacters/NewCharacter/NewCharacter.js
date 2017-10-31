@@ -39,7 +39,13 @@ export default class NewCharacter extends Component {
 
     }
 
-    createChar() {
+    changeClass(val) {
+        console.log('val=',val)
+        this.setState({
+            class: val
+        }, this.createChar)
+    }
+    createChar(val) {
         // grouping content needed to send to create the character
         let newChar = {
             characterName: this.state.charName,
@@ -52,9 +58,9 @@ export default class NewCharacter extends Component {
             classId: parseInt(this.state.class)
         }
         console.log('newChar', newChar)
-        axios.post('/api/character', newChar).then(
-            this.props.history.push('/storyselection')
-        )
+        // axios.post('/api/character', newChar).then(
+        //     this.props.history.push('/storyselection')
+        // )
     }
 
     render() {
@@ -82,8 +88,9 @@ export default class NewCharacter extends Component {
 
                                     <div className="char-create-container">
                                         {this.state.classes.map((charClass, i) => {
+                                            console.log(charClass)
                                             return (
-                                                <div className="char-class-block">
+                                                <div key={charClass.class_id} className="char-class-block">
                                                     <img src={charClass.img} alt={charClass.class_name} />
                                                     <div>
                                                         <div className="char-class-text-box">
@@ -110,6 +117,9 @@ export default class NewCharacter extends Component {
                                                             </div> */}
 
                                                         </div>
+                                                        <div className="new-char-btn">
+                                                            <button className="btn" value={charClass.class_id} onClick={(e)=>this.changeClass(e.target.value)}>Create {charClass.class_name}</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             )
@@ -121,7 +131,8 @@ export default class NewCharacter extends Component {
 
                         </div>
 
-                        {(this.state.class && this.state.charName) ? <button onClick={() => this.createChar()}>Create</button> : ''}
+                        {/* //I've chained the createChar function to the select class button to reduce clicks
+                        {(this.state.class && this.state.charName) ? <button onClick={() => this.createChar()}>Create</button> : ''} */}
 
 
                     </div>

@@ -59,9 +59,7 @@
         }
 		
 	}
-	.char-display-container {
-		// width: 75%;
-	}
+	
 }
 
 .down-arrow {
@@ -108,6 +106,21 @@
     animation: fadingpower4 1s;
 }
 
+
+  .fadingpower3 {
+	animation: fadingpower4 1s;
+  }
+  
+  @keyframes fadingpower4 {
+	0% {opacity: 1}
+	50%{opacity: 0}
+	100% {opacity: 0}
+  }
+
+	.my-stories-most-recent{
+		margin-bottom: 15px;
+	}
+
 @keyframes fadingpower4 {
     0% {
         opacity: 1
@@ -119,3 +132,4 @@
         opacity: 0
     }
 }
+

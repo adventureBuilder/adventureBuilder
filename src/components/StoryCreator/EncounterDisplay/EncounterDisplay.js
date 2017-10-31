@@ -7,16 +7,16 @@ export default function EncounterDisplay({ encounter,  openNewOption}) {
         for (let i = 0; i < 3; i++) {
             if (encounter.options[i]) {
                 options.push(
-                    <div key={encounter.options[i].encounter_option_id} >
+                    <div className="creator-options" key={encounter.options[i].encounter_option_id} >
                         {encounter.options[i].option_name}
                     </div>
                 );
             } else {
                 options.push(
-                <button 
+                <button className="btn creator-options"
                 onClick={_=>openNewOption(encounter)} 
                 key={i}>
-                    add option
+                    add option {i+1}
                 </button>
             );
             }
@@ -24,8 +24,8 @@ export default function EncounterDisplay({ encounter,  openNewOption}) {
     }
 
     return (
-        <div>
-            {encounter.encounter_name}
+        <div className="creator-encounter-display">
+            <h2>Encounter Title: {encounter.encounter_name}</h2>
             {options}
         </div>
     );

@@ -40,7 +40,7 @@ export default class AddEncounter extends Component {
         })
     }
 
-    changeFinal(isFinal){
+    changeFinal(isFinal) {
         this.setState({
             finalEncounter: parseInt(isFinal)
         });
@@ -53,45 +53,45 @@ export default class AddEncounter extends Component {
         return false;
     }
 
-    save(){
+    save() {
         this.props.isFirst
-        ?
-        this.saveFirstEncounter()
-        :
-        this.saveEncounter()
-        ;
+            ?
+            this.saveFirstEncounter()
+            :
+            this.saveEncounter()
+            ;
     }
 
-    saveFirstEncounter(){
-        let body ={
-            encounterName: this.state.encounterName, 
-            encounterDescription: this.state.encounterDescription, 
-            finalEncounter: 0, 
-            storyId: this.props.storyId, 
+    saveFirstEncounter() {
+        let body = {
+            encounterName: this.state.encounterName,
+            encounterDescription: this.state.encounterDescription,
+            finalEncounter: 0,
+            storyId: this.props.storyId,
             encounterBackGroundImage: this.state.encounterBackGroundImage
         }
 
-        axios.post('/api/firstEncounter', body).then(_=>{
+        axios.post('/api/firstEncounter', body).then(_ => {
             this.props.resetView();
         });
     }
-    saveEncounter(){
-        let body ={
-            encounterName: this.state.encounterName, 
-            encounterDescription: this.state.encounterDescription, 
-            finalEncounter: this.state.finalEncounter, 
-            storyId: this.props.storyId, 
+    saveEncounter() {
+        let body = {
+            encounterName: this.state.encounterName,
+            encounterDescription: this.state.encounterDescription,
+            finalEncounter: this.state.finalEncounter,
+            storyId: this.props.storyId,
             encounterBackGroundImage: this.state.encounterBackGroundImage
         }
-        
-        axios.post('/api/encounter', body).then(_=>{
+
+        axios.post('/api/encounter', body).then(_ => {
             this.props.resetView();
         });
     }
 
     render() {
         let imageSelector = (
-            <select onChange={e => this.changeImage(e.target.value)}>
+            <select className="base-input" onChange={e => this.changeImage(e.target.value)}>
                 <option value={-1}>Select an Image</option>
                 {this.state.encounterImages.map(image => {
                     return <option
@@ -104,43 +104,62 @@ export default class AddEncounter extends Component {
         )
 
         let selectedImage = this.state.encounterImages.find(image => {
-            return this.state.encounterBackGroundImage == image.encounter_background_images_id
+            return this.state.encounterBackGroundImage === parseInt(image.encounter_background_images_id)
         });
         return (
             <div>
                 {
                     this.props.isFirst
                     &&
-                    <p> This is the starting encounter of your story! where the user will begin their epic quest.</p>
+                    <div><h3 className="sub-title">Starting Encounter</h3>
+                        <p className="description">This is the starting location for adventurers to begin their journey</p></div>
                 }
-
-                Name: <input onChange={e => this.changeName(e.target.value)} value={this.state.encounterName} />
-                Description: <textarea onChange={e => this.changeDescription(e.target.value)} value={this.state.encounterDescription} />
-                background image:
-                    {imageSelector}
-                preview :
-                {
-                    this.state.encounterBackGroundImage != -1
-                        ?
-                        <img
-                            src={selectedImage.image_src}
-                            alt={selectedImage.image_name} />
-                        :
-                        <div>No Image Selected</div>
-                }
-                {
-                    !this.props.isFirst
-                    &&
-                    <div>
-                        is a ending to the story 
-                        <select onChange={e=>this.changeFinal(e.target.value)}>
-                            <option value={0}>no</option>
-                            <option value={1}>yes</option>
-                        </select>
+                <h3 className="sub-title">New Encounter</h3>
+                <div className="block-card-inner">
+                    <div className="option-row">
+                        <h3 className="option-type-title">Encounter Title:</h3>
+                        <input className="base-input" onChange={e => this.changeName(e.target.value)} value={this.state.encounterName} />
                     </div>
-                }
-                {this.isValid() && <button onClick={_=>this.save()}>Save</button>}
-
+                    <div className="option-row">
+                        <h3 className="option-type-title">Encounter Story:</h3>
+                        <textarea className="base-input" onChange={e => this.changeDescription(e.target.value)} value={this.state.encounterDescription} />
+                    </div>
+                    <div className="option-row">
+                        <h3 className="option-type-title">Background Image:</h3>
+                        {imageSelector}
+                    </div>
+                    <div className="option-row">
+                        <h3 className="option-type-title">Image Preview:</h3>
+                        <div>
+                            {
+                                this.state.encounterBackGroundImage != -1
+                                    ?
+                                    <img className="base-input"
+                                        src={selectedImage.image_src}
+                                        alt={selectedImage.image_name} />
+                                    :
+                                    <div className="preview-text"><p>No Image Selected</p></div>
+                            }
+                        </div>
+                    </div>
+                    <div className="option-row">
+                        {
+                            !this.props.isFirst
+                            &&
+                            <div>
+                                <h3 className="option-type-title">Final Encounter Check:</h3>
+                                <p className="description">Is this encounter the ending of the story? <select className="base-input small" onChange={e => this.changeFinal(e.target.value)}>
+                                    <option value={0}>no</option>
+                                    <option value={1}>yes</option>
+                                </select></p>
+                        
+                            </div>
+                        }
+                    </div>
+                    <div className="option-row">
+                        {this.isValid() && <button className='btn' onClick={_ => this.save()}>Save</button>}
+                    </div>
+                </div>
             </div>
         );
     }

@@ -32,6 +32,11 @@ class MyStories extends Component {
         })
         return (
             <div className="my-stories">
+
+                <h3 className="sub-title">My Stories:</h3>
+                <div className="card my-stories-most-recent">Most Recent : {(this.state.stories.length > 0) ? storiesarr : "(you do not have any recent stories)"} </div>
+                <Link to="/newstory" className="btn hide-mobile">Create New Story</Link>
+
                 <div className="block-card">
                     <h2 className="sub-title">My Stories</h2>
 
@@ -41,6 +46,7 @@ class MyStories extends Component {
                         <Link to="/newstory" className="btn hide-mobile">Create New Story</Link>
                     </div>
                 </div>
+
             </div>
         );
     }

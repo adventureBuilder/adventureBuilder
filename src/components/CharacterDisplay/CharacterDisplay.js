@@ -21,23 +21,6 @@ export default function CharacterDisplay({ character }) {
                         <h4 className="fadingpower stat-name">DEXTERITY <div className="stat-num">{character.dexterity}</div></h4>
                         <h4 className="fadingpower stat-name">CHARISMA <div className="stat-num">{character.charisma}</div></h4>
 
-                <div className="char-sheet">
-
-                    {/* <div>
-                    <div>Class </div>
-                     eliminated race and coins
-                    <div>Race: </div>
-                    <div>Coin: </div> 
-                </div> 
-                <div>*/}
-                <div className="fadingpower">STRENGTH: {character.strength}</div>
-                <div className="fadingpower">DEXTERITY: {character.dexterity}</div>
-                <div className="fadingpower">CHARISMA: {character.charisma}</div>
-                 </div> 
-
-                    <div className="fadingpower">STRENGTH: {character.strength}</div>
-                    <div className="fadingpower">DEXTERITY: {character.dexterity}</div>
-                    <div className="fadingpower">CHARISMA: {character.charisma}</div>
                 </div>
 
             </div>

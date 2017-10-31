@@ -147,11 +147,11 @@ export default class AddEncounter extends Component {
                             !this.props.isFirst
                             &&
                             <div>
-                                <h3 className="option-type-title">Final Encounter Check:</h3>
-                                <p className="description">Is this encounter the ending of the story? <select className="base-input small" onChange={e => this.changeFinal(e.target.value)}>
+                                <h3 className="option-type-title inline">Final Encounter Check:</h3><select className="base-input small" onChange={e => this.changeFinal(e.target.value)}>
                                     <option value={0}>no</option>
                                     <option value={1}>yes</option>
-                                </select></p>
+                                </select>
+                                <p className="description">Is this encounter the ending of the story? </p>
                         
                             </div>
                         }

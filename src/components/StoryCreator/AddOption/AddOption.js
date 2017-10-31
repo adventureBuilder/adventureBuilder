@@ -197,7 +197,7 @@ export default class AddOption extends Component {
                 <div className="block-card-inner">
                     <div className="option-row">
                         <h3 className="option-type-title">Option Name: <small>(One word works best)</small></h3>
-                        <input className="base-input pad-it " onChange={e => this.changeName(e.target.value)} type='text' value={this.state.optionName} />
+                        <input className="base-input pad-it" placeholder="Ex. Fight, Sneak, Negotiate, Charm.." onChange={e => this.changeName(e.target.value)} type='text' value={this.state.optionName} />
                     </div>
                     <div className="option-row">
                         <h3 className="option-type-title">Option Description:</h3>

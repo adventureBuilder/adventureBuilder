@@ -1,7 +1,7 @@
 module.exports = {
     addStory: (req, res) => {
         const db = req.app.get('db');
-        const { user_id } = req.session.user; // for testing should be req.user
+        const { user_id } = req.session.user; // for testing should be req user
         const { storyName, storyDescription, storyLevel } = req.body;
         db.addStory([storyName, user_id, storyDescription, storyLevel]).then(resp => {
             console.log(resp);
@@ -25,7 +25,7 @@ module.exports = {
     },
     getUserStories: (req, res) => {
         const db = req.app.get('db');
-        db.getUserStories(req.session.user.user_id) //set to req.user when aut is up
+        db.getUserStories(req.session.user.user_id) //set to req user when aut is up
             .then((result) => {
                 res.status(200).send(result);
             })

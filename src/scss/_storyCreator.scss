@@ -17,7 +17,7 @@
         width: 100%;
         margin-right: 20px;
         border-right: 3px solid $grey;
-        
+        border-top: 3px solid $grey;
         .save-first-encounter-btn {
             padding: 50px;
         }
@@ -34,6 +34,7 @@
     .creator_display_container {
         flex-grow: 3;
         width: 100%;
+        border-top: 3px solid $grey;
         border-left: 3px solid $grey;
         .story-creator-img {
             max-height: 250px;

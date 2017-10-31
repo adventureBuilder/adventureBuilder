@@ -50,7 +50,9 @@ $dropdown-color: #aaa;
 $bg-color: #1F262E;
 $black: #020d0e;
 $white: #f7f7f7;
-$grey: #414850;
+$grey: #4B3F3E;
+//414850 bluish grey original
+//#4B3F3E reddish grey
 $grey-highlight: #575E66;
 $grey-push: #383F47;
 
@@ -123,6 +125,7 @@ div, p, ul, li, a, button, span, input {
     text-align: center;
     font-size: 34px;
     margin-top:0;
+    color: $white;
 }
 .sub-title {
     color: $white;
@@ -142,7 +145,7 @@ input, textarea {
     align-items: center;
     max-width: 960px;
     margin: 0 auto;
-    background-color: $off-white;
+    // background-color: $off-white;
 }
 .card {
     @include card;
@@ -253,4 +256,21 @@ input, textarea {
     left: -15px;
     transform: rotate(45deg);
     transform-origin :100% 100%;
+}
+.video-bg { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.white {
+    color: $white;
 }

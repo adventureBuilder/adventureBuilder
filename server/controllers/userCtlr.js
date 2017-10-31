@@ -5,7 +5,6 @@ module.exports = {
 },
     updateUser: (req,res)=>{
         const db = req.app.get('db');
-        console.log(req.session.user)
          console.log(req.body.username, req.session.user.userId)
 
         db.updateUser( [req.body.username, req.session.user.user_id])// change to req.user after set up Auth0;

@@ -34,7 +34,7 @@ class NewUser extends Component {
     render() {
         return (
             <div className="new-user"> {console.log('state:', this.props.state)}
-                 { this.props.username ? <h3 className="mobile-pad">Welcome {this.props.username}</h3> : ( 
+                 { this.props.username ? <h3 className="mobile-pad white">Welcome {this.props.username}</h3> : ( 
                 <div className="block-card">
                     <h2 className="sub-title">Set Your Author Name</h2>
                     <div className="block-card-inner">

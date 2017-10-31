@@ -13,9 +13,9 @@ export default class Landing extends Component {
                 <h2 className="down-arrow">Landing</h2>
                 <div className="page">
                     Login button uncomment when we are ready for stuff and things
-                {/* <a href={process.env.REACT_APP_LOGIN}>
+                 <a href={process.env.REACT_APP_LOGIN}>
                         <button>Login</button>
-                    </a> */}
+                    </a> 
 
                     <h3>Temporary Navigation</h3>
                     <Link to="/tavern">Tavern View</Link><br/>

@@ -133,7 +133,7 @@
 			position: absolute;
 			bottom: 0px;
 			text-align: center;
-			overflow: hidden;
+			overflow: auto;
 			transition: all 1s ease-out;
 		}
 		.option-card-peek-0 {
@@ -210,7 +210,7 @@
 			position: absolute;
 			bottom: 0px;
 			text-align: center;
-			overflow: hidden;
+			overflow: auto;
 			-webkit-transition: all 1s ease-in;
 			-moz-transition: all 1s ease-in;
 			-o-transition: all 1s ease-in;
@@ -298,7 +298,7 @@
 			position: absolute;
 			bottom: 0px;
 			text-align: center;
-			overflow: hidden;
+			overflow: auto;
 			-webkit-transition: all 1s ease-out;
 			-moz-transition: all 1s ease-out;
 			-o-transition: all 1s ease-out;

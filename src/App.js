@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import router from './router';
 
+import videobg from './images/bg-2.mp4'
 
 /// router file
 class App extends Component {
@@ -8,8 +9,11 @@ class App extends Component {
     return (
 
       <div>
-        { router }
-        
+        <video className="video-bg" autoPlay preload loop muted width="650" height="350">
+          <source src={videobg} type="video/mp4" />
+        </video>
+        {router}
+
       </div>
     );
   }

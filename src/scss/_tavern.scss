@@ -12,7 +12,8 @@
     margin: 15px 0;
     .tavern-char-row {
         display:flex;
-		justify-content: space-between;
+        margin-bottom: 10px;
+		// justify-content: space-between;
 		
         .arrow-down {
             height: 0;
@@ -34,7 +35,7 @@
         .tavern-char-name-container {
             background-color: $row-color;
             padding: 3px 5px;
-            width: 75%;
+            width: 100%;
             height: 30px;
             box-shadow: 0 5px 0 0 $border-color;
             display: inline-block;
@@ -43,27 +44,37 @@
                 min-width: 150px;
                 background-color: transparent;
                 border: none;
-                color: $btn-color;
                 text-align: left;
                 display: flex;
                 justify-content: space-between;
+                font-size: 18px;
+                .life-icon {
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 10px;
+                    
+                }
             }
-           
+            .tavern-char-name:hover {
+                color: $btn-color !important;
+            }
+            .tavern-char-name:active {
+                color: $btn-press !important;
+            }
         }
-        .btn {
-            position: relative;
-            top: -5px;
-        }
-        .btn:active {
-            top: 0px;
-        }
-		
 	}
-	
 }
-
-.down-arrow {
-    color: $black;
+.btn.play {
+    margin: 0;
+    width: 100px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 30px;
+    // position: relative;
+    // top: -5px;
+}
+.btn.play:active {
+    // top: 0px;
 }
 
 .my-stories {
@@ -75,7 +86,8 @@
     height: 200px;
     overflow: hidden;
     // border-bottom: 5px solid $grey;
-    width: 75%
+    
+    width: calc(100% - 100px);
 }
 
 .dropup {
@@ -83,7 +95,7 @@
     height: 0px;
     overflow: hidden;
     // border-bottom: 5px solid $grey;
-    width: 75%
+    width: calc(100% - 100px);
 }
 
 .fadingpower {

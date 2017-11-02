@@ -28,7 +28,7 @@ class Tavern extends Component {
         return (
 
             <div className="tavern">
-                <Menu />
+                <Menu title="| Tavern" />
                 <div className="page">
                     <h2 className="view-title">Tavern</h2>
                     <NewUser />

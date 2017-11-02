@@ -4,10 +4,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { getSelectedCharacter } from '../../ducks/reducer';
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
+
+import arrowIcon from '../../images/ab-other-arrow.svg';
 
 class MyCharacters extends Component {
     constructor(props) {
@@ -50,22 +51,23 @@ class MyCharacters extends Component {
                                     className="tavern-char-name"
                                     value={character.character_name}>
                                     <div>
-                                        {/* <div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
-                                        ?
-                                        'arrow-up'
-                                        :
-                                        'arrow-down')
-                                    }></div>*/}
-                                        <span className="down-arrow">
-                                            &#9660;
-                                    </span>
-                                        {character.character_name}</div>
+                          
+                                        <div className={((this.state.modulesToShow.indexOf(character.character_id) === -1)
+                                            ?
+                                            'side-arrow'
+                                            :
+                                            'down-arrow')
+                                        }>
+                                            <img className="arrow-icon" src={arrowIcon} alt="arrow" />
+                                        </div>
+                                        {character.character_name}
+                                    </div>
                                     <div>{character.class_name}</div>
                                 </button>
                             </div>
                             <Link to={`/storyselection`}>
                                 <button
-                                    className="btn"
+                                    className="btn play"
                                     id={character.character_id}
                                     onClick={() => { this.props.getSelectedCharacter(character.character_id); }}>
                                     PLAY

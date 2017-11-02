@@ -44,22 +44,34 @@ $btn-highlight: #FF2524;
 $btn-press: #B21010;
 $btn-border-color: #A20000;
 
-$row-color: #bbb;
+// $row-color: #bbb;
+// $border-color: #777;
+// $dropdown-color: #aaa;
+
+$row-color: #f7f7f7;
+$border-color: #27313B;
 $dropdown-color: #aaa;
 
 $bg-color: #1F262E;
 $black: #020d0e;
 $white: #f7f7f7;
-$grey: #4B3F3E;
-//414850 bluish grey original
-//#4B3F3E reddish grey
+$grey: #27313B;
+// #414850 bluish grey original
+// #4B3F3E reddish grey
+// #260101 dark red
+// #0A6BAA complimentary to btn red
+// #b1740f brownish
+// #ffd07b yellowish
+// #60503a cooler brown
+// #967d5b lighter brown
 $grey-highlight: #575E66;
 $grey-push: #383F47;
 
-$border-color: #777;
+
+
 $off-white: #e7e7e7;
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC|Germania+One|Averia+Serif+Libre|UnifrakturCook:700");
 
 // @font-face {
 //     font-family: 'Luminari';
@@ -81,14 +93,15 @@ $off-white: #e7e7e7;
 $radius: 50px;
 
 $header-font-stack: 
-'jaf-herb','Open Sans', Helvetica, arial, serif;
+'Germania One','Open Sans', Helvetica, arial, serif;
 
-$body-font-stack: 'Open Sans', Helvetica, arial,
+$body-font-stack: 'Averia Serif Libre','Open Sans', Helvetica, arial,
 sans-serif;
 
 // FALLBACKS //////////////////////////
 * {
     box-sizing: border-box;
+    outline: none;
 }
 
 body {
@@ -106,20 +119,21 @@ h1,h2 {
     letter-spacing: 1px;
 }
 h2, h3, h4, h5 .footer-font {
-    font-family: 'Marcellus SC', 'Open Sans', Helvetica, arial, sans-serif;
+    font-family: 'Averia Serif Libre','Marcellus SC', 'Open Sans', Helvetica, arial, sans-serif;
 }
 div, p, ul, li, a, button, span, input {
     font-family: $body-font-stack;
     color: $black;
 }
 .title {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 800;
     margin: 0;
     display: inline-block;
     color: $white;
 }
 .view-title {
+    display: none;
     font-family: $header-font-stack;
     font-weight: 800;
     text-align: center;
@@ -127,10 +141,17 @@ div, p, ul, li, a, button, span, input {
     margin-top:0;
     color: $white;
 }
+.page-title {
+    color: $white;
+    margin-left: 15px;
+    font-size: 28px;
+}
 .sub-title {
     color: $white;
-    background-color: $grey;
-    padding: 10px;
+    background: linear-gradient(45deg, $sec-color, $prim-color);
+    padding: 15px 20px;
+    margin-top: 0;
+    border-bottom: 10px solid $prim-color;
 }
 input, textarea {
     padding: 2px 4px 2px 6px;
@@ -139,7 +160,7 @@ input, textarea {
 // MAIN STYLES USED EVERYWHERE //////////
 
 .page {
-    padding: 40px 20px 40px 20px;
+    padding: 60px 20px 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -153,16 +174,36 @@ input, textarea {
     border: 1px solid #777;
 }
 .block-card {
-    
+    margin-bottom: 20px;
     background-color: $white;
-    border: 5px solid $grey;
+    position: relative;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.block-card:before, .block-card:after
+{
+	content:"";
+    position: absolute;
+    z-index:-1;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    border-radius:100px / 10px;
+}
+.block-card:after
+{
+	right:10px;
+    left:auto;
+    transform:skew(8deg) rotate(3deg);
+}
     
     h3 {
         margin: 0;
         padding-left: 20px;
         font-size: 26px;
     }
-}
+
 .block-card-inner {
     padding: 20px;
 }
@@ -177,6 +218,7 @@ input, textarea {
     color: $btn-color;
     border-bottom: 2px solid $btn-highlight;
 }
+
 .btn {
     border-radius: $radius;
     border: none;
@@ -184,6 +226,9 @@ input, textarea {
     background-color: $btn-color;
     padding: 5px 15px;
     box-shadow: 0 5px 0 0 $btn-border-color;
+    max-width: 500px;
+    display: inline-block;
+    margin: 20px 0;
 }
 .btn:hover {
     background-color: $btn-highlight;
@@ -222,7 +267,12 @@ input, textarea {
     box-shadow: 5px 5px 0 0 $black;
 }
  .to-top {
-    margin: 40px 0;
+    margin: 0px 0;
+    text-align: center;
+}
+.to-top .btn { 
+    width: 80%;
+    max-width: 300px;
 }
 
 .hide-mobile {
@@ -273,4 +323,24 @@ input, textarea {
 }
 .white {
     color: $white;
+}
+.full {
+    width: 100%;
+}
+.side-arrow {
+    color: $btn-color;
+    display: inline-block;
+    margin-right: 20px;
+    transition: all .8s;
+}
+.down-arrow {
+    color: $btn-highlight;
+    display: inline-block;
+    margin-right: 15px;
+    transform: rotate(90deg);
+    transition: all .8s;
+}
+.arrow-icon {
+    width: 20px;
+    height: 20px;
 }

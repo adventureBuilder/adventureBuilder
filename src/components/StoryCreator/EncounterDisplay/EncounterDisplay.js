@@ -16,7 +16,7 @@ export default function EncounterDisplay({ encounter,  openNewOption}) {
                 <button className="btn creator-options"
                 onClick={_=>openNewOption(encounter)} 
                 key={i}>
-                    add option {i+1}
+                    Add Option {i+1}
                 </button>
             );
             }

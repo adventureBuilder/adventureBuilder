@@ -59,6 +59,9 @@
         .hide-desktop {
             display: inherit !important;
         }
+        .block-card {
+            width: 100%;
+        }
         .block-card-inner {
             padding: 10px 5px;
         }
@@ -94,5 +97,30 @@
         }
         #heart:after {
             left: -10px;
+        }
+        .story-creator {
+            .creator_container {
+                flex-direction: column;
+            }
+            .encounters_display_container {
+                margin-bottom: 40px;
+                margin-right: 0;
+            }
+            .complete-story-container {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                margin-bottom: 0 !important;
+            }
+            .sub-title.result-title {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+        .footer {
+            padding: 10px 5px;
+        }
+        .menu {
+            height: 100%;
+            flex-wrap: wrap;
         }
     }

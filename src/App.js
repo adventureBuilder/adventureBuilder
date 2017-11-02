@@ -9,7 +9,7 @@ class App extends Component {
     return (
 
       <div>
-        <video className="video-bg" autoPlay preload loop muted width="650" height="350">
+        <video className="video-bg" autoPlay preload loop width="650" height="350">
           <source src={videobg} type="video/mp4" />
         </video>
         {router}

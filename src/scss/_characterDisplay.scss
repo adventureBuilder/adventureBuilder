@@ -1,6 +1,6 @@
 .char-display-container {
     @include card;
-    background-color: $white;
+    // background-color: $white;
     padding: 0;
     width: 100%;
 	overflow: hidden;
@@ -23,18 +23,33 @@
     .char-sheet {
 		display: flex;
 		justify-content: space-around;
-		align-items: center;
+        align-items: center;
+        
 	}
 	.char-hp {
-		padding: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        margin: 0 8px;
 	}
 	
+}
+.stat-name {
+    margin: 20px 8px;
 }
 .stat-num {
     display: inline-block;
     border: 2px solid $grey;
     padding: 3px 5px;
-    background-color: $prim-color;
+    background-color: $sec-color;
     color: $white;
     text-align: center;
+    font-size: 24px;
+    height: 42px;
+    width: 42px;
+}
+.life-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
 }

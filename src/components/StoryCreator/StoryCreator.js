@@ -4,6 +4,7 @@ import EncounterDisplay from './EncounterDisplay/EncounterDisplay';
 import AddEncounter from './AddEncounter/AddEncounter';
 import AddOption from './AddOption/AddOption';
 import Menu from '../Menu/Menu';
+import Footer from '../Menu/Footer';
 // import './StoryCreator.css'
 
 export default class StoryCreator extends Component {
@@ -144,7 +145,7 @@ export default class StoryCreator extends Component {
         return (
             <div className="story-creator">
 
-                <Menu />
+                <Menu title="| Story Creator"/>
                 <div className='page'>
                     <h2 className="view-title">Story Creator</h2>
 
@@ -164,7 +165,7 @@ export default class StoryCreator extends Component {
                                     
                                         {encounters}
                                         {encounters.length > 0 && <button className='btn add-another-encounter-btn' onClick={this.openNewEncounter}>Add Another Encounter</button>}
-                                        {this.isValid() && <button className='btn' onClick={_ => this.completeStory()}>Complete Story</button>}
+                                        {this.isValid() && <div className="complete-story-container"><button className='btn complete-story' onClick={_ => this.completeStory()}>Complete Story</button></div>}
                                     </div>
                                 </div>
                             }
@@ -176,6 +177,7 @@ export default class StoryCreator extends Component {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         );
     }

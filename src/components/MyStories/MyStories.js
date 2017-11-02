@@ -38,7 +38,7 @@ class MyStories extends Component {
                     <div className="block-card-inner">
                         {(this.state.stories.length > 0) ? storiesarr : "(you do not have any recent stories)"}
                         <br/>
-                        <Link to="/newstory" className="btn hide-mobile">Create New Story</Link>
+                        <Link to="/newstory" className="btn">Create New Story</Link>
                     </div>
                 </div>
 

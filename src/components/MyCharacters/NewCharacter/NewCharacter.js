@@ -91,7 +91,7 @@ export default class NewCharacter extends Component {
                                             console.log(charClass)
                                             return (
                                                 <div key={charClass.class_id} className="char-class-block">
-                                                    <img src={charClass.img} alt={charClass.class_name} />
+                                                    <img src={charClass.male_class_img} alt={charClass.class_name} />
                                                     <div>
                                                         <div className="char-class-text-box">
                                                             <h2>{charClass.class_name}</h2>
@@ -118,7 +118,7 @@ export default class NewCharacter extends Component {
 
                                                         </div>
                                                         <div className="new-char-btn">
-                                                            <button className="btn" value={charClass.class_id} onClick={(e)=>this.changeClass(e.target.value)}>Create {charClass.class_name}</button>
+                                                        {this.state.charName && <button className="btn" value={charClass.class_id} onClick={(e)=>this.changeClass(e.target.value)}>Create {charClass.class_name}</button> }
                                                         </div>
                                                     </div>
                                                 </div>

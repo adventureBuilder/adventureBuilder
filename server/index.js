@@ -30,6 +30,7 @@ app.use(session({
     resave: false
 }));
 app.use(bodyParser.json());
+app.use( express.static( `${__dirname}/../build` ) );
 
 /////////////////////
 ///Auth MIDDLEWARE///
@@ -171,6 +172,11 @@ app.get(`/api/images/encounter`, imageCtrl.getEncounterImages);
 app.get(`/api/images/option`, imageCtrl.getOptionImages);
 
 
+//for hosting
+const path = require('path') //setting a backup after it checks for endpoints that returns the react application
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 
 

@@ -11,7 +11,8 @@ export default class FinalEncounter extends Component {
                 <img src={this.props.encounter.image_src} alt={this.props.encounter.image_name} />
                 {this.props.encounter.encounter_id == 21 ?
                     <div>
-                        <Link to='/cemetery'><button>Visit your mangeled body in the cemetery!</button></Link>
+                        <br/>
+                        <center><Link to='/cemetery'><button className="btn">Visit your mangled body in the cemetery!</button></Link></center>
                     </div>
                     :
                     <div>

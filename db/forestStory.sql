@@ -367,7 +367,7 @@ values
 -- wide gray brick road in the center, and an off-beaten path covered in shrubbery
 -- leading off to the right up onto a mountain.
     14,
-    'Road to the left',
+    'Left',
     'Choose to follow the straight dirt road leading to the left',
     '1d4',
     1,
@@ -380,7 +380,7 @@ values
 ),
 (
     14,
-    'Road in the middle',
+    'Middle',
     'Choose to go down the gray brick road in the middle',
     '1d4',
     1,
@@ -393,7 +393,7 @@ values
 ),
 (
     14,
-    'Path to the right',
+    'Right',
     'Choose to take the off-beaten path covered in shrubbery leading off to the right',
     '1d4',
     4,
@@ -424,7 +424,7 @@ insert into encounter_options (
 values
 (
     15, --cave encounter
-    'Go back',
+    'Go Back',
     'Turn around and go back.',
     '1d4',
     1,
@@ -437,7 +437,7 @@ values
 ),
 (
     15, --cave encounter
-    'Search inside',
+    'Search',
     'Search around the cave, looking for food, valuables, or anything of worthy notion.',
     '1d6+dex',
     1,
@@ -470,7 +470,7 @@ insert into encounter_options (
 values
 (
     16,
-    'Path to the left',
+    'Left Path',
     'Continue your journey down the winding path to the left, traversing the heavy foliage and shrubbery in search of adventure',
     '1d4',
     1,
@@ -483,7 +483,7 @@ values
 ),
 (
     16,
-    'Stone road to the right',
+    'Right Road',
     'Opt for the main stone road leading to the right.',
     '1d4',
     1,
@@ -514,7 +514,7 @@ insert into encounter_options (
 values
 (
     17, -- wagon encounter
-    'Help the family with the broken wagon',
+    'Help',
     'Halt your journey, walk off to the side of the road, and lend a helping hand to the family with the stuck wagon.',
     '1d6+str',
     4,
@@ -527,7 +527,7 @@ values
 ),
 (
     14,
-    'Continue along the road',
+    'Continue On',
     'Continue walking, following the road.',
     '1d4',
     1,
@@ -571,7 +571,7 @@ values
 ),
 (
     18,
-    'Beat him up',
+    'Beat Up',
     'Show the old man a thing or two about your fists and how they operate when used on other people for fun.',
     '1d6+str',
     4,
@@ -584,7 +584,7 @@ values
 ),
 (
     18,
-    'Use your personal charm',
+    'Charm',
     'Talk to the old man and convince him to give you free stuff, because you are that great at life.',
     '1d6+cha',
     4,
@@ -615,7 +615,7 @@ insert into encounter_options (
 values
 (
     19,
-    'Fight the dragon',
+    'Fight',
     'Charge the dragon in a bold attempt to slay it with your superior combative skills.',
     '1d6+str',
     5,
@@ -628,7 +628,7 @@ values
 ),
 (
     19,
-    'Sneak past the dragon',
+    'Sneak',
     'Sneak past the dragon while remaining perfectly quiet and hidden.',
     '1d6+dex',
     5,
@@ -641,7 +641,7 @@ values
 ),
 (
     19,
-    'Charm the dragon',
+    'Charm',
     'Use your powers of charismatic persuasion to dominate the dragon',
     '1d6+cha',
     5,

@@ -28,9 +28,11 @@
         }
         .menu {
             padding-bottom: 10px;
+            justify-content: flex-end;
             h1 {
                 font-size: 24px;
             }
+            
         }
         .story-container {
             padding: 20px 5px;
@@ -122,5 +124,11 @@
         .menu {
             height: 100%;
             flex-wrap: wrap;
+        }
+        .teaser h3 {
+            font-size: 20px;
+        }
+        .about .tech-used div {
+            margin: 20px 0;
         }
     }

@@ -116,7 +116,7 @@ a {
 h1,h2 {
     font-family: $header-font-stack;
     color: $black;
-    letter-spacing: 1px;
+    // letter-spacing: 1px;
 }
 h2, h3, h4, h5 .footer-font {
     font-family: 'Averia Serif Libre','Marcellus SC', 'Open Sans', Helvetica, arial, sans-serif;
@@ -343,4 +343,24 @@ input, textarea {
 .arrow-icon {
     width: 20px;
     height: 20px;
+}
+
+::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: $btn-color;
 }

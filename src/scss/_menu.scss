@@ -2,11 +2,12 @@
 // background-color: $grey;
 // background-color: rgba(0,0,0,0.2);
 padding: 0px 20px 0 20px;
-margin-top: 20px;
 height: 65px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+// max-width: 960px;
+margin: 20px 0 auto;
 	.logo-container {
 		width: 100%;
 		display: flex;

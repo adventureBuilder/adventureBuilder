@@ -125,14 +125,15 @@ class Options extends Component {
                 <div className={`option-card ${(this.state.optionShow && `option-card-peek-${this.props.index}`)}`}>
                     <h3>{this.props.option.option_name}</h3>
                     <p className="option-description">{this.props.option.option_description}</p>
+                    <hr />
                     {this.state.nextEncounter ?
-                        <div>
-                            <h3>{this.state.oddsText}</h3>
-                            {this.state.resultText}
-                            <button className="btn" onClick={_ => { this.props.setEncounter(this.state.nextEncounter) }} >Next Encounter</button>
+                        <div className="option-result-container">
+                            <h4 className="odds-text">{this.state.oddsText}</h4>
+                            <p className="result-text">{this.state.resultText}</p>
+                            <button className="btn" onClick={_ => { this.props.setEncounter(this.state.nextEncounter) }} >Continue</button>
                         </div>
                         :
-                        <button className="btn" onClick={_ => { this.chooseOption() }}>Attempt</button>
+                        <button className="btn" onClick={_ => { this.chooseOption() }}>Roll Attempt</button>
                     }
                 </div>
 

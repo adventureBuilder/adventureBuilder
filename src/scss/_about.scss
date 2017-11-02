@@ -1,9 +1,17 @@
 .about {
+    .view-title {
+        color: $white;
+    }
     .sub-title {
         margin: 0;
     }
     .block-card-inner {
         padding: 0;
+    }
+    .teaser {
+        margin: 40px 0;
+        padding: 10px;
+        border: 1px solid $white;
     }
     .team-row {
         display: flex;
@@ -89,6 +97,8 @@
             padding: 10px;
             margin: 20px;
             border: 1px solid $grey;
+            background-color: $sec-color;
+            color: $white;
         }
     }
 

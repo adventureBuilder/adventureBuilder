@@ -8,6 +8,8 @@ import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 import Menu from './../Menu/Menu';
 import Footer from './../Menu/Footer';
 
+import skullIcon from '../../images/ab-skull-icon.svg';
+
 class Cemetery extends Component {
     constructor(props) {
         super(props)
@@ -47,7 +49,8 @@ class Cemetery extends Component {
                     <div className="tavern-char-name-container" onClick={_ => this.showModule(character.character_id)}>
                         <button className="tavern-char-name"
                         >
-                            <span className="down-arrow">&#9660;</span>  {character.character_name}</button>
+                            <span className="down-arrow">&#9660;</span>  {character.character_name}
+                            <img className="life-icon" src={skullIcon} alt="life-icon" /></button>
                     </div>
                 </div>
                 <div onClick={_ => this.showModule(character.character_id)}
@@ -56,7 +59,7 @@ class Cemetery extends Component {
                         'dropup'
                         :
                         'dropdown')
-                    }><CharacterDisplay character={character} /></div>
+                    }><CharacterDisplay character={character} life="dead" /></div>
             </div>)
 
         return (

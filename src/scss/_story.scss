@@ -5,7 +5,12 @@
 	.page {
 		padding-top:0;
 	}
-	
+	.options h3 {
+		padding: 0;
+	}
+	hr {
+		max-width: 500px;
+	}
 	.story-header {
 		display: flex;
 		justify-content: space-between;
@@ -30,8 +35,6 @@
 		border-bottom: 10px solid $prim-color;
 		border-left: none;
 	}
-	
-
 	.encounter-title {
 		text-align: center;
 	}
@@ -50,8 +53,6 @@
 			margin: 0 auto;
 			width: 100%;
 			height: auto;
-			max-height: 300px;
-
 		}
 	}
 
@@ -67,7 +68,8 @@
 		// width: 80%;
 
 		.option-name {
-			background-color: #777;
+			background-color: $sec-color;
+			color: $white;
 			padding:10px;
 			position: absolute;
 			z-index: 5;
@@ -76,7 +78,7 @@
 			height: 50px;
 			text-align:center;
 			font-size: 28px;
-			box-shadow: 8px 10px 25px 0 rgba(0, 0, 0, 0.3);
+			box-shadow: 8px 10px 25px 0 rgba(0, 0, 0, 0.5);
 			margin: 0;
 			border:0;
 		}
@@ -87,8 +89,8 @@
 
 		}
 		.option-icon {
-			width: 25px; 
-			height: 25px;
+			width: 35px; 
+			height: auto;
 			margin: 0 10px;
 			position: relative;
 			
@@ -97,7 +99,7 @@
 			display:inline-block;
 			height: 0;
 			width: 0;
-			border-left: 25px solid #777;
+			border-left: 25px solid $sec-color;
 			border-top: 25px solid transparent;
 			border-bottom: 25px solid transparent;
 			position: absolute;
@@ -109,7 +111,7 @@
 			height: 0;
 			width: 0;
 			border-left: 25px solid transparent;
-			border-top: 25px solid #555;
+			border-top: 25px solid $prim-color;
 			position: absolute;
 			bottom:-25px;
 			left:0px;
@@ -139,7 +141,7 @@
 		.option-card-peek-0 {
 			bottom: 0px;
 			padding: 20px;
-			height: 150px; 
+			height: 50%; 
 		}
 		
 	}
@@ -152,7 +154,8 @@
 		// width: 80%;
 
 		.option-name {
-			background-color: #777;
+			background-color: $sec-color;
+			color: $white;
 			padding:10px;
 			position: absolute;
 			z-index: 5;
@@ -161,13 +164,13 @@
 			height: 50px;
 			text-align:center;
 			font-size: 28px;
-			box-shadow: -8px 10px 25px 0 rgba(0, 0, 0, 0.3);
+			box-shadow: -8px 10px 25px 0 rgba(0, 0, 0, 0.5);
 			margin: 0;
 			border: 0;
 		}
 		.option-icon {
-			width: 25px; 
-			height: 25px;
+			width: 35px; 
+			height: auto;
 			margin: 0 10px;
 			
 		}
@@ -175,7 +178,7 @@
 			display:inline-block;
 			height: 0;
 			width: 0;
-			border-right: 25px solid #777;
+			border-right: 25px solid $sec-color;
 			border-top: 25px solid transparent;
 			border-bottom: 25px solid transparent;
 			position: absolute;
@@ -187,7 +190,7 @@
 			height: 0;
 			width: 0;
 			border-right: 25px solid transparent;
-			border-top: 25px solid #555;
+			border-top: 25px solid $prim-color;
 			position: absolute;
 			bottom:-25px;
 			right:0px;
@@ -219,7 +222,7 @@
 		.option-card-peek-1 {
 			bottom: 0px;
 			padding: 20px;
-			height: 150px;
+			height: 50%;
 		}
 		
 	}
@@ -232,7 +235,8 @@
 		// width: 80%;
 
 		.option-name {
-			background-color: #777;
+			background-color: $sec-color;
+			color: $white;
 			padding: 10px;
 			position: absolute;
 			z-index: 5;
@@ -242,13 +246,13 @@
 			width: 50%;
 			text-align: center;
 			font-size: 28px;
-			box-shadow: 0px 10px 25px 0 rgba(0, 0, 0, 0.3);
+			box-shadow: 0px 10px 25px 0 rgba(0, 0, 0, 0.5);
 			margin: 0;
 			border: none;
 		}
 		.option-icon {
-			width: 25px; 
-			height: 25px;
+			width: 35px; 
+			height: auto;
 			margin: 0 10px;
 			
 		}
@@ -258,7 +262,7 @@
 			width: 0;
 			border-left: 55px solid transparent;
 			border-right: 55px solid transparent;
-			border-top: 25px solid #777;
+			border-top: 25px solid $sec-color;
 			position: absolute;
 			bottom: -25px;
 			left: 33%;
@@ -268,7 +272,7 @@
 			height: 0;
 			width: 0;
 			border-right: 25px solid transparent;
-			border-bottom: 25px solid #555;
+			border-bottom: 25px solid $prim-color;
 			position: absolute;
 			top:0px;
 			right:-25px;
@@ -278,7 +282,7 @@
 			height: 0;
 			width: 0;
 			border-left: 25px solid transparent;
-			border-bottom: 25px solid #555;
+			border-bottom: 25px solid $prim-color;
 			position: absolute;
 			top:0px;
 			left:-25px;
@@ -307,7 +311,7 @@
 		.option-card-peek-2 {
 			bottom: 0px;
 			padding: 20px;
-			height: 150px;
+			height: 50%;
 		}
 		
 	}

@@ -1,13 +1,17 @@
 .footer {
 	padding: 40px;
 	// background: linear-gradient($grey-highlight, $grey-push);
-	background-color: $grey;
+	// background-color: $grey;
+	// background-color: rgba(0,0,0,0.2);
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+	h3 {
+		padding: 0;
+	}
 }
 .footer-font {
-	font-family: 'Marcellus SC', 'Open Sans', Helvetica, arial, sans-serif;
+	font-family: $body-font-stack;
 	color: $white;
 	font-size: 22px;
 }

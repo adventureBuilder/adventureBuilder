@@ -57,7 +57,7 @@ export default class Encounter extends Component {
                     {this.props.encounter.encounter_description}
                 </p>
                 <div className="encounter-image-container">
-                    <img className="encounter-image" src={this.props.encounter.image_src} alt={this.props.encounter.image_name} />
+                    <img className="encounter-image card-shadow" src={this.props.encounter.image_src} alt={this.props.encounter.image_name} />
                     <div className="options">
 
                         {optionsArr}

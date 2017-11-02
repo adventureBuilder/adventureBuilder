@@ -146,32 +146,32 @@ class StorySelection extends Component {
 
                                     <h4 className="sub-title">{this.state.noSearchResults ? 'No stories were found that matched your search.' : 'Your search results:'}</h4>
 
-                                        {this.state.storiesArray.map((story, i) => {
-                                            return <ViewStory key={i} story={story} />
-                                        })}
-                        
+                                    {this.state.storiesArray.map((story, i) => {
+                                        return <ViewStory key={i} story={story} />
+                                    })}
+
                                 </div>
 
                             </div>
-                        
+
                         </div>
 
 
 
-                        </div>
-                        <div className="to-top">
-                            <a href="#story-selection-top"><button className="btn">Back to top</button></a>
-                        </div>
                     </div>
-                    <Footer />
+                    <div className="to-top full sub-title">
+                       <a href="#story-selection-top"><button className="btn">Back to top</button></a>
+                    </div>
                 </div>
-                );
+                <Footer />
+            </div>
+        );
     }
 }
 
 function mapStateToProps(state) {
     return {
-                    selectedCharacter: state.selectedCharacter
+        selectedCharacter: state.selectedCharacter
     }
 }
 export default connect(mapStateToProps, {})(StorySelection)

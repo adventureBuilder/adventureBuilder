@@ -46,7 +46,7 @@ export default class NewStory extends Component {
     render() {
         return (
             <div className="new-story">
-                <Menu />
+                <Menu title="| Story Creator"/>
                 <div className="page">
                     <div className="new-story-container">
                         <h2 className="view-title" >Create A Story</h2>

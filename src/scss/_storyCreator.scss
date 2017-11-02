@@ -2,9 +2,13 @@
     
     .block-card {
         width: 100%;
+        background: none;
     }
     .block-card-inner {
        
+    }
+    h3.sub-title {
+        font-size: 22px;
     }
     .creator_container {
         width: 100%;
@@ -16,8 +20,8 @@
         flex-grow: 1;
         width: 100%;
         margin-right: 20px;
-        border-right: 3px solid $grey;
-        
+        height: 100%;
+        background-color: $white;
         .save-first-encounter-btn {
             padding: 50px;
         }
@@ -26,15 +30,14 @@
             flex-direction: column;
            
             margin: 20px 0;
-            .creator-options {
-                margin: 10px 0 10px 0px;
-            }
+           
         }
     }
     .creator_display_container {
         flex-grow: 3;
         width: 100%;
-        border-left: 3px solid $grey;
+        background-color: $white;
+        height: 100%;
         .story-creator-img {
             max-height: 250px;
             max-width: 300px;
@@ -115,5 +118,26 @@
     }
     .created-options .option-row {
         margin: 20px 0;
+    }
+    .creator-options {
+        margin: 10px 0 10px 0px;
+    }
+    .complete-story-container {
+        background-color: $sec-color;
+        padding: 20px;
+        margin-left: -20px;
+        margin-right: -20px;
+        margin-bottom: -20px;
+    }
+    .complete-story {
+        width: 100%;
+        padding: 20px;
+        border-radius: 5px;
+        font-size: 22px;
+        box-shadow: 0 10px 0 $btn-press;
+    }
+    .complete-story:active {
+        top: 9px;
+        box-shadow: 0 1px 0 $btn-press;
     }
 }

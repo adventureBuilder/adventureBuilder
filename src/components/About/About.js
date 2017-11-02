@@ -14,25 +14,30 @@ export default function About() {
 
 	return (
 		<div className="about">
-			<Menu />
+			<Menu title="| About" />
 			<div className="page">
 
-				<h1 className="view-title">About Adventure Builder</h1>
+				<h1 className="view-title white">About Adventure Builder</h1>
 				<div className="block-card-inner">
+
 					<div className="mobile-pad">
-						<p>Adventure Builder is a DevMountain student project designed to empower the player with the freedom to create their own story adventure and then journey through it.
+						<h3 className="white">The Idea</h3>
+						<p className="white">Adventure Builder is a DevMountain student project designed to empower the player with the freedom to create their own story adventure and then journey through it.
 					</p>
-						<h3>Battle Roll</h3>
-						<p>No journey encounter will be quite the same with our 'Battle Roll' which will roll a 1d6 die and check the result against the condition for success of each encounter.
+						<h3 className="white">Battle Roll</h3>
+						<p className="white">No journey encounter will be quite the same with our 'Battle Roll' which will roll a 1d4-1d100 die and check the result against a condition for success of each encounter.
 					</p>
-						<h3>Character Stats</h3>
-						<p>The class you choose and its strengths will influence how your character attempts to overcome each encounter. The Battle Roll will be enhanced (or reduced) by the corresponding stat to determine the outcome.  Your character must then face the consequences of the 'Success' or 'Failure' before continuing on their journey.
+						<h3 className="white">Character Stats</h3>
+						<p className="white">The class you choose and its strengths will influence how your character attempts to overcome each encounter. The Battle Roll will be enhanced (or reduced) by the corresponding stat to determine the outcome.  Your character must then face the consequences of the 'Success' or 'Failure' before continuing on their journey.
 					</p>
-						<h3>Build & Share Adventures</h3>
-						<p>You can create an adventure using the story builder tool, and share it for other players to journey through.  Use your imagination to forge new stories with encounters, obstacles, and path choices and decide the fate of those that succeed and fail your adventure.</p>
-						<h4><i>Travel across beautiful landscapes, encounter dangerous opposition, overcome odds of the dice, and become a legendary hero.</i></h4>
+						<h3 className="white">Build & Share Adventures</h3>
+						<p className="white">You can create an adventure using the "Story Creator" tool, and share it for other players to journey through.  Use your imagination to forge new stories with encounters, obstacles, and path choices and decide the fate of those that succeed and fail your adventure.</p>
+						<div className="teaser">
+							<h3 className="white"><i>Travel across beautiful landscapes, encounter dangerous opposition, overcome odds of the dice, and become a legendary hero.</i></h3>
+						</div>
 
 					</div>
+
 				</div>
 
 				<div className="tech-used-container">

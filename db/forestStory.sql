@@ -34,7 +34,7 @@ values
     'Your eyes scan across a meadow full of tall grass and colorful flowers.  In the near distance to the right you see a thick forest, the trees stand tall and proud and flourish in the summer air, subtly swaying back and forth in the gentle wind.  To your left is a small dirt road paved with sandy brown clay and rubble, curving slightly to the right, leading the way around the treeline.',
     0,
     19,
-    1
+    5
 ),
 (
     'Wolves',

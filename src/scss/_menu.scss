@@ -44,9 +44,9 @@ margin: 20px 0 auto;
 	.nav-item:hover, .nav-item:active {
 		border-bottom: 1px solid $btn-color;
 	}
-	.nav-item:nth-last-child(1){
-		margin-right: 0;
-	}
+	// .nav-item:nth-last-child(1){
+	// 	margin-right: 0;
+	// }
 	.menu-btn {
 		background-color: $white;
 		font-family: $header-font-stack;

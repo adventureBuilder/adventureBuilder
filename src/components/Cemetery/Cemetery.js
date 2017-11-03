@@ -48,8 +48,7 @@ class Cemetery extends Component {
             <div className="tavern-char-container" key={i}>
                 <div className="tavern-char-row">
                     <div className="tavern-char-name-container" onClick={_ => this.showModule(character.character_id)}>
-                        <button className="tavern-char-name"
-                        >
+                        <button className="tavern-char-name">
                             <img className="arrow-icon" src={arrowIcon} alt="arrow" />  {character.character_name}
                             <img className="life-icon" src={skullIcon} alt="life-icon" /></button>
                     </div>

@@ -43,18 +43,18 @@ app.use(passport.session());
 ////TESTING TOPLEVEL MIDDLEWARE////
 ///COMMENET OUT WHEN AUTH0 READY///
 ///////////////////////////////////
-app.use((req, res, next) =>{
-    if(!req.session.user){
-        req.session.user = {
-            user_id: 1,
-            user_name: "harrison ford", 
-            email: "adventureBuilder2049@gmail.com", 
-            name: "adventure", 
-            profile_picture : "http://www.placekitten.com/200/250"
-        }
-    }
-    next();
-})
+// app.use((req, res, next) =>{
+//     if(!req.session.user){
+//         req.session.user = {
+//             user_id: 1,
+//             user_name: "harrison ford", 
+//             email: "adventureBuilder2049@gmail.com", 
+//             name: "adventure", 
+//             profile_picture : "http://www.placekitten.com/200/250"
+//         }
+//     }
+//     next();
+// })
 
 ////////////////////////////
 ///END TESTING MIDDLEWARE///
@@ -63,42 +63,41 @@ app.use((req, res, next) =>{
 ////////////////////
 ///AUTHENTICATION///
 ////////////////////
-// passport.use(new Auth0Strategy({
-//     domain: process.env.AUTH_DOMAIN,
-//     clientID: process.env.AUTH_CLIENT_ID,
-//     clientSecret: process.env.AUTH_CLIENT_SECRET,
-//     callbackURL: process.env.AUTH_CALLBACK
-// }, function (processToken, refreshToken, extraParams, profile, done) {
-//     const db = app.get('db');
-//     db.findUser(profile.id).then(user => {
-//         if (user.length) {
-//             return done(null, user[0]);
-//         } else {
-//             let auth_id = profile.id;
-//             let username = "";
-//             let email = profile.emails ? profile.emails[0].value : "";
-//             let name = "";
-//             let img = profile.picture ? profile.picture : "";
-//             let userArr = [username, email, name, img, auth_id];
-//             db.addUser(userArr).then(user => {
-//                 return done(null, user[0]);
-//             })
-//         }
-//     })
-// }))
+passport.use(new Auth0Strategy({
+    domain: process.env.AUTH_DOMAIN,
+    clientID: process.env.AUTH_CLIENT_ID,
+    clientSecret: process.env.AUTH_CLIENT_SECRET,
+    callbackURL: process.env.AUTH_CALLBACK
+}, function (processToken, refreshToken, extraParams, profile, done) {
+    const db = app.get('db');
+    db.findUser(profile.id).then(user => {
+        if (user.length) {
+            return done(null, user[0]);
+        } else {
+            let auth_id = profile.id;
+            let username = "";
+            let email = profile.emails ? profile.emails[0].value : "";
+            let name = "";
+            let img = profile.picture ? profile.picture : "";
+            let userArr = [username, email, name, img, auth_id];
+            db.addUser(userArr).then(user => {
+                return done(null, user[0]);
+            })
+        }
+    })
+}))
 
-// passport.serializeUser(function (user, done) {
-//     done(null, user);
-// })
+passport.serializeUser(function (user, done) {
+    done(null, user);
+})
 
-// passport.deserializeUser(function (user, done) {
-//     const db = app.get('db');
-//     db.findUser(user.auth_id).then(user => {
-//         done(null, user[0]);
-//     });
+passport.deserializeUser(function (user, done) {
+    const db = app.get('db');
+    db.findUser(user.auth_id).then(user => {
+        done(null, user[0]);
+    });
 
-
-// })
+})
 ////////////////////////
 ///END AUTHENTICATION///
 ////////////////////////

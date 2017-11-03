@@ -91,7 +91,7 @@ export default class NewCharacter extends Component {
                                             console.log(charClass)
                                             return (
                                                 <div key={charClass.class_id} className="char-class-block">
-                                                    <img src={charClass.male_class_img} alt={charClass.class_name} />
+                                                    <img className="char-class-img" src={charClass.male_class_img} alt={charClass.class_name} />
                                                     <div>
                                                         <div className="char-class-text-box">
                                                             <h2>{charClass.class_name}</h2>

@@ -347,20 +347,39 @@ input, textarea {
 
 ::-webkit-scrollbar-track
 {
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+    // border-radius: 5px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+	background-color: $prim-color;
 }
 
 ::-webkit-scrollbar
 {
-	width: 12px;
-	background-color: #F5F5F5;
+    width: 15px;
+    height: 20px;
+	background-color: $prim-color
 }
 
 ::-webkit-scrollbar-thumb
 {
-	border-radius: 10px;
-	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	// border-radius: 5px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.8);
 	background-color: $btn-color;
+}
+.final-encounter-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.flex {
+    display: flex;
+}
+.encounter-image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+.encounter-image.card-shadow {
+    max-width: 800px;
+    max-height: 450px;
 }

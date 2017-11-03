@@ -54,6 +54,7 @@
                     margin-right: 10px;
                     
                 }
+                
             }
             .tavern-char-name:hover {
                 color: $btn-color !important;
@@ -62,7 +63,16 @@
                 color: $btn-press !important;
             }
         }
-	}
+    }
+    .class-btn-box {
+        display: flex;
+        align-items: flex-start;
+        .class-icon {
+            height: auto;
+            width: 50px;
+            margin-right: 10px;
+        }
+    }
 }
 .btn.play {
     margin: 0;

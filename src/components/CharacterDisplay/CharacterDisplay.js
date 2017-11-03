@@ -21,7 +21,10 @@ export default function CharacterDisplay({ character, life }) {
             <div className="block-card">
                 <div className="sub-title char-title">
                     <h2 className="char-name fadingpower">{character.character_name}</h2>
-                    <h3 className="char-class fadingpower">The&nbsp;{character.class_name}</h3>
+                    <div>
+                        <img className="class-icon" src={character.class_icon} alt="character.class_id" />
+                        <h3 className="char-class fadingpower">The&nbsp;{character.class_name}</h3>
+                    </div>
                 </div>
                 <div className="block-card-inner">
 

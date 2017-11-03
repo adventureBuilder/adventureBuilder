@@ -274,17 +274,7 @@ export default class AddOption extends Component {
                             min={1}
                             max={this.state.numOfDice * this.state.sideOfDice} />
                     </div>
-                    <div className="option-row">
-                        <h3 className="option-type-title inline">Health Consequences:</h3>
-                        <input className="base-input small"
-                            type='number'
-                            value={this.state.healthConsequences}
-                            onChange={e => this.changeHealthConsequence(e.target.value)}
-                            min={-3}
-                            max={5} />
-                        <p className="description">Positive number reduces hp. Negative number restores hp.</p>
-
-                    </div>
+                    
 
 
                     <h3 className="sub-title result-title">Success Results</h3>
@@ -351,6 +341,17 @@ export default class AddOption extends Component {
                                         alt={failedEncounterImage.image_name} />
                             }
                         </div>
+                    </div>
+                    <div className="option-row">
+                        <h3 className="option-type-title inline">Health Consequences:</h3>
+                        <input className="base-input small"
+                            type='number'
+                            value={this.state.healthConsequences}
+                            onChange={e => this.changeHealthConsequence(e.target.value)}
+                            min={0}
+                            max={5} />
+                        <p className="description">Positive number reduces hp. Negative number restores hp.</p>
+
                     </div>
                     {this.isValid() ? <button className="btn" onClick={_ => this.saveOption()}>Save Option</button> : <p className="description invalid">Please fill out all fields in order to save the current Option.</p>}
                 </div>

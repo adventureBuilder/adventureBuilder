@@ -1,7 +1,7 @@
 module.exports={
     getAllCharacters:  (req,res)=>{
         const db = req.app.get('db');
-        db.getAllCharacters(req.session.user.user_id)
+        db.getAllCharacters(req.user.user_id)
         .then((result)=>{
             res.status(200).send(result);
         })
@@ -17,7 +17,7 @@ module.exports={
     },
     createCharacter: (req, res)=>{
         const db = req.app.get('db');
-        const {user_id} = req.session.user // req.user once auth0
+        const {user_id} = req.user // req.user once auth0
         const {characterName, gender, dexterity, strength, charisma, healthPoints, classId}= req.body;
         db.addCharacter([characterName, gender, dexterity, strength, charisma, healthPoints, classId, user_id]).then(result =>{
             res.status(200).send(result[0]);

@@ -4,9 +4,8 @@ import { connect } from 'react-redux'
 export default function Logout() {
 
     return (
-        <div className='btn'>
-            <a className='link' href={process.env.REACT_APP_LOGOUT}>Logout</a>
-
+        <div>
+            <a className='nav-item' href={process.env.REACT_APP_LOGOUT}>Logout</a>
         </div>
     );
 }

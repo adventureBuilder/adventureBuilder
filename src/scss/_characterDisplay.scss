@@ -18,7 +18,16 @@
             font-size: 18px;
             margin: 0;
             color: $white;
+            margin-left: 5px;
         }
+        .class-icon {
+            width: 100px; 
+            height: auto;
+        }
+    }
+    .sub-title.char-title div {
+        display: flex;
+        align-items: center;
     }
     .char-sheet {
 		display: flex;

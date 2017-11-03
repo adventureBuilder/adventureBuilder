@@ -62,7 +62,10 @@ class MyCharacters extends Component {
                                         </div>
                                         {character.character_name}
                                     </div>
-                                    <div>{character.class_name}</div>
+                                    <div className="class-btn-box">
+                                        <img className="class-icon" src={character.class_icon} alt="character.class_id" /> 
+                                        {character.class_name}
+                                    </div>
                                 </button>
                             </div>
                             <Link to={`/storyselection`}>

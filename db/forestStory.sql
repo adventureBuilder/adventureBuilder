@@ -159,7 +159,7 @@ values
     '',
     11, --wolves encount
     10, --forest encounter
-    1,
+    4,
     0
 ),
 (

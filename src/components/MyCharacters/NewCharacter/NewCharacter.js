@@ -58,9 +58,9 @@ export default class NewCharacter extends Component {
             classId: parseInt(this.state.class)
         }
         console.log('newChar', newChar)
-        // axios.post('/api/character', newChar).then(
-        //     this.props.history.push('/storyselection')
-        // )
+        axios.post('/api/character', newChar).then(
+            this.props.history.push('/tavern')
+        )
     }
 
     render() {

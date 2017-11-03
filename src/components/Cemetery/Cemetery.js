@@ -9,6 +9,7 @@ import Menu from './../Menu/Menu';
 import Footer from './../Menu/Footer';
 
 import skullIcon from '../../images/ab-skull-icon.svg';
+import arrowIcon from '../../images/ab-other-arrow.svg';
 
 class Cemetery extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ class Cemetery extends Component {
                     <div className="tavern-char-name-container" onClick={_ => this.showModule(character.character_id)}>
                         <button className="tavern-char-name"
                         >
-                            <span className="down-arrow">&#9660;</span>  {character.character_name}
+                            <img className="arrow-icon" src={arrowIcon} alt="arrow" />  {character.character_name}
                             <img className="life-icon" src={skullIcon} alt="life-icon" /></button>
                     </div>
                 </div>

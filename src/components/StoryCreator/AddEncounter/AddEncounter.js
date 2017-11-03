@@ -151,7 +151,7 @@ export default class AddEncounter extends Component {
                                     <option value={0}>no</option>
                                     <option value={1}>yes</option>
                                 </select>
-                                <p className="description">Is this encounter the ending of the story? </p>
+                                <p className="description">Is this encounter the ending of a story path? </p>
                         
                             </div>
                         }

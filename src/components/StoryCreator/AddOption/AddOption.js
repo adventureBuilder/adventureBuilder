@@ -350,7 +350,7 @@ export default class AddOption extends Component {
                             onChange={e => this.changeHealthConsequence(e.target.value)}
                             min={0}
                             max={5} />
-                        <p className="description">Positive number reduces hp. Negative number restores hp.</p>
+                        {/* <p className="description">Positive number reduces hp. Negative number restores hp.</p> */}
 
                     </div>
                     {this.isValid() ? <button className="btn" onClick={_ => this.saveOption()}>Save Option</button> : <p className="description invalid">Please fill out all fields in order to save the current Option.</p>}

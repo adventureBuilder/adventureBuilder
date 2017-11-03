@@ -1,13 +1,13 @@
 module.exports = {
     getUser: (req, res) => {
          
-    res.send(req.session.user); // change to req.user after set up Auth0;
+    res.send(req.user); // change to req.user after set up Auth0;
 },
     updateUser: (req,res)=>{
         const db = req.app.get('db');
-         console.log(req.body.username, req.session.user.userId)
+         console.log(req.body.username, req.user.userId)
 
-        db.updateUser( [req.body.username, req.session.user.user_id])// change to req.user after set up Auth0;
+        db.updateUser( [req.body.username, req.user.user_id])// change to req.user after set up Auth0;
         
         
         .then( (response) =>{

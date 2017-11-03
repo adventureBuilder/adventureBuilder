@@ -39,7 +39,7 @@
 		text-align: center;
 	}
 	.encounter-description {
-
+		font-size: 18px;
 	}
 	.encounter-image-container {
 		position:relative;
@@ -49,7 +49,7 @@
 		margin-right: 10%;
 
 		.encounter-image {
-			display:block;
+			display: block;
 			margin: 0 auto;
 			width: 100%;
 			height: auto;
@@ -73,7 +73,7 @@
 			padding:10px;
 			position: absolute;
 			z-index: 5;
-			top: 50%;
+			bottom: 55%;
 			left: -25px;
 			height: 50px;
 			text-align:center;
@@ -141,7 +141,7 @@
 		.option-card-peek-0 {
 			bottom: 0px;
 			padding: 20px;
-			height: 50%; 
+			height: 57%; 
 		}
 		
 	}
@@ -159,7 +159,7 @@
 			padding:10px;
 			position: absolute;
 			z-index: 5;
-			top: 50%;
+			bottom: 55%;
 			right: -25px;
 			height: 50px;
 			text-align:center;
@@ -222,7 +222,7 @@
 		.option-card-peek-1 {
 			bottom: 0px;
 			padding: 20px;
-			height: 50%;
+			height: 57%;
 		}
 		
 	}
@@ -311,7 +311,7 @@
 		.option-card-peek-2 {
 			bottom: 0px;
 			padding: 20px;
-			height: 50%;
+			height: 57%;
 		}
 		
 	}

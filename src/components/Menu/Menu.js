@@ -23,7 +23,7 @@ function Menu({ title, user }) {
 				{
 					user.user_id
 						?
-						<div>
+						<div className="final-encounter-menu">
 							<Link to='/newstory' className="nav-item">Story&nbsp;Creator</Link>
 							<Logout />
 							<Link to='/tavern' className="nav-item tavern-btn">
@@ -32,7 +32,7 @@ function Menu({ title, user }) {
 						</div>
 						:
 
-						<div>
+						<div className="final-encounter-menu">
 							<Login />
 						</div>
 				}

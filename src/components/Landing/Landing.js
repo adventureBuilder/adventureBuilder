@@ -12,10 +12,7 @@ export default class Landing extends Component {
                 <Menu />
                 
                 <div className="page">
-                    Login button uncomment when we are ready for stuff and things
-                 <a href={process.env.REACT_APP_LOGIN}>
-                        <button>Login</button>
-                    </a> 
+                    
 
                     
                 </div>

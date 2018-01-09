@@ -1,3 +1,71 @@
+Adventure Builder was created with with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+
+## Introduction
+
+-Adventure Builder is a game that allows users to create their own characters, and build their own story games for themselves and others to play. Our code heavily utilizes the component structure and data flow that React and Redux allow.
+
+
+
+
+- [Live Site](http://adventure.kanjitraining.com/tavern)
+
+  
+
+## 1. Front End
+
+1.1 User Features:
+
+*  users can play story games, which are based partly on character strengths and     partly on chance.
+*  users may create their own characters.
+*  users may create their own story games for themselves and others to play.
+
+1.2 Technologies 
+
+*  HTML/CSS
+*  React
+*  Redux
+*  React-Router
+
+
+## 2. Back-End
+
+2.1 Technologies
+
+* PostgresSQL
+* Node.js 
+* Express.js  
+* Massive
+
+
+
+
+## Screenshots
+
+- [Story Play](https://imgur.com/a/DNZmK)
+- [Story Creator](https://imgur.com/a/jSdO7)
+- [Tavern](https://imgur.com/a/g99mv)
+- [Story Selection](https://imgur.com/a/2LYSZ)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Component Layout
 <a target="_blank" href="https://github.com/adventureBuilder/adventureBuilder/blob/master/assets/Adventure-Display.pdf">Click here to open the componenets layout in a new tab</a>
 

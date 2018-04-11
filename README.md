@@ -8,7 +8,7 @@ Adventure Builder was created with with [Create React App](https://github.com/fa
 
 
 
-- [Live Site](http://adventure.kanjitraining.com/tavern)
+- [Live Site](http://www.launcherzone.com)
 
   
 

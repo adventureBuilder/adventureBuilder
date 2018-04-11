@@ -14,9 +14,7 @@ import { getCharacters, getUser } from '../../ducks/reducer';
 class Tavern extends Component {
     constructor() {
         super()
-        this.state = {
-            characters: []
-        }
+        
     }
 
     componentDidMount() {
@@ -33,7 +31,7 @@ class Tavern extends Component {
                     <h2 className="view-title">Tavern</h2>
                     <NewUser />
 
-                    <MyCharacters characterList={this.state.characters} />
+                    <MyCharacters characterList={this.props.characters} />
                     
                     <br />
                     <MyStories />

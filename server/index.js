@@ -20,6 +20,7 @@ const app = express();
 
 
 
+
 /////////////////////////
 ///TOPLEVEL MIDDELWARE///
 /////////////////////////
@@ -118,13 +119,13 @@ massive(process.env.CONNECTIONSTRING).then(db => {
 //auth endpoints
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: `http://localhost:3000/tavern`,
-    failureRedirect: `http://localhost:3000/`
+    successRedirect: process.env.SUCCESS_REDIRECT,
+    failureRedirect: process.env.FAILURE_REDIRECT
 }));
 app.get('/auth/logout', (req, res) => {
     req.logout();
     console.log(req.user);
-    res.redirect(302, 'https://adventure-builder.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
+    res.redirect(302, process.env.LOGOUT_REDIRECT);
 })
 /////////////////////////
 // redirect middleware///
